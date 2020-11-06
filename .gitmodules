@@ -1,0 +1,3 @@
+[submodule "gector"]
+	path = gector
+	url = https://github.com/jacqle/gector
