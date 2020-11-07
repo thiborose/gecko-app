@@ -3,3 +3,4 @@ static/nn_models/*
 .github/*
 .deployment
 static/css/*
+__pycache__/*
