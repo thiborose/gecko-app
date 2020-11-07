@@ -1,3 +1,4 @@
 static/nn_models/*
-vscode/*
+.vscode/*
 .github/*
+.deployment
