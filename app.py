@@ -19,7 +19,7 @@ nlp = spacy.load("en_core_web_sm")
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("content.html")
 
 
 class Gec():
