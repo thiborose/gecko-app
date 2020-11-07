@@ -17,8 +17,8 @@ def home():
 
 class Gec():
     def __init__(
-        self, vocabulary_path = './code/webapp/gector/data/output_vocabulary/',
-        model_path = ['./code/webapp/static/nn_models/xlnet_0_gector.th'],
+        self, vocabulary_path = './gector/data/output_vocabulary/',
+        model_path = ['./static/nn_models/xlnet_0_gector.th'],
         model_name = "xlnet"):
 
 
