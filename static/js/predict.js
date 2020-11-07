@@ -1,5 +1,5 @@
 $("#arrow-button").click(function(){
-    var text = $("#textarea-input").text();
+    var text = $("#text-box-input").text();
     
     if (text !== ''){
 
@@ -8,13 +8,13 @@ $("#arrow-button").click(function(){
             type: "get",
             data: {jsdata: text},
             success: function(response) {
-                $("#textarea-output").html(response);
+                $("#text-box-output").html(response);
             },
             error: function(xhr) {
-                $("#textarea-output").html("Gecko seems to be tired today...  (︶︹︶)");
+                $("#text-box-output").html("Gecko seems to be tired today...  (︶︹︶)");
             }
         });
-        $("#textarea-output").html("Loading...");
+        $("#text-box-output").html("Loading...");
 
     }
 
