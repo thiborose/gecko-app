@@ -2,3 +2,4 @@ static/nn_models/*
 .vscode/*
 .github/*
 .deployment
+static/css/*

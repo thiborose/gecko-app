@@ -5,7 +5,14 @@ from gector.predict import predict_for_string
 import spacy
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 
+from sassutils.wsgi import SassMiddleware
+
+
 app = Flask(__name__)
+
+app.wsgi_app = SassMiddleware(app.wsgi_app, {
+    'app': ('static/sass', 'static/css', '/static/css')
+})
 
 nlp = spacy.load("en_core_web_sm")
 
