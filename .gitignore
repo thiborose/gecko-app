@@ -1,1 +1,3 @@
 static/nn_models/*
+./vscode/*
+.github/*
