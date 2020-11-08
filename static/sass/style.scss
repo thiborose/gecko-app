@@ -328,17 +328,23 @@ footer{
         
                 &#eduardo-picture {
                     background-image: url("../img/edu.jpeg");
-                    border-color: #006d18;
+                    background-position: 40% -8%;
+                    background-size: 95px;                
+                    border-color: #7b363f;
                 }
                 
                 &#leo-picture {
                     background-image: url("../img/leo.jpeg");
-                    border-color: #f7b11a;
+                    background-position: 38% 39%;
+                    background-size: 120px;
+                    border-color: #eaf0fa;
                 }
         
                 &#thibo-picture {
                     background-image: url("../img/thi.jpeg");
-                    border-color: #0a16c0;
+                    background-position: 50% 59%;
+                    background-size: 120px;
+                    border-color: #244b7d;
                 }
             }
         }
