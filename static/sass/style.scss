@@ -142,14 +142,33 @@ header {
     min-height: calc(min(80vh,700px));
     background-color: transparent;
 
+    
     .textboxes-container {
         /* min-height: 600px; */
-        /* width: 800px; */
+        //max-width: 1125px;
         padding: 80px 0;
         margin: auto;
         /* outline: 1px solid green; */
         display: inline-flex;
         /* line-height: 430px; */
+
+        @media (max-width: 1125px) {
+            flex-direction: column;
+
+            .arrow-button{
+                transform: rotate(90deg);
+                margin: -10px 0;
+            }
+        }
+
+        @media (min-width: 1125px) {
+            .arrow-button{
+                margin: 0 -10px;
+            }
+        }
+
+        
+    
         
 
         .arrow-button {
@@ -163,9 +182,6 @@ header {
             width: 60px;
             border: 1px solid $footer-color;
             border-radius: 100%;
-            // margin-top: 1.5cm;
-            margin: 0 -10px;
-            // padding: 0px 10px 0px 10px;
             color: $footer-color;
             font-size: 40px;
             -webkit-transition: all 0.3 ease;
@@ -235,7 +251,6 @@ footer{
     }
 
     .about-container{
-        height: 400px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
