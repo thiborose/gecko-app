@@ -290,8 +290,8 @@ footer{
             flex-wrap: wrap;
             // outline: 1px solid green;
 
-            //background-color: rgb(255, 241, 194);
-            border: 2px solid beige;
+            background-color: #2b15176b;
+            // border: 2px solid beige;
             box-sizing: border-box;
             border-radius: 10px;
             border-top-left-radius: 35px;
@@ -321,19 +321,22 @@ footer{
                 // margin: auto;
                 margin-right: 15px;
                 /* clip-path: circle(50px at center); */
-                // border: #501B1D 3px solid;
+                border: #501B1D 2px solid;
                 background-size: 100px 100px;
         
                 &#eduardo-picture {
                     background-image: url("../img/edu.jpeg");
+                    border-color: #006d18;
                 }
                 
                 &#leo-picture {
                     background-image: url("../img/leo.jpeg");
+                    border-color: #f7b11a;
                 }
         
                 &#thibo-picture {
                     background-image: url("../img/thi.jpeg");
+                    border-color: #0a16c0;
                 }
             }
         }
