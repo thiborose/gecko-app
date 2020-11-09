@@ -1,7 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request
 import difflib
 from gector.model import load_model
-from gector.predict import predict_for_string
+from gector.predict import predict_for_tokens
 import spacy
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 
@@ -34,9 +34,9 @@ class Gec():
                    model_name=model_name)
         
     def predict(self, input_string):
-        tokenized_string = self.tokenize(input_string)
-        corrected_text = predict_for_string(tokenized_string, self.model)
-        output_text = self.untokenize(corrected_text)
+        tokens = self.tokenize(input_string)
+        corrected_tokens = predict_for_tokens(tokens, self.model)
+        output_text = self.untokenize(corrected_tokens)
         return output_text
     
     def tokenize(self, text):
@@ -45,14 +45,14 @@ class Gec():
         outputs tokenized string with spaces
         """
         doc = nlp(text)
-        return " ".join([token.text for token in doc])
+        return [token.text for token in doc]
 
     def untokenize(self, tokens):
         """
         input tokenized string with spaces
         outputs plain text string
         """
-        return TreebankWordDetokenizer().detokenize(tokens.split(" "))
+        return TreebankWordDetokenizer().detokenize(tokens)
 
     def show_diff(self, text, n_text):
         """
