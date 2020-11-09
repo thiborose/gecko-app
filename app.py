@@ -36,8 +36,8 @@ class Gec():
     def predict(self, input_string):
         tokens = self.tokenize(input_string)
         corrected_tokens = predict_for_tokens(tokens, self.model)
-        output_text = self.untokenize(corrected_tokens)
-        return output_text
+        # output_text = self.untokenize(corrected_tokens)
+        return corrected_tokens
     
     def tokenize(self, text):
         """
@@ -45,7 +45,7 @@ class Gec():
         outputs tokenized string with spaces
         """
         doc = nlp(text)
-        return [token.text for token in doc]
+        return [[token.text for token in sent] for sent in doc.sents]
 
     def untokenize(self, tokens):
         """
