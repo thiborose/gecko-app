@@ -1,6 +1,0 @@
-static/nn_models/*
-.vscode/*
-.github/*
-.deployment
-static/css/*
-__pycache__/*
