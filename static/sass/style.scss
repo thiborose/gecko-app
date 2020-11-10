@@ -194,7 +194,7 @@ header {
             transition: background 0.4s ease-in-out, color 0.2s ease-in-out;
 
             &:hover, :active, :focus{
-                color: #006d18;
+                color: #501B1D;
                 transition: background 0.4s ease-in-out, color 0.2s ease-in-out;
             }
         }
@@ -259,6 +259,7 @@ footer{
         h1{
             margin-bottom: 20px;
             font-size: larger;
+            text-align: center;
         }
 
         .project-container {
