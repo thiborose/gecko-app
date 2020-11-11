@@ -225,6 +225,8 @@ header {
             outline: none;
             box-shadow: 0 0 3px #4b4b4b;
             min-height: 150px;
+            overflow-wrap: break-word;
+            // -webkit-line-break: after-white-space;
         }
 
         #text-box-input:focus {
@@ -306,7 +308,7 @@ footer{
             flex-wrap: wrap;
             // outline: 1px solid green;
 
-            background-color: #2b15176b;
+            background-color: #8b86876b;
             // border: 2px solid beige;
             box-sizing: border-box;
             border-radius: 10px;
@@ -314,8 +316,8 @@ footer{
             
             .description{
                 display: block;
-                text-align: justify;
-                margin-top: 15px;
+                text-align: center;
+                margin-top: 10px;
                 font-size: small;
                 padding:15px;
             }
@@ -363,6 +365,38 @@ footer{
                     border-color: #244b7d;
                 }
             }
+        }
+
+        .team-member-links{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            
+            .icon {
+                height: 20px;
+                width: 20px;
+                padding: 5px;
+
+                &#linkedin {
+                    background-image: url("../img/linkedin.png");
+                    background-size: 20px;
+                    background-repeat: no-repeat;
+                }
+                
+                &#github {
+                    background-image: url("../img/github.png");
+                    background-size: 20px;
+                    background-repeat: no-repeat;
+                }
+
+                &#gmail {
+                    background-image: url("../img/gmail.png");
+                    background-size: 20px;
+                    background-repeat: no-repeat;
+                }
+
+            }
+
         }
     
         

@@ -161,7 +161,8 @@ header {
       resize: none;
       outline: none;
       box-shadow: 0 0 3px #4b4b4b;
-      min-height: 150px; }
+      min-height: 150px;
+      overflow-wrap: break-word; }
     .transparent-container .textboxes-container #text-box-input:focus {
       box-shadow: 0px 1px 10px 2px #000000; }
 
@@ -209,14 +210,14 @@ footer {
     margin: 0 15px;
     width: 205px;
     flex-wrap: wrap;
-    background-color: #2b15176b;
+    background-color: #8b86876b;
     box-sizing: border-box;
     border-radius: 10px;
     border-top-left-radius: 35px; }
     .team-container .team-members .team-member .description {
       display: block;
-      text-align: justify;
-      margin-top: 15px;
+      text-align: center;
+      margin-top: 10px;
       font-size: small;
       padding: 15px; }
     .team-container .team-members .team-member a {
@@ -249,6 +250,26 @@ footer {
         background-position: 50% 59%;
         background-size: 120px;
         border-color: #244b7d; }
+  .team-container .team-members .team-member-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; }
+    .team-container .team-members .team-member-links .icon {
+      height: 20px;
+      width: 20px;
+      padding: 5px; }
+      .team-container .team-members .team-member-links #linkedin.icon {
+        background-image: url("../img/linkedin.png");
+        background-size: 20px;
+        background-repeat: no-repeat; }
+      .team-container .team-members .team-member-links #github.icon {
+        background-image: url("../img/github.png");
+        background-size: 20px;
+        background-repeat: no-repeat; }
+      .team-container .team-members .team-member-links #gmail.icon {
+        background-image: url("../img/gmail.png");
+        background-size: 20px;
+        background-repeat: no-repeat; }
 
 /* Deltas */
 .delta-insert {
