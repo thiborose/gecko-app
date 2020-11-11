@@ -184,7 +184,7 @@ footer {
     align-items: top; }
     footer .about-container h1 {
       margin-bottom: 20px;
-      font-size: larger;
+      font-size: xx-large;
       text-align: center; }
     footer .about-container .project-container {
       float: center;
@@ -202,7 +202,8 @@ footer {
 
 .project-container .project-description {
   padding-right: 30px;
-  text-align: justify; }
+  text-align: justify;
+  font-size: 1.4em; }
 
 .team-container .team-members {
   display: inline-flex; }
@@ -218,7 +219,7 @@ footer {
       display: block;
       text-align: center;
       margin-top: 10px;
-      font-size: small;
+      font-size: 90%;
       padding: 15px; }
     .team-container .team-members .team-member a {
       color: white; }
