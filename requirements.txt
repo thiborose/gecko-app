@@ -6,4 +6,5 @@ transformers==2.2.2
 scikit-learn==0.20.0
 sentencepiece==0.1.91
 spacy==2.1.9
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz#egg=en_core_web_sm
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.1.0/en_core_web_sm-2.1.0.tar.gz#egg=en_core_web_sm
+# libsass==0.20.1 uncomment for dev puprose
