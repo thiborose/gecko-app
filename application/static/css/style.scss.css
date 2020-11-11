@@ -260,15 +260,15 @@ footer {
       width: 20px;
       padding: 5px; }
       .team-container .team-members .team-member-links #linkedin.icon {
-        background-image: url("../img/linkedin.png");
+        background-image: url("../img/linkedin-logo.png");
         background-size: 20px;
         background-repeat: no-repeat; }
       .team-container .team-members .team-member-links #github.icon {
-        background-image: url("../img/github.png");
+        background-image: url("../img/github-logo.png");
         background-size: 20px;
         background-repeat: no-repeat; }
       .team-container .team-members .team-member-links #gmail.icon {
-        background-image: url("../img/gmail.png");
+        background-image: url("../img/gmail-logo_w.png");
         background-size: 20px;
         background-repeat: no-repeat; }
 
