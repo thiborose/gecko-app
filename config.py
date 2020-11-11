@@ -1,1 +1,2 @@
 DEBUG = False
+ENV = "production"

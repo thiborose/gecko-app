@@ -8,10 +8,10 @@ app = Flask(__name__, instance_relative_config=True)
 app.config.from_object('config')
 app.config.from_pyfile('config.py')
 
-# to comment it
-# app.wsgi_app = SassMiddleware(app.wsgi_app, {
-#     'application': ('static/sass', 'static/css', '/static/css')
-# })
+if app.config['DEBUG'] == True:
+    app.wsgi_app = SassMiddleware(app.wsgi_app, {
+        'application': ('static/sass', 'static/css', '/static/css')
+    })
 
 nlp = spacy.load("en_core_web_sm")
 
