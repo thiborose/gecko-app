@@ -1,14 +1,18 @@
 from flask import Flask
 from application.models.gector import model
 import spacy 
-
-from sassutils.wsgi import SassMiddleware
+from os import system
 
 app = Flask(__name__, instance_relative_config=True)
 app.config.from_object('config')
 app.config.from_pyfile('config.py')
 
 if app.config['DEBUG'] == True:
+    try:
+        from sassutils.wsgi import SassMiddleware
+    except(ImportError):
+        system("pip install libsass==0.20.1")
+        from sassutils.wsgi import SassMiddleware
     app.wsgi_app = SassMiddleware(app.wsgi_app, {
         'application': ('static/sass', 'static/css', '/static/css')
     })
