@@ -3,10 +3,12 @@ FROM python:3.7
 WORKDIR /app
 
 # only copy requirements.txt first to leverage Docker cache
-COPY ./requirements.txt /app
+COPY /requirements.txt /app
 
 RUN pip --no-cache-dir install -r requirements.txt
 
-COPY . /app
+COPY . /app	
 
 CMD ["python","run.py"]
+
+EXPOSE 80
