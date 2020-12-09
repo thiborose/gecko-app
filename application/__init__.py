@@ -1,11 +1,19 @@
 from flask import Flask
 from application.models.gector import model
 import spacy 
-from os import system
+from os import system, listdir
+
 
 app = Flask(__name__, instance_relative_config=True)
-app.config.from_object('config')
-app.config.from_pyfile('config.py')
+
+# setting up environment
+root_dir = listdir()
+print(root_dir)
+if "config.py" in root_dir:
+    app.config.from_object('config')
+else:
+    app.config['DEBUG'] = False
+
 
 if app.config['DEBUG'] == True:
     try:
