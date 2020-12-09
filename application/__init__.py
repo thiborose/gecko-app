@@ -5,7 +5,7 @@ from os import system
 
 app = Flask(__name__, instance_relative_config=True)
 app.config.from_object('config')
-app.config.from_pyfile('config.py')
+# app.config.from_pyfile('config.py')
 
 if app.config['DEBUG'] == True:
     try:
@@ -17,7 +17,7 @@ if app.config['DEBUG'] == True:
         'application': ('static/sass', 'static/css', '/static/css')
     })
 
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_sm", disable=['tagger', 'ner'])
 
 model = model.load_model(
     vocab_path = "application/models/gector/data/output_vocabulary",
