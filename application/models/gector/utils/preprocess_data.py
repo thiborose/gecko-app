@@ -388,7 +388,7 @@ def get_target_sent_by_levels(source_tokens, labels):
     deleted_tokens_ids = []
     if not relevant_edits:
         target_sentence = " ".join(target_tokens)
-        return leveled_target_tokens, target_sentence
+        return target_sentence, replaced_tokens_ids, deleted_tokens_ids
     max_level = max([len(x[1]) for x in relevant_edits])
     for level in range(max_level):
         rest_edits = []

@@ -1,6 +1,7 @@
 from flask import Flask
 from application.models.gector import model
 import spacy 
+import re
 from os import system
 
 app = Flask(__name__, instance_relative_config=True)
@@ -25,6 +26,7 @@ model = model.load_model(
     model_name = "xlnet"
 )
 
-delimiter = 'SEPL|||SEPR'
+DELIMITER = 'SEPL|||SEPR'
+RE_HYPHENS = re.compile(r'(\w) - (\w)')
 
 from application import routes
