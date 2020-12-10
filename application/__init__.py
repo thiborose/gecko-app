@@ -3,6 +3,7 @@ from application.models.gector import model
 import spacy 
 from os import system, listdir
 
+import re
 
 app = Flask(__name__, instance_relative_config=True)
 
@@ -25,12 +26,14 @@ if app.config['DEBUG'] == True:
         'application': ('static/sass', 'static/css', '/static/css')
     })
 
-nlp = spacy.load("en_core_web_sm")
 
 model = model.load_model(
     vocab_path = "application/models/gector/data/output_vocabulary",
     model_paths = ["application/models/gector/data/model_files/xlnet_0_gector.th"],
     model_name = "xlnet"
 )
+
+DELIMITER = 'SEPL|||SEPR'
+RE_HYPHENS = re.compile(r'(\w) - (\w)')
 
 from application import routes

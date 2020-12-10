@@ -6,8 +6,10 @@ import Levenshtein
 import numpy as np
 from tqdm import tqdm
 
-from helpers import write_lines, read_parallel_lines, encode_verb_form, \
+from application.models.gector.utils.helpers import write_lines, \
+    read_parallel_lines, encode_verb_form, \
     apply_reverse_transformation, SEQ_DELIMETERS, START_TOKEN
+
 
 
 def perfect_align(t, T, insertions_allowed=0,
@@ -382,9 +384,11 @@ def get_target_sent_by_levels(source_tokens, labels):
     relevant_edits = convert_labels_into_edits(labels)
     target_tokens = source_tokens[:]
     leveled_target_tokens = {}
+    replaced_tokens_ids = []
+    deleted_tokens_ids = []
     if not relevant_edits:
         target_sentence = " ".join(target_tokens)
-        return leveled_target_tokens, target_sentence
+        return target_sentence, replaced_tokens_ids, deleted_tokens_ids
     max_level = max([len(x[1]) for x in relevant_edits])
     for level in range(max_level):
         rest_edits = []
@@ -395,20 +399,23 @@ def get_target_sent_by_levels(source_tokens, labels):
             target_pos = start + shift_idx
             source_token = target_tokens[target_pos] if target_pos >= 0 else START_TOKEN
             if label == "$DELETE":
+                deleted_tokens_ids.append(target_pos)
                 del target_tokens[target_pos]
                 shift_idx -= 1
             elif label.startswith("$APPEND_"):
                 word = label.replace("$APPEND_", "")
-                target_tokens[target_pos + 1: target_pos + 1] = [word]
+                target_tokens[target_pos + 1: target_pos + 1] = [word + "$_$APPEND"]
                 shift_idx += 1
             elif label.startswith("$REPLACE_"):
+                replaced_tokens_ids.append(target_pos)
                 word = label.replace("$REPLACE_", "")
-                target_tokens[target_pos] = word
+                target_tokens[target_pos] = word + "$_$REPLACE"
             elif label.startswith("$TRANSFORM"):
+                replaced_tokens_ids.append(target_pos)
                 word = apply_reverse_transformation(source_token, label)
                 if word is None:
                     word = source_token
-                target_tokens[target_pos] = word
+                target_tokens[target_pos] = word + "$_$TRANSFORM"
             elif label.startswith("$MERGE_"):
                 # apply merge only on last stage
                 if level == (max_level - 1):
@@ -433,7 +440,7 @@ def get_target_sent_by_levels(source_tokens, labels):
                                             "labels": leveled_labels}
 
     target_sentence = " ".join(leveled_target_tokens[max_level]["tokens"])
-    return leveled_target_tokens, target_sentence
+    return target_sentence, replaced_tokens_ids, deleted_tokens_ids
 
 
 def replace_merge_transforms(tokens):
@@ -461,8 +468,8 @@ def convert_tagged_line(line, delimeters=SEQ_DELIMETERS):
     labels = [x.split(label_del)[1].split(delimeters['operations'])
               for x in line.split(delimeters['tokens'])]
     assert len(source_tokens) + 1 == len(labels)
-    levels_dict, target_line = get_target_sent_by_levels(source_tokens, labels)
-    return target_line
+    target_sentence, replaced_tokens_ids, deleted_tokens_ids = get_target_sent_by_levels(source_tokens, labels)
+    return target_sentence, replaced_tokens_ids, deleted_tokens_ids
 
 
 def main(args):
