@@ -4,12 +4,16 @@ from application.models.gector.predict import predict_for_sentences
 from application.models.gector.utils.preprocess_data import align_sequences, convert_tagged_line
 import re
 
-def predict(input_text: str) -> (str, str):
+def predict(input_text: str) -> dict:
     """Predicts a correction for an input text and returns the tagged input and output."""
 
     tokenized_sentences = tokenize_and_segment(input_text)
     corrected_sentences = predict_for_sentences(tokenized_sentences, model)
-    output_text = untokenize(corrected_sentences)
+    correct_untokenized_sentences = [untokenize(sent) for sent in corrected_sentences]
+    if len(correct_untokenized_sentences) > 1:
+        #sentence reordering model
+        pass
+    output_text = unsentencize(correct_untokenized_sentences)
     tagged_input, tagged_output = get_changes(input_text, output_text)
     return {"input": tagged_input, "output": tagged_output}
   
@@ -24,9 +28,13 @@ def tokenize_and_segment(input_text: str) -> 'list(str)':
     return sentences
 
 
-def untokenize(sentences: 'list(list)') -> str:
-    output_text = ' '.join(TreebankWordDetokenizer().detokenize(sent) for sent in sentences)
+def untokenize(tokens:list) -> str:
+    output_text = TreebankWordDetokenizer().detokenize(tokens)
     output_text = re.sub(RE_HYPHENS, r'\1-\2', output_text)
+    return output_text
+
+def unsentencize(sentences: 'list(str)') -> str:
+    output_text = ' '.join(sent for sent in sentences)
     return output_text
 
 
