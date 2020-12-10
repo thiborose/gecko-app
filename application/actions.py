@@ -7,17 +7,24 @@ import application.models.sentence_reorder as sentence_reorder
 
 def predict(input_text: str) -> dict:
     """Predicts a correction for an input text and returns the tagged input and output."""
-
     tokenized_sentences = tokenize_and_segment(input_text)
     corrected_sentences = predict_for_sentences(tokenized_sentences, model)
     correct_untokenized_sentences = [untokenize(sent) for sent in corrected_sentences]
-    if len(correct_untokenized_sentences) > 1:
+    reorder = len(correct_untokenized_sentences) > 1 # flag
+    if reorder:
         #sentence reordering model
-        correct_untokenized_sentences = sentence_reorder.reorder(correct_untokenized_sentences)
+        order = sentence_reorder.get_order(correct_untokenized_sentences)
     output_text = unsentencize(correct_untokenized_sentences)
     tagged_input, tagged_output = get_changes(input_text, output_text)
+    if reorder:
+        sentencized_tagged_output = sentencize(tagged_output)
+        ordered_sentencized_tagged_output = sentence_reorder.reorder(sentencized_tagged_output, order)
+        tagged_output = unsentencize(ordered_sentencized_tagged_output)
     return {"input": tagged_input, "output": tagged_output}
   
+
+def sentencize(text:str)->'list(str)':
+    return nlp(text).sents
 
 def tokenize_and_segment(input_text: str) -> 'list(str)':
     """Returns a list of tokenized sentences."""
