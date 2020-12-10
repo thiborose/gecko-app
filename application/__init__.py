@@ -25,4 +25,6 @@ model = model.load_model(
     model_name = "xlnet"
 )
 
+delimiter = 'SEPL|||SEPR'
+
 from application import routes
