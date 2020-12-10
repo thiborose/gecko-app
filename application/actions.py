@@ -1,8 +1,8 @@
-from application import nlp, model, delimiter
+from application import nlp, model, DELIMITER, RE_HYPHENS
 from nltk.tokenize.treebank import TreebankWordDetokenizer
-from application.models.gector.model import load_model
 from application.models.gector.predict import predict_for_sentences
 from application.models.gector.utils.preprocess_data import align_sequences, convert_tagged_line
+import re
 
 
 def predict(input_text: str) -> (str, str):
@@ -27,7 +27,9 @@ def tokenize_and_segment(input_text: str) -> 'list(str)':
 
 
 def untokenize(sentences: 'list(list)') -> str:
-    return ' '.join(TreebankWordDetokenizer().detokenize(sent) for sent in sentences)
+    output_text = ' '.join(TreebankWordDetokenizer().detokenize(sent) for sent in sentences)
+    output_text = re.sub(RE_HYPHENS, r'\1-\2', output_text)
+    return output_text
 
 
 def get_changes(input_text, output_text):
@@ -45,7 +47,7 @@ def highlight_changes_input(sent_with_tags, replaced_tok_ids, deleted_tok_ids):
 
     tagged_input_tokens = []
     for idx, token in enumerate(sent_with_tags.split()[1:]):
-        token = token.split(delimiter)[0]
+        token = token.split(DELIMITER)[0]
         if idx in replaced_tok_ids:
             token = add_css_tag(token, 'replace')
         elif idx in deleted_tok_ids:
