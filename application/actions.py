@@ -3,6 +3,7 @@ from nltk.tokenize.treebank import TreebankWordDetokenizer
 from application.models.gector.predict import predict_for_sentences
 from application.models.gector.utils.preprocess_data import align_sequences, convert_tagged_line
 import re
+import application.models.sentence_reorder as sentence_reorder
 
 def predict(input_text: str) -> dict:
     """Predicts a correction for an input text and returns the tagged input and output."""
@@ -12,7 +13,7 @@ def predict(input_text: str) -> dict:
     correct_untokenized_sentences = [untokenize(sent) for sent in corrected_sentences]
     if len(correct_untokenized_sentences) > 1:
         #sentence reordering model
-        pass
+        correct_untokenized_sentences = sentence_reorder.reorder(correct_untokenized_sentences)
     output_text = unsentencize(correct_untokenized_sentences)
     tagged_input, tagged_output = get_changes(input_text, output_text)
     return {"input": tagged_input, "output": tagged_output}
