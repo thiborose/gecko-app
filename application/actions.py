@@ -4,7 +4,6 @@ from application.models.gector.predict import predict_for_sentences
 from application.models.gector.utils.preprocess_data import align_sequences, convert_tagged_line
 import re
 
-
 def predict(input_text: str) -> (str, str):
     """Predicts a correction for an input text and returns the tagged input and output."""
 
@@ -12,8 +11,7 @@ def predict(input_text: str) -> (str, str):
     corrected_sentences = predict_for_sentences(tokenized_sentences, model)
     output_text = untokenize(corrected_sentences)
     tagged_input, tagged_output = get_changes(input_text, output_text)
-    print(tagged_input)
-    return tagged_output
+    return {"input": tagged_input, "output": tagged_output}
   
 
 def tokenize_and_segment(input_text: str) -> 'list(str)':
