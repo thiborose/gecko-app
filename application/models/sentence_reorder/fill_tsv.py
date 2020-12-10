@@ -25,7 +25,7 @@ def truncate_test(sent1, sent2):
         assert len(inp) < 105
         return sent1, sent2
 
-def prepare_data(sentences:list, filename="test.tsv", out_dir="paragraph/"):
+def prepare_data(sentences:list, filename="test.tsv", out_dir="application/models/sentence_reorder/paragraph/"):
     story_sentences = {0:sentences}
 
     x, y = 0, 0
@@ -72,9 +72,3 @@ def prepare_data(sentences:list, filename="test.tsv", out_dir="paragraph/"):
                 #adding no of pairs of sentences in the end
                 row[0] += '-' + str(len(tmp))
                 tsv_writer.writerow(row)
-
-
-if __name__ == "__main__":
-    print('lets go')
-    sentences=['It was a very nice day!.','This is because the weather was sunny.','Yesterday, I hiked some mountains']
-    prepare_data(sentences)

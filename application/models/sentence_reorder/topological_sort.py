@@ -224,14 +224,11 @@ def readf(filename):
             data.append(row)
     return data      
 
-def main():
-    file_path = 'paragraph/test_results.tsv'
+def get_order():
+    file_path = 'application/models/sentence_reorder/paragraph/test_results.tsv'
     ## Required parameters
 
     data = readf(file_path)
     stats, order = convert_to_graph(data)
-    print(order)
+    return order
     #stats.print_stats()
-
-if __name__ == "__main__":
-    main()

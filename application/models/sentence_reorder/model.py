@@ -56,8 +56,8 @@ MODEL_CLASSES = {
 
 
 # GLOBAL VARS
-data_dir = 'paragraph/'
-output_dir = 'model/'
+data_dir = 'application/models/sentence_reorder/paragraph/'
+output_dir = 'application/models/sentence_reorder/model/'
 
 max_seq_length = 105
 do_train = False
@@ -504,6 +504,3 @@ def compute_probabilities():
             results.update(result)
 
     return results
-
-if __name__ == "__main__":
-    compute_probabilities()
