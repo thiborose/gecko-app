@@ -27,6 +27,8 @@ if app.config['DEBUG'] == True:
     })
 
 
+nlp = spacy.load("en_core_web_sm")
+
 model = model.load_model(
     vocab_path = "application/models/gector/data/output_vocabulary",
     model_paths = ["application/models/gector/data/model_files/xlnet_0_gector.th"],
