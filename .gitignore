@@ -139,3 +139,5 @@ dmypy.json
 
 # too heavy
 application/models/gector/data/model_files/
+
+application/models/sentence_reorder/paragraph/
