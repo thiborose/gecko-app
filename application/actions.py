@@ -47,9 +47,9 @@ def highlight_changes_input(sent_with_tags, replaced_tok_ids, deleted_tok_ids):
     for idx, token in enumerate(sent_with_tags.split()[1:]):
         token = token.split(DELIMITER)[0]
         if idx in replaced_tok_ids:
-            token = add_css_tag(token, 'replace')
+            token = add_css_tag(token, 'input_replace')
         elif idx in deleted_tok_ids:
-            token = add_css_tag(token, 'delete')
+            token = add_css_tag(token, 'input_delete')
         tagged_input_tokens.append(token)
     return ' '.join(tagged_input_tokens)
 
@@ -79,4 +79,8 @@ def add_css_tag(token, modification):
         token = '<span class="delta-delete">' + token + '</span>'
     elif modification == 'append':
         token = '<span class="delta-insert">' + token + '</span>'
+    elif modification == 'input_delete':
+        token = '<span class="delta-input-delete">' + token + '</span>'
+    elif modification == 'input_replace':
+        token = '<span class="delta-input-replace">' + token + '</span>'
     return token
