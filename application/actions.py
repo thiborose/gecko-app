@@ -7,24 +7,26 @@ import application.models.sentence_reorder as sentence_reorder
 
 def predict(input_text: str) -> dict:
     """Predicts a correction for an input text and returns the tagged input and output."""
-    tokenized_sentences = tokenize_and_segment(input_text)
-    corrected_sentences = predict_for_sentences(tokenized_sentences, model)
+    tokenized_sentence = tokenize_and_segment(input_text)
+    corrected_sentences = predict_for_sentences(tokenized_sentence, model)
     correct_untokenized_sentences = [untokenize(sent) for sent in corrected_sentences]
     reorder = len(correct_untokenized_sentences) > 1 # flag
     if reorder:
         #sentence reordering model
         order = sentence_reorder.get_order(correct_untokenized_sentences)
-    output_text = unsentencize(correct_untokenized_sentences)
-    tagged_input, tagged_output = get_changes(input_text, output_text)
+    #output_text = unsentencize(correct_untokenized_sentences)
+    tagged_input, tagged_output = get_changes(sentencize(input_text), correct_untokenized_sentences)
     if reorder:
-        sentencized_tagged_output = sentencize(tagged_output)
-        ordered_sentencized_tagged_output = sentence_reorder.reorder(sentencized_tagged_output, order)
-        tagged_output = unsentencize(ordered_sentencized_tagged_output)
+        ordered_sentencized_tagged_output = sentence_reorder.reorder(tagged_output, order)
+
+    tagged_input = unsentencize(tagged_input)
+    tagged_output = unsentencize(ordered_sentencized_tagged_output )
+
     return {"input": tagged_input, "output": tagged_output}
   
 
 def sentencize(text:str)->'list(str)':
-    return nlp(text).sents
+    return [sent for sent in nlp(text).sents]
 
 def tokenize_and_segment(input_text: str) -> 'list(str)':
     """Returns a list of tokenized sentences."""
@@ -46,13 +48,17 @@ def unsentencize(sentences: 'list(str)') -> str:
     return output_text
 
 
-def get_changes(input_text, output_text):
+def get_changes(input_text:'list(str)', output_text:'list(str)')-> '(str,str)':
     """Retrieves the changes made and tags the input and output accordingly."""
-
-    sent_with_tags = align_sequences(input_text, output_text)
-    target_text, replaced_tok_ids, deleted_tok_ids = convert_tagged_line(sent_with_tags)
-    tagged_input = highlight_changes_input(sent_with_tags, replaced_tok_ids, deleted_tok_ids)
-    tagged_output = highlight_changes_output(target_text)
+    tagged_input = list()
+    tagged_output = list()
+    for i in range(len(input_text)):
+        input_sent = input_text[i].text
+        output_sent = output_text[i]
+        sent_with_tags = align_sequences(input_sent, output_sent)
+        target_text, replaced_tok_ids, deleted_tok_ids = convert_tagged_line(sent_with_tags)
+        tagged_input.append(highlight_changes_input(sent_with_tags, replaced_tok_ids, deleted_tok_ids))
+        tagged_output.append(highlight_changes_output(target_text))
     return tagged_input, tagged_output
 
 
