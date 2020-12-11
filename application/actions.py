@@ -11,6 +11,7 @@ def predict(input_text: str) -> (str, str):
     corrected_sentences = predict_for_sentences(tokenized_sentences, model)
     output_text = untokenize(corrected_sentences)
     tagged_input, tagged_output = get_changes(input_text, output_text)
+    print(tagged_input)
     return {"input": tagged_input, "output": tagged_output}
   
 
@@ -69,6 +70,8 @@ def highlight_changes_output(target_text):
                 token = add_css_tag(token, 'replace')
             elif modif_tag == 'APPEND':
                 token = add_css_tag(token, 'append')
+            elif modif_tag == 'PUNCT':
+                token = add_css_tag(token, 'punctuation')
         tagged_output_tokens.append(token)
     return ' '.join(tagged_output_tokens)
 
@@ -82,6 +85,8 @@ def add_css_tag(token, modification):
         token = '<span class="delta-delete">' + token + '</span>'
     elif modification == 'append':
         token = '<span class="delta-insert">' + token + '</span>'
+    elif modification == 'punctuation':
+        token = token[:-1] + '<span class="delta-insert">' + token[-1] + '</span>'
     elif modification == 'input_delete':
         token = '<span class="delta-input-delete">' + token + '</span>'
     elif modification == 'input_replace':
