@@ -19,8 +19,8 @@ fi
 
 # Download sentence reordering models
 FOLDER=application/models/sentence_reorder/model/
-if [ -f "$FILE" ]; then
+if [ -f "$FOLDER" ]; then
     echo "Sentence reordering models already downloaded."
 else 
-    (mkdir -p application/models/sentence_reorder/model/ && cd application/models/sentence_reorder/model/ && curl -O http://tts.speech.cs.cmu.edu/sentence_order/nips_bert.tar && unzip nips_bert.tar && rm nips_bert.tar)
+    (cd application/models/sentence_reorder/&& curl -O http://tts.speech.cs.cmu.edu/sentence_order/nips_bert.tar && tar -xf nips_bert.tar && rm nips_bert.tar && mv nips_bert/ model/)
 fi
