@@ -4,7 +4,6 @@ from application.models.gector.predict import predict_for_sentences
 from application.models.gector.utils.preprocess_data import align_sequences, convert_tagged_line
 import re
 
-
 def predict(input_text: str) -> (str, str):
     """Predicts a correction for an input text and returns the tagged input and output."""
 
@@ -12,8 +11,7 @@ def predict(input_text: str) -> (str, str):
     corrected_sentences = predict_for_sentences(tokenized_sentences, model)
     output_text = untokenize(corrected_sentences)
     tagged_input, tagged_output = get_changes(input_text, output_text)
-    print(tagged_input)
-    return tagged_output
+    return {"input": tagged_input, "output": tagged_output}
   
 
 def tokenize_and_segment(input_text: str) -> 'list(str)':
@@ -48,6 +46,7 @@ def highlight_changes_input(sent_with_tags, replaced_tok_ids, deleted_tok_ids):
     tagged_input_tokens = []
     for idx, token in enumerate(sent_with_tags.split()[1:]):
         token = token.split(DELIMITER)[0]
+<<<<<<< HEAD
         if idx in deleted_tok_ids:
             token = add_css_tag(token, 'delete')
             deleted_tok_ids = [i + 1 for i in deleted_tok_ids[1:]] # shift index
@@ -55,6 +54,12 @@ def highlight_changes_input(sent_with_tags, replaced_tok_ids, deleted_tok_ids):
         elif idx in replaced_tok_ids:
             token = add_css_tag(token, 'replace')
             replaced_tok_ids = replaced_tok_ids[1:]
+=======
+        if idx in replaced_tok_ids:
+            token = add_css_tag(token, 'input_replace')
+        elif idx in deleted_tok_ids:
+            token = add_css_tag(token, 'input_delete')
+>>>>>>> e13098d171662cfdb895b4b92897aa930a77db96
         tagged_input_tokens.append(token)
     return ' '.join(tagged_input_tokens)
 
@@ -84,4 +89,8 @@ def add_css_tag(token, modification):
         token = '<span class="delta-delete">' + token + '</span>'
     elif modification == 'append':
         token = '<span class="delta-insert">' + token + '</span>'
+    elif modification == 'input_delete':
+        token = '<span class="delta-input-delete">' + token + '</span>'
+    elif modification == 'input_replace':
+        token = '<span class="delta-input-replace">' + token + '</span>'
     return token
