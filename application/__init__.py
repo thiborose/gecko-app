@@ -28,5 +28,6 @@ model = model.load_model(
 
 DELIMITER = 'SEPL|||SEPR'
 RE_HYPHENS = re.compile(r'(\w) - (\w)')
+RE_QUOTES = re.compile(r"""(["']) (.*?[^\\]) \1""")
 
 from application import routes
