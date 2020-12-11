@@ -11,7 +11,6 @@ def predict(input_text: str) -> (str, str):
     corrected_sentences = predict_for_sentences(tokenized_sentences, model)
     output_text = untokenize(corrected_sentences)
     tagged_input, tagged_output = get_changes(input_text, output_text)
-    print(tagged_input)
     return {"input": tagged_input, "output": tagged_output}
   
 
