@@ -47,11 +47,11 @@ def highlight_changes_input(sent_with_tags, replaced_tok_ids, deleted_tok_ids):
     for idx, token in enumerate(sent_with_tags.split()[1:]):
         token = token.split(DELIMITER)[0]
         if idx in deleted_tok_ids:
-            token = add_css_tag(token, 'delete')
+            token = add_css_tag(token, 'input_delete')
             deleted_tok_ids = [i + 1 for i in deleted_tok_ids[1:]] # shift index
             replaced_tok_ids = [i + 1 for i in replaced_tok_ids]
         elif idx in replaced_tok_ids:
-            token = add_css_tag(token, 'replace')
+            token = add_css_tag(token, 'input_replace')
             replaced_tok_ids = replaced_tok_ids[1:]
         tagged_input_tokens.append(token)
     return ' '.join(tagged_input_tokens)
