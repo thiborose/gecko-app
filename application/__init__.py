@@ -1,5 +1,6 @@
 from flask import Flask
 from application.models.gector import model
+import application.models.sentence_reorder as sentence_reoder
 import spacy 
 from os import system, listdir
 
@@ -34,6 +35,8 @@ model = model.load_model(
     model_paths = ["application/models/gector/data/model_files/xlnet_0_gector.th"],
     model_name = "xlnet"
 )
+
+sentence_reoder.load_model()
 
 DELIMITER = 'SEPL|||SEPR'
 RE_HYPHENS = re.compile(r'(\w) - (\w)')

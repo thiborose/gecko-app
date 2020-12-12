@@ -86,6 +86,11 @@ fp16 = False
 fp16_opt_level = '01'
 local_rank = -1
 
+# Model global variables
+model = None
+model_class = None
+
+
 
 def set_seed():
     random.seed(seed)
@@ -436,13 +441,16 @@ class PairProcessor(DataProcessor):
         return examples, rows
 
 
-def compute_probabilities():
-
-    clean_cache()
-    
+def load_model():
     global n_gpu
 
     global device
+
+    global model
+
+    global tokenizer
+
+    global model_class
 
     if os.path.exists(output_dir) and os.listdir(output_dir) and do_train and not overwrite_output_dir:
         raise ValueError("Output directory ({}) already exists and is not empty. Use --overwrite_output_dir to overcome.".format(output_dir))
@@ -485,10 +493,12 @@ def compute_probabilities():
     model.to(device)
 
 
+def compute_probabilities():
+    global model_class
+    clean_cache()
     # Evaluation
     results = {}
     if (do_eval or do_test) and local_rank in [-1, 0]:
-        #tokenizer = tokenizer_class.from_pretrained(output_dir, do_lower_case=do_lower_case)
         checkpoints = [output_dir]
         if eval_all_checkpoints:
             checkpoints = list(os.path.dirname(c) for c in sorted(glob.glob(output_dir + '/**/' + WEIGHTS_NAME, recursive=True)))
