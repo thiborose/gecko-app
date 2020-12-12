@@ -1,4 +1,4 @@
-from application import nlp, model, DELIMITER, RE_HYPHENS
+from application import nlp, model, DELIMITER, RE_HYPHENS, RE_QUOTES
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 from application.models.gector.predict import predict_for_sentences
 from application.models.gector.utils.preprocess_data import align_sequences, convert_tagged_line
@@ -41,6 +41,7 @@ def tokenize_and_segment(input_text: str) -> 'list(str)':
 def untokenize(tokens:list) -> str:
     output_text = TreebankWordDetokenizer().detokenize(tokens)
     output_text = re.sub(RE_HYPHENS, r'\1-\2', output_text)
+    output_text = re.sub(RE_QUOTES, r'\1\2\1', output_text)
     return output_text
 
 def unsentencize(sentences: 'list(str)') -> str:
@@ -68,10 +69,13 @@ def highlight_changes_input(sent_with_tags, replaced_tok_ids, deleted_tok_ids):
     tagged_input_tokens = []
     for idx, token in enumerate(sent_with_tags.split()[1:]):
         token = token.split(DELIMITER)[0]
-        if idx in replaced_tok_ids:
-            token = add_css_tag(token, 'input_replace')
-        elif idx in deleted_tok_ids:
+        if idx in deleted_tok_ids:
             token = add_css_tag(token, 'input_delete')
+            deleted_tok_ids = [i + 1 for i in deleted_tok_ids[1:]] # shift index
+            replaced_tok_ids = [i + 1 for i in replaced_tok_ids]
+        elif idx in replaced_tok_ids:
+            token = add_css_tag(token, 'input_replace')
+            replaced_tok_ids = replaced_tok_ids[1:]
         tagged_input_tokens.append(token)
     return ' '.join(tagged_input_tokens)
 
@@ -88,6 +92,8 @@ def highlight_changes_output(target_text):
                 token = add_css_tag(token, 'replace')
             elif modif_tag == 'APPEND':
                 token = add_css_tag(token, 'append')
+            elif modif_tag == 'PUNCT':
+                token = add_css_tag(token, 'punctuation')
         tagged_output_tokens.append(token)
     return ' '.join(tagged_output_tokens)
 
@@ -101,6 +107,8 @@ def add_css_tag(token, modification):
         token = '<span class="delta-delete">' + token + '</span>'
     elif modification == 'append':
         token = '<span class="delta-insert">' + token + '</span>'
+    elif modification == 'punctuation':
+        token = token[:-1] + '<span class="delta-insert">' + token[-1] + '</span>'
     elif modification == 'input_delete':
         token = '<span class="delta-input-delete">' + token + '</span>'
     elif modification == 'input_replace':
