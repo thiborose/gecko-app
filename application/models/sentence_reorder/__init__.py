@@ -10,3 +10,7 @@ def get_order(sentences:list)->list:
 def reorder(sentences:list, order:list)->list:
     ordered_sentences = [sentences[i] for i in order]
     return ordered_sentences
+
+
+def load_model():
+    model.load_model()
