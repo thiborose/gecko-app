@@ -407,9 +407,13 @@ def get_target_sent_by_levels(source_tokens, labels):
                 target_tokens[target_pos + 1: target_pos + 1] = [word + "$_$APPEND"]
                 shift_idx += 1
             elif label.startswith("$REPLACE_"):
-                replaced_tokens_ids.append(target_pos)
                 word = label.replace("$REPLACE_", "")
-                target_tokens[target_pos] = word + "$_$REPLACE"
+                if word == source_token + '.' or word == source_token + ',' \
+                    or word == source_token + '?':
+                    target_tokens[target_pos] = word + "$_$PUNCT"
+                else:
+                    target_tokens[target_pos] = word + "$_$REPLACE"
+                    replaced_tokens_ids.append(target_pos)
             elif label.startswith("$TRANSFORM"):
                 replaced_tokens_ids.append(target_pos)
                 word = apply_reverse_transformation(source_token, label)
