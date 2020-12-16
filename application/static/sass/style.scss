@@ -37,6 +37,7 @@ body {
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 nav {
+    font-size: 16pt;
     position: absolute;
     top: 10%;
     right: 0;
@@ -102,12 +103,9 @@ nav {
 }
 
 nav a:nth-child(2):hover~#indicator {
-    left: 44%;
+    left: 200px;
 }
 
-nav a:nth-child(3):hover~#indicator {
-    left: 72%;
-}
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* :::::::::: HEADER ::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
@@ -147,7 +145,7 @@ header {
         /* min-height: 600px; */
         //max-width: 1125px;
         padding: 80px 0;
-        margin: auto;
+        margin: 100px auto 0;
         /* outline: 1px solid green; */
         display: inline-flex;
         /* line-height: 430px; */
@@ -290,6 +288,12 @@ footer{
 
 
 .project-container{
+
+    .footer-logo{
+        width: 400px;
+        margin-bottom: 30px
+    }
+
     .project-description{
         padding-right: 30px;
         text-align: justify;

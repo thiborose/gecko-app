@@ -36,7 +36,7 @@
     <!--header-->
     <header id="myHeader">
         <div class="logo-container">
-            <img src="../static/img/GECko_full.png" alt="Logo of GECko" width="150" height="94">
+            <img src="../static/img/GECko_logo_rectangular.png" alt="Logo of GECko" width="200" >
         </div>
 
         <nav>
@@ -66,11 +66,12 @@
     <footer>
         <div class="footer-title"><font size="+4">About</font></div>
 
-        <div class="about-container">
+        <div class="about-container" id="about">
             {% block team %}{% endblock %}
 
             <div class="project-container">
-                <h1><a name="about">The project</a></h1>
+                <!-- <h1><a name="about">The project</a></h1> -->
+                <img src="../static/img/gecko_tagline.png" alt="Logo and tagline of gecko" class="footer-logo">
                 <div class="project-description">
                     GECko is a Grammar Error Corrector for English. It is able to correct various spelling and grammatical mistakes.
                     Its functioning is simple and quick: just try to type an English sentence (with some mistakes, of course!) on the left box.
