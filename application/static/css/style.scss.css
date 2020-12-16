@@ -13,12 +13,23 @@ body {
   /* background: radial-gradient(ellipse at center,#126819 0,#0a3a16 100%); */
   background: #0F2027;
   /* fallback for old browsers */
-  background: linear-gradient(135deg, #2E1114 0%, #501B1D 100%);
   /* background: linear-gradient(135deg, #305EE6 0%,#47F5BC 100%); */
   /* background: linear-gradient(to top, #003b1e, #11351d, #0F2027); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-repeat: no-repeat;
   background-attachment: fixed;
-  text-align: center; }
+  text-align: center;
+  background: linear-gradient(to bottom right, #2E1114, #3a1113, #331518, #361114, #311518, #2c0e11);
+  background-repeat: no-repeat;
+  background-size: 1000% 1000%;
+  animation: gradient 240s ease infinite; }
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%; }
+  50% {
+    background-position: 100% 100%; }
+  100% {
+    background-position: 0% 0%; } }
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* :::::::::: NAV BAR :::::::::::::::::::::::::::::::::::::::::::::::::::::: */
@@ -284,6 +295,16 @@ footer {
         background-image: url("../img/gmail-logo_w.png");
         background-size: 20px;
         background-repeat: no-repeat; }
+
+.credits-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; }
+  .credits-container #idmc-footer-logo {
+    width: 215px; }
+  .credits-container #ul-footer-logo {
+    width: 80px; }
 
 /* Deltas */
 .delta-insert {
