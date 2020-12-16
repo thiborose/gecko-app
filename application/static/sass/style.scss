@@ -305,8 +305,11 @@ footer{
 
     .team-members{
         display: inline-flex;
+        
 
         .team-member {
+            height: 300px;
+            position: relative;
             margin: 0 15px;
             // color: #501B1D;
             width: 205px;
@@ -318,13 +321,24 @@ footer{
             box-sizing: border-box;
             border-radius: 10px;
             border-top-left-radius: 35px;
+
+            &.thi{
+                background-color: $thi-color-2
+            }
+            &.leo{
+                background-color: $leo-color-2
+            }
+            &.edu{
+                background-color: $edu-color-2
+            }
             
             .description{
                 display: block;
                 text-align: center;
-                margin-top: 10px;
+                // margin-top: 10px;
                 font-size: 90%;
-                padding: 15px;
+                padding: 0 15px 15px;
+                
             }
 
             a{
@@ -353,26 +367,30 @@ footer{
                     background-image: url("../img/edu.jpeg");
                     background-position: 40% -8%;
                     background-size: 95px;                
-                    border-color: #7b363f;
+                    border-color: $edu-color-1;
                 }
                 
                 &#leo-picture {
                     background-image: url("../img/leo.jpeg");
                     background-position: 38% 39%;
                     background-size: 120px;
-                    border-color: #eaf0fa;
+                    border-color: $leo-color-1;
                 }
         
                 &#thibo-picture {
                     background-image: url("../img/thi.jpeg");
                     background-position: 50% 59%;
                     background-size: 120px;
-                    border-color: #244b7d;
+                    border-color: $thi-color-1;
                 }
             }
         }
 
         .team-member-links{
+            position: absolute;
+            bottom: 6px;
+            left: 63px;
+            bottom: 0;
             display: flex;
             justify-content: center;
             margin-top: 10px;
