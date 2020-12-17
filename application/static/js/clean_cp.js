@@ -2,11 +2,18 @@
 
 $('#text-box-input').on('paste', function(e) {
   e.preventDefault();
-  var text = '';
+  var current_text = $("#text-box-input").text();
+  var cb_text = '';
   if (e.clipboardData || e.originalEvent.clipboardData) {
-    text = (e.originalEvent || e).clipboardData.getData('text/plain');
+    cb_text = (e.originalEvent || e).clipboardData.getData('text/plain');
   } else if (window.clipboardData) {
-    text = window.clipboardData.getData('Text');
+    cb_text = window.clipboardData.getData('Text');
   }
-  $("#text-box-input").html(text);
+
+  var new_text = current_text + cb_text;
+
+  $("#text-box-input").html(new_text);
+  $("#text-box-input").blur();
+
 });
+
