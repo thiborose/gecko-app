@@ -14,13 +14,13 @@ def predict(input_text: str) -> dict:
     if reorder:
         #sentence reordering model
         order = sentence_reorder.get_order(correct_untokenized_sentences)
-    #output_text = unsentencize(correct_untokenized_sentences)
     tagged_input, tagged_output = get_changes(sentencize(input_text), correct_untokenized_sentences)
+    tagged_input = unsentencize(tagged_input)
+
     if reorder:
         ordered_sentencized_tagged_output = sentence_reorder.reorder(tagged_output, order)
+        tagged_output = unsentencize(ordered_sentencized_tagged_output )
 
-    tagged_input = unsentencize(tagged_input)
-    tagged_output = unsentencize(ordered_sentencized_tagged_output )
 
     return {"input": tagged_input, "output": tagged_output}
   
