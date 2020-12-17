@@ -5,7 +5,7 @@ $('#text-box-input').keypress(function (event){
     if (event.keyCode == 13 && !event.shiftKey) {
         event.preventDefault();
         // Un-focusing from the text box
-        $('#text-box-input').blur()
+        $('#text-box-input').blur();
         predict();
     }
 });
