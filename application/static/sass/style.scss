@@ -2,6 +2,10 @@
 
 /* fonts */
 @import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+
+
 /* Built in tags */
 
 html {
@@ -19,13 +23,28 @@ body {
 
     background: #0F2027;
     /* fallback for old browsers */
-    background: linear-gradient(135deg, #2E1114 0%, #501B1D 100%);
+    // background: linear-gradient(135deg, #2E1114 0%, #501B1D 100%);
     /* background: linear-gradient(135deg, #305EE6 0%,#47F5BC 100%); */
     /* background: linear-gradient(to top, #003b1e, #11351d, #0F2027); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     background-repeat: no-repeat;
     background-attachment: fixed;
     text-align: center;
+
+    background: linear-gradient(
+    to bottom right,  
+    $bg-1, $bg-2, 
+    $bg-3, $bg-4, 
+    $bg-5, $bg-6);
+    background-repeat: no-repeat;
+    background-size: 1000% 1000%;
+    animation: gradient 240s ease infinite;
+
+    @keyframes gradient { 
+        0%{background-position:0% 0%}
+        50%{background-position:100% 100%}
+        100%{background-position:0% 0%}
+      }
 
 }
 
@@ -37,96 +56,87 @@ body {
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 nav {
-    position: absolute;
-    top: 10%;
-    right: 0;
-    left: 10;
-    width: 319px;
-    display: table;
-    margin: 0 auto;
-    transform: translateY(-50%);
-
+    // outline: 1px solid blue;
+    font-size: 16pt;
+    grid-area: nav;
+    align-self: end;
     a {
+        font-family: 'Delius', cursive;
         position: relative;
         width: 33.333%;
         display: table-cell;
         text-align: center;
         color: $beige;
         text-decoration: none;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-weight: bold;
         padding: 10px 20px;
         transition: 0.2s ease color;
-
-        &:hover{
-            color: $beige;
-
-            &:before, :after{
-                transform: scale(1);
+        position: relative;
+        transition: all 0.6s;
+        &:before {
+            content: "";
+            width: 0;
+            height: 0.1em;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: $beige;
+            transition: all 0.3s;
+        }
+        &:hover {
+            &:before {
+                width: 100%;
+                left: 0;
+                background: white;
             }
         }
-
-        &:before, :after{
-            content: "";
-            position: absolute;
-            border-radius: 50%;
-            transform: scale(0);
-            transition: 0.2s ease transform;
-        }
-
-        &:before{
-            top: 0;
-            left: 10px;
-            width: 6px;
-            height: 6px;
-        }
-
-        &:after {
-            top: 5px;
-            left: 18px;
-            width: 4px;
-            height: 4px
-        }
     }
 
-    #indicator {
-        position: absolute;
-        left: 5%;
-        bottom: 0;
-        width: 30px;
-        height: 3px;
-        background-color: $beige;
-        border-radius: 5px;
-        transition: 0.2s ease left;
-    }
 }
 
 nav a:nth-child(2):hover~#indicator {
-    left: 44%;
+    left: 200px;
 }
 
-nav a:nth-child(3):hover~#indicator {
-    left: 72%;
-}
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* :::::::::: HEADER ::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 header {
+    display: grid;
+    grid-template-columns: 0.4fr 1.5fr auto 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 48px;
+    grid-template-areas: "logo tagline . nav";
+    align-items: center;
+
+
+    // outline: 1px solid pink;
     text-align: left;
-    /* background-color:#012615; */
     /* outline: 1px solid purple; */
-    height: 100px;
     margin-top: 20px;
     margin-left: 20px;
+    position: relative;
+
+    // box-shadow: #0000003d 0px 48px 95px -41px;
+
 
     .logo-container {
+        // outline: 1px solid violet;
         position: relative;
         /* width: 150px; */
         /* outline: 1px solid rebeccapurple; */
         width: fit-content;
-    
+        grid-area: logo;
+    }
+    .header-tagline{
+        // outline: 1px solid cyan;
+        color:white;
+        font-family: 'Delius', cursive;
+        font-size: 30pt;
+        display: inline-block;
+        grid-area: tagline;
     }
 }
 
@@ -147,7 +157,7 @@ header {
         /* min-height: 600px; */
         //max-width: 1125px;
         padding: 80px 0;
-        margin: auto;
+        margin: 100px auto 0;
         /* outline: 1px solid green; */
         display: inline-flex;
         /* line-height: 430px; */
@@ -250,6 +260,7 @@ footer{
     .footer-title{
         display: block;
         font-size: xx-large;
+        font-family: 'Delius', cursive;
     }
 
     .about-container{
@@ -283,6 +294,10 @@ footer{
             // display: inline-flex;
             // outline: 1px dashed pink;
             padding-top: 15px;
+
+            .team-title{
+                font-family: 'Delius', cursive;
+            }
         }
     }
     
@@ -290,6 +305,12 @@ footer{
 
 
 .project-container{
+
+    .footer-logo{
+        width: 400px;
+        margin-bottom: 30px
+    }
+
     .project-description{
         padding-right: 30px;
         text-align: justify;
@@ -298,11 +319,15 @@ footer{
 }
 
 .team-container {
+    // outline: 1px solid green;
 
     .team-members{
         display: inline-flex;
+        
 
         .team-member {
+            height: 300px;
+            position: relative;
             margin: 0 15px;
             // color: #501B1D;
             width: 205px;
@@ -314,13 +339,24 @@ footer{
             box-sizing: border-box;
             border-radius: 10px;
             border-top-left-radius: 35px;
+
+            &.thi{
+                background-color: $thi-color-2
+            }
+            &.leo{
+                background-color: $leo-color-2
+            }
+            &.edu{
+                background-color: $edu-color-2
+            }
             
             .description{
                 display: block;
                 text-align: center;
-                margin-top: 10px;
+                // margin-top: 10px;
                 font-size: 90%;
-                padding: 15px;
+                padding: 0 15px 15px;
+                
             }
 
             a{
@@ -349,26 +385,30 @@ footer{
                     background-image: url("../img/edu.jpeg");
                     background-position: 40% -8%;
                     background-size: 95px;                
-                    border-color: #7b363f;
+                    border-color: $edu-color-1;
                 }
                 
                 &#leo-picture {
                     background-image: url("../img/leo.jpeg");
                     background-position: 38% 39%;
                     background-size: 120px;
-                    border-color: #eaf0fa;
+                    border-color: $leo-color-1;
                 }
         
                 &#thibo-picture {
                     background-image: url("../img/thi.jpeg");
                     background-position: 50% 59%;
                     background-size: 120px;
-                    border-color: #244b7d;
+                    border-color: $thi-color-1;
                 }
             }
         }
 
         .team-member-links{
+            position: absolute;
+            bottom: 6px;
+            left: 63px;
+            bottom: 0;
             display: flex;
             justify-content: center;
             margin-top: 10px;
@@ -405,7 +445,22 @@ footer{
     
 }
 
+.credits-container{
+    margin-top: 30px;;
+    // outline:1px solid blue;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
 
+    #idmc-footer-logo{
+        width: 215px;
+    }
+
+    #ul-footer-logo{
+        width: 80px;
+        // display: inline-block;
+    }
+}
 /* Deltas */
 
 .delta-insert{
