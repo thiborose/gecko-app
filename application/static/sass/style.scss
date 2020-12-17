@@ -2,6 +2,8 @@
 
 /* fonts */
 @import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap');
+
+
 /* Built in tags */
 
 html {
@@ -52,16 +54,10 @@ body {
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 nav {
+    // outline: 1px solid blue;
     font-size: 16pt;
-    position: absolute;
-    top: 10%;
-    right: 0;
-    left: 10;
-    width: 319px;
-    display: table;
-    margin: 0 auto;
-    transform: translateY(-50%);
-
+    grid-area: nav;
+    align-self: end;
     a {
         position: relative;
         width: 33.333%;
@@ -81,40 +77,8 @@ nav {
                 transform: scale(1);
             }
         }
-
-        &:before, :after{
-            content: "";
-            position: absolute;
-            border-radius: 50%;
-            transform: scale(0);
-            transition: 0.2s ease transform;
-        }
-
-        &:before{
-            top: 0;
-            left: 10px;
-            width: 6px;
-            height: 6px;
-        }
-
-        &:after {
-            top: 5px;
-            left: 18px;
-            width: 4px;
-            height: 4px
-        }
     }
 
-    #indicator {
-        position: absolute;
-        left: 5%;
-        bottom: 0;
-        width: 30px;
-        height: 3px;
-        background-color: $beige;
-        border-radius: 5px;
-        transition: 0.2s ease left;
-    }
 }
 
 nav a:nth-child(2):hover~#indicator {
@@ -127,19 +91,38 @@ nav a:nth-child(2):hover~#indicator {
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 header {
+    display: grid;
+    grid-template-columns: 0.4fr 1.5fr auto 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 48px;
+    grid-template-areas: "logo tagline . nav";
+    align-items: center;
+
+
+    // outline: 1px solid pink;
     text-align: left;
-    /* background-color:#012615; */
     /* outline: 1px solid purple; */
-    height: 100px;
     margin-top: 20px;
     margin-left: 20px;
+    position: relative;
+
+    box-shadow: #0000003d 0px 48px 95px -41px;
+
 
     .logo-container {
+        // outline: 1px solid violet;
         position: relative;
         /* width: 150px; */
         /* outline: 1px solid rebeccapurple; */
         width: fit-content;
-    
+        grid-area: logo;
+    }
+    .header-tagline{
+        // outline: 1px solid cyan;
+        color:white;
+        font-size: 30pt;
+        display: inline-block;
+        grid-area: tagline;
     }
 }
 
