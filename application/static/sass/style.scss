@@ -61,13 +61,13 @@ nav {
     grid-area: nav;
     align-self: end;
     a {
+        font-family: 'Delius', cursive;
         position: relative;
         width: 33.333%;
         display: table-cell;
         text-align: center;
         color: $beige;
         text-decoration: none;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-weight: bold;
         padding: 10px 20px;
         transition: 0.2s ease color;
@@ -260,6 +260,7 @@ footer{
     .footer-title{
         display: block;
         font-size: xx-large;
+        font-family: 'Delius', cursive;
     }
 
     .about-container{
@@ -293,6 +294,10 @@ footer{
             // display: inline-flex;
             // outline: 1px dashed pink;
             padding-top: 15px;
+
+            .team-title{
+                font-family: 'Delius', cursive;
+            }
         }
     }
     
