@@ -1,5 +1,7 @@
 /* fonts */
 @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Delius&display=swap");
 /* Built in tags */
 html {
   width: auto;
@@ -82,8 +84,7 @@ header {
   /* outline: 1px solid purple; */
   margin-top: 20px;
   margin-left: 20px;
-  position: relative;
-  box-shadow: #0000003d 0px 48px 95px -41px; }
+  position: relative; }
   header .logo-container {
     position: relative;
     /* width: 150px; */
@@ -92,6 +93,7 @@ header {
     grid-area: logo; }
   header .header-tagline {
     color: white;
+    font-family: 'Delius', cursive;
     font-size: 30pt;
     display: inline-block;
     grid-area: tagline; }
