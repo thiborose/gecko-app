@@ -1,17 +1,12 @@
-var animateButton = function(e) {
-
-    e.preventDefault;
+export var animateButton = function() {
+    let e = $("#arrow-button");
     //reset animation
-    e.target.classList.remove('animate');
+    e.removeClass( "animate" );
     
-    e.target.classList.add('animate');
+    e.addClass('animate');
     setTimeout(function(){
-      e.target.classList.remove('animate');
-    },700);
+        e.removeClass( "animate" );
+    },1000);
   };
   
-  var bubblyButtons = document.getElementsByClassName("bubbly-button");
   
-  for (var i = 0; i < bubblyButtons.length; i++) {
-    bubblyButtons[i].addEventListener('click', animateButton, false);
-  }
