@@ -1,4 +1,9 @@
 $("#arrow-button").click(function(){
+    predict()
+});
+
+export function predict(){
+    console.log("Predict function triggered");
     // Inserting predicted text in the right box
     var text = $("#text-box-input").text();
     
@@ -26,7 +31,4 @@ $("#arrow-button").click(function(){
         $("#text-box-output").html("Loading...");
 
     }
-
-    
-    
-});
+}
