@@ -123,6 +123,7 @@ header {
     .transparent-container .textboxes-container .arrow-button {
       /* position: absolute; */
       /* top:50px; */
+      position: relative;
       font-family: "Verdana", sans-serif;
       text-transform: uppercase;
       background: white;
@@ -139,10 +140,62 @@ header {
       border-radius: 100%;
       align-self: center;
       z-index: 20;
-      transition: background 0.4s ease-in-out, color 0.2s ease-in-out; }
-      .transparent-container .textboxes-container .arrow-button:hover, .transparent-container .textboxes-container .arrow-button :active, .transparent-container .textboxes-container .arrow-button :focus {
-        color: #501B1D;
-        transition: background 0.4s ease-in-out, color 0.2s ease-in-out; }
+      transition: background 0.4s ease-in-out, color 0.2s ease-in-out;
+      /* 
+            &:hover, :active, :focus{
+                color: #501B1D;
+                transition: background 0.4s ease-in-out, color 0.2s ease-in-out;
+            } */
+      transition: transform ease-in 0.01s; }
+      .transparent-container .textboxes-container .arrow-button:focus {
+        outline: 0; }
+      .transparent-container .textboxes-container .arrow-button:before, .transparent-container .textboxes-container .arrow-button:after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 140%;
+        height: 100%;
+        left: -20%;
+        z-index: -1000;
+        transition: all ease-in-out 1s;
+        background-repeat: no-repeat; }
+      .transparent-container .textboxes-container .arrow-button:before {
+        display: none;
+        top: -75%;
+        background-image: radial-gradient(circle, #ffffff 20%, transparent 20%), radial-gradient(circle, transparent 20%, #1492cc 20%, transparent 30%), radial-gradient(circle, #e135ff 20%, transparent 20%), radial-gradient(circle, #1492cc 20%, transparent 20%), radial-gradient(circle, transparent 10%, #440000 15%, transparent 20%), radial-gradient(circle, #41ff2f 20%, transparent 20%), radial-gradient(circle, #fdba82 20%, transparent 20%), radial-gradient(circle, #440000 20%, transparent 20%), radial-gradient(circle, #e62020 20%, transparent 20%);
+        background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%; }
+      .transparent-container .textboxes-container .arrow-button:after {
+        display: none;
+        bottom: -75%;
+        background-image: radial-gradient(circle, #ffffff 20%, transparent 20%), radial-gradient(circle, #e135ff 20%, transparent 20%), radial-gradient(circle, transparent 10%, #e62020 15%, transparent 20%), radial-gradient(circle, #1492cc 20%, transparent 20%), radial-gradient(circle, #41ff2f 20%, transparent 20%), radial-gradient(circle, #fdba82 20%, transparent 20%), radial-gradient(circle, #440000 20%, transparent 20%);
+        background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%; }
+      .transparent-container .textboxes-container .arrow-button:active {
+        transform: scale(0.9);
+        color: #3a1113; }
+      .transparent-container .textboxes-container .arrow-button.animate:before {
+        display: block;
+        animation: topBubbles ease-in-out 1s forwards; }
+      .transparent-container .textboxes-container .arrow-button.animate:after {
+        display: block;
+        animation: bottomBubbles ease-in-out 1s forwards; }
+
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%; }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%; }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%; } }
+
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%; }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%; }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+    background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%; } }
     .transparent-container .textboxes-container .text-box {
       /* outline: 1px solid red; */
       font-family: 'Open Sans', sans-serif;
