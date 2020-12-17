@@ -1,5 +1,7 @@
 /* fonts */
 @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Delius&display=swap");
 /* Built in tags */
 html {
   width: auto;
@@ -13,87 +15,88 @@ body {
   /* background: radial-gradient(ellipse at center,#126819 0,#0a3a16 100%); */
   background: #0F2027;
   /* fallback for old browsers */
-  background: linear-gradient(135deg, #2E1114 0%, #501B1D 100%);
   /* background: linear-gradient(135deg, #305EE6 0%,#47F5BC 100%); */
   /* background: linear-gradient(to top, #003b1e, #11351d, #0F2027); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-repeat: no-repeat;
   background-attachment: fixed;
-  text-align: center; }
+  text-align: center;
+  background: linear-gradient(to bottom right, #2E1114, #3a1113, #331518, #361114, #311518, #2c0e11);
+  background-repeat: no-repeat;
+  background-size: 1000% 1000%;
+  animation: gradient 240s ease infinite; }
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%; }
+  50% {
+    background-position: 100% 100%; }
+  100% {
+    background-position: 0% 0%; } }
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* :::::::::: NAV BAR :::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 nav {
-  position: absolute;
-  top: 10%;
-  right: 0;
-  left: 10;
-  width: 319px;
-  display: table;
-  margin: 0 auto;
-  transform: translateY(-50%); }
+  font-size: 16pt;
+  grid-area: nav;
+  align-self: end; }
   nav a {
+    font-family: 'Delius', cursive;
     position: relative;
     width: 33.333%;
     display: table-cell;
     text-align: center;
     color: #efe8dc;
     text-decoration: none;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     padding: 10px 20px;
-    transition: 0.2s ease color; }
-    nav a:hover {
-      color: #efe8dc; }
-      nav a:hover:before, nav a:hover :after {
-        transform: scale(1); }
-    nav a:before, nav a :after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      transform: scale(0);
-      transition: 0.2s ease transform; }
+    transition: 0.2s ease color;
+    position: relative;
+    transition: all 0.6s; }
     nav a:before {
-      top: 0;
-      left: 10px;
-      width: 6px;
-      height: 6px; }
-    nav a:after {
-      top: 5px;
-      left: 18px;
-      width: 4px;
-      height: 4px; }
-  nav #indicator {
-    position: absolute;
-    left: 5%;
-    bottom: 0;
-    width: 30px;
-    height: 3px;
-    background-color: #efe8dc;
-    border-radius: 5px;
-    transition: 0.2s ease left; }
+      content: "";
+      width: 0;
+      height: 0.1em;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: #efe8dc;
+      transition: all 0.3s; }
+    nav a:hover:before {
+      width: 100%;
+      left: 0;
+      background: white; }
 
 nav a:nth-child(2):hover ~ #indicator {
-  left: 44%; }
-
-nav a:nth-child(3):hover ~ #indicator {
-  left: 72%; }
+  left: 200px; }
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* :::::::::: HEADER ::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 header {
+  display: grid;
+  grid-template-columns: 0.4fr 1.5fr auto 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 48px;
+  grid-template-areas: "logo tagline . nav";
+  align-items: center;
   text-align: left;
-  /* background-color:#012615; */
   /* outline: 1px solid purple; */
-  height: 100px;
   margin-top: 20px;
-  margin-left: 20px; }
+  margin-left: 20px;
+  position: relative; }
   header .logo-container {
     position: relative;
     /* width: 150px; */
     /* outline: 1px solid rebeccapurple; */
-    width: fit-content; }
+    width: fit-content;
+    grid-area: logo; }
+  header .header-tagline {
+    color: white;
+    font-family: 'Delius', cursive;
+    font-size: 30pt;
+    display: inline-block;
+    grid-area: tagline; }
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* ::::::::::: MAIN :::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
@@ -104,7 +107,7 @@ header {
   .transparent-container .textboxes-container {
     /* min-height: 600px; */
     padding: 80px 0;
-    margin: auto;
+    margin: 100px auto 0;
     /* outline: 1px solid green; */
     display: inline-flex;
     /* line-height: 430px; */ }
@@ -176,7 +179,8 @@ footer {
   font-family: 'Open Sans', sans-serif; }
   footer .footer-title {
     display: block;
-    font-size: xx-large; }
+    font-size: xx-large;
+    font-family: 'Delius', cursive; }
   footer .about-container {
     display: flex;
     flex-wrap: wrap;
@@ -199,6 +203,12 @@ footer {
             border-bottom: 1px #e9e9e9 solid; */
       position: relative;
       padding-top: 15px; }
+      footer .about-container .team-container .team-title {
+        font-family: 'Delius', cursive; }
+
+.project-container .footer-logo {
+  width: 400px;
+  margin-bottom: 30px; }
 
 .project-container .project-description {
   padding-right: 30px;
@@ -208,6 +218,8 @@ footer {
 .team-container .team-members {
   display: inline-flex; }
   .team-container .team-members .team-member {
+    height: 300px;
+    position: relative;
     margin: 0 15px;
     width: 205px;
     flex-wrap: wrap;
@@ -215,12 +227,17 @@ footer {
     box-sizing: border-box;
     border-radius: 10px;
     border-top-left-radius: 35px; }
+    .team-container .team-members .team-member.thi {
+      background-color: #1c4d8d4d; }
+    .team-container .team-members .team-member.leo {
+      background-color: #eaf0fa3b; }
+    .team-container .team-members .team-member.edu {
+      background-color: #7b363f3b; }
     .team-container .team-members .team-member .description {
       display: block;
       text-align: center;
-      margin-top: 10px;
       font-size: 90%;
-      padding: 15px; }
+      padding: 0 15px 15px; }
     .team-container .team-members .team-member a {
       color: white; }
   .team-container .team-members .team-member-id {
@@ -252,6 +269,10 @@ footer {
         background-size: 120px;
         border-color: #244b7d; }
   .team-container .team-members .team-member-links {
+    position: absolute;
+    bottom: 6px;
+    left: 63px;
+    bottom: 0;
     display: flex;
     justify-content: center;
     margin-top: 10px; }
@@ -271,6 +292,16 @@ footer {
         background-image: url("../img/gmail-logo_w.png");
         background-size: 20px;
         background-repeat: no-repeat; }
+
+.credits-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; }
+  .credits-container #idmc-footer-logo {
+    width: 215px; }
+  .credits-container #ul-footer-logo {
+    width: 80px; }
 
 /* Deltas */
 .delta-insert {
