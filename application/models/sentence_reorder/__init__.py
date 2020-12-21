@@ -8,6 +8,7 @@ def create_name():
     """
     index = 0
     results_dir = './application/models/sentence_reorder/paragraph/'
+    os.makedirs(results_dir, exist_ok=True) 
     dir_content = os.listdir(results_dir)
     if len(dir_content) > 0:
         index_list = []
