@@ -142,6 +142,7 @@ application/static/css/style.scss.css.map
 
 # useless to track changes
 application/models/sentence_reorder/paragraph/
+!application/models/sentence_reorder/paragraph/a.keep
 
 # too heavy
 application/models/gector/data/model_files/
