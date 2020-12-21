@@ -224,8 +224,8 @@ def readf(filename):
             data.append(row)
     return data      
 
-def get_order():
-    file_path = 'application/models/sentence_reorder/paragraph/test_results.tsv'
+def get_order(filename):
+    file_path = f'application/models/sentence_reorder/paragraph/{filename}_results.tsv'
     ## Required parameters
 
     data = readf(file_path)

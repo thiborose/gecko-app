@@ -114,7 +114,7 @@ class MyTestDataset(Dataset):
     def __getitem__(self, idx):
         return (self.tensor_data[idx], self.rows[idx])
     
-def evaluate_test(model, tokenizer, prefix=""):
+def evaluate_test(model, tokenizer, filename, prefix=""):
     
     if local_rank not in [-1, 0] and not evaluate:
         torch.distributed.barrier()  # Make sure only the first process in distributed training process the dataset, and the others will use the cache
@@ -122,7 +122,8 @@ def evaluate_test(model, tokenizer, prefix=""):
     processor = PairProcessor()
     output_mode = "classification"
     
-    cached_features_file = os.path.join(data_dir, 'cached_{}_{}_{}_{}'.format(
+    cached_features_file = os.path.join(data_dir, '{}_cached_{}_{}_{}_{}'.format(
+        filename,
         'test',
         'bert',
         str(max_seq_length),
@@ -136,7 +137,7 @@ def evaluate_test(model, tokenizer, prefix=""):
         logger.info("Creating features from dataset file at %s", data_dir)
         label_list = processor.get_labels()
 
-        examples, lines = processor.get_test_examples(data_dir)
+        examples, lines = processor.get_test_examples(data_dir, filename)
         features = convert_examples_to_features(
             examples,
             tokenizer,
@@ -175,7 +176,7 @@ def evaluate_test(model, tokenizer, prefix=""):
 
     
     eval_outputs_dirs = (output_dir,)
-    file_h = codecs.open(data_dir + "test_results.tsv", "w", "utf-8")
+    file_h = codecs.open(data_dir + f"{filename}_results.tsv", "w", "utf-8")
     outF = csv.writer(file_h, delimiter='\t')
 
     results = {}
@@ -258,7 +259,7 @@ def evaluate_test(model, tokenizer, prefix=""):
 
     return results
 
-def evaluate(model, tokenizer, prefix=""):
+def evaluate(model, tokenizer, filename,  prefix=""):
     # Loop to handle MNLI double evaluation (matched, mis-matched)
     
     eval_outputs_dirs = (output_dir,)
@@ -321,7 +322,7 @@ def evaluate(model, tokenizer, prefix=""):
     return results
 
 
-def load_and_cache_examples(tokenizer, evaluate=False):
+def load_and_cache_examples(tokenizer,filename, evaluate=False):
     if local_rank not in [-1, 0] and not evaluate:
         torch.distributed.barrier()  
 
@@ -329,7 +330,8 @@ def load_and_cache_examples(tokenizer, evaluate=False):
     output_mode = 'classification'
     
     cached_features_file = os.path.join(
-        data_dir, 'cached_{}_{}_{}_{}'.format(
+        data_dir, '{}_cached_{}_{}_{}_{}'.format(
+        filename,
         'dev' if evaluate else 'train',
         'bert',
         str(max_seq_length),
@@ -390,9 +392,9 @@ class PairProcessor(DataProcessor):
         return self._create_examples(
             self._read_tsv(os.path.join(data_dir, "dev.tsv")), "dev")
     
-    def get_test_examples(self, data_dir):
+    def get_test_examples(self, data_dir, filename):
         return self._create_test_examples(
-            self._read_tsv(os.path.join(data_dir, "test.tsv")), "test")
+            self._read_tsv(os.path.join(data_dir, filename)), "test")
     
     def get_labels(self):
         """See base class."""
@@ -493,9 +495,9 @@ def load_model():
     model.to(device)
 
 
-def compute_probabilities():
+def compute_probabilities(filename):
     global model_class
-    clean_cache()
+    # clean_cache()
     # Evaluation
     results = {}
     if (do_eval or do_test) and local_rank in [-1, 0]:
@@ -509,7 +511,7 @@ def compute_probabilities():
             model = model_class.from_pretrained(checkpoint)
             model.to(device)
             if do_test:
-                result = evaluate_test(model, tokenizer, prefix=global_step)
+                result = evaluate_test(model, tokenizer,filename = filename,  prefix=global_step)
             elif do_eval:
                 result = evaluate(model, tokenizer, prefix=global_step)
             result = dict((k + '_{}'.format(global_step), v) for k, v in result.items())
@@ -517,6 +519,6 @@ def compute_probabilities():
 
     return results
 
-def clean_cache():
-    os.system('rm application/models/sentence_reorder/paragraph/cached_test_bert_105_pair_order')
-    os.system('rm application/models/sentence_reorder/paragraph/cached_test_bert_105_pair_order_lines')
+# def clean_cache():
+#     os.system('rm application/models/sentence_reorder/paragraph/cached_test_bert_105_pair_order')
+#     os.system('rm application/models/sentence_reorder/paragraph/cached_test_bert_105_pair_order_lines')
