@@ -17,8 +17,9 @@ def create_name():
             if len(match) > 0:
                 num = match[0]
                 index_list.append(int(num))            
-        max_index = max(index_list)
-        index = max_index + 1
+        if len(index_list)>0:
+            max_index = max(index_list)
+            index = max_index + 1
     name = f"{index}_test.tsv"
     return name 
 
