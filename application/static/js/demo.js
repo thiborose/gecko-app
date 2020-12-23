@@ -30,15 +30,15 @@ let availableExamples = shuffle(demoSentences);
 
 
 function launch_demo(){
-    demoSentence = availableExamples.pop();
+    let demoSentence = availableExamples.pop();
     availableExamples.unshift(demoSentence);
-    $('#text-box-input').html("");
-    $('#text-box-input').focus();
-    typewrite("text-box-input", demoSentence, speed=300, loop=false);
-    $('#text-box-input').focus();
+    let speed = 40;
+    $('#text-box-input').html("").blur();
+    typewrite("text-box-input", demoSentence, false, speed);
+    let wait = speed*demoSentence.length+500;
     setTimeout(() => {
-        predict()
-    }, 500);
+      predict()
+    }, wait);
 
     return;
 }
