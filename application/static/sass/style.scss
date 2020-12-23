@@ -18,34 +18,8 @@ html {
 body {
     height: 100vh;
     margin: 0;
-    /* background-color: #000D06; */
-    /* background: radial-gradient(ellipse at center,#126819 0,#0a3a16 100%); */
-
-    background: #0F2027;
-    /* fallback for old browsers */
-    // background: linear-gradient(135deg, #2E1114 0%, #501B1D 100%);
-    /* background: linear-gradient(135deg, #305EE6 0%,#47F5BC 100%); */
-    /* background: linear-gradient(to top, #003b1e, #11351d, #0F2027); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    text-align: center;
-
-    background: linear-gradient(
-    to bottom right,  
-    $bg-1, $bg-2, 
-    $bg-3, $bg-4, 
-    $bg-5, $bg-6);
-    background-repeat: no-repeat;
-    background-size: 1000% 1000%;
-    animation: gradient 240s ease infinite;
-
-    @keyframes gradient { 
-        0%{background-position:0% 0%}
-        50%{background-position:100% 100%}
-        100%{background-position:0% 0%}
-      }
-
+    background-color: #000D06;
+    background: radial-gradient(ellipse at center,#126819 0,#0a3a16 100%);
 }
 
 
