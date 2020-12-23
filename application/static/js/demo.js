@@ -1,4 +1,4 @@
-import predict from "./predict";
+import {predict} from './predict.js';
 
 
 let demoSentences = [
@@ -66,12 +66,16 @@ function typewrite (target, text, loop, speed) {
 // 17: ctrl, 68: D
 var down = {17:false, 68:false};
 
-$("document").keydown(function(e) {
-    down[e.keyCode] = true;
-}).keyup(function(e) {
-    if (down[17] && down[68]) {
+$(document).keydown(function(e) {
+  if (e.keyCode in down) {
+      down[e.keyCode] = true;
+      if (down[17] && down[68]) {
         e.preventDefault();
         launch_demo();
-    }
-    down[e.keyCode] = false;
-});​
+      }
+  }
+}).keyup(function(e) {
+  if (e.keyCode in down) {
+      down[e.keyCode] = false;
+  }
+});
