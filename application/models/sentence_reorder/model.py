@@ -508,8 +508,8 @@ def compute_probabilities(filename):
         logger.info("Evaluate the following checkpoints: %s", checkpoints)
         for checkpoint in checkpoints:
             global_step = checkpoint.split('-')[-1] if len(checkpoints) > 1 else ""
-            model = model_class.from_pretrained(checkpoint)
-            model.to(device)
+            # model = model_class.from_pretrained(checkpoint)
+            # model.to(device)
             if do_test:
                 result = evaluate_test(model, tokenizer,filename = filename,  prefix=global_step)
             elif do_eval:
