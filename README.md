@@ -5,6 +5,7 @@
 GECko+ is a language assisting tool that will correct mistakes of various types on written texts. 
 While many well settled softwares of its kind correct mistakes at the grammatical level (orthography and syntax), our novel approach allow the tool perform corrections both at **grammatical** and  **discourse** level.
 <!--- add demo link when live -->
+![demo](/application/static/img/demo.png?raw=true) 
 
 ### Use cases examples
 
@@ -23,5 +24,5 @@ The project was tested using Python 3.7.
 To launch the web app, run `run.py`
 
 ## Acknowledgments
-- Kostiantyn Omelianchuk and Vitaliy Atrasevych and Artem Chernodub and Oleksandr Skurzhanskyi "GECToR -- Grammatical Error Correction: Tag, Not Rewrite". In Proceedings of the Fifteenth Workshop on Innovative Use of NLP for Building Educational Applications. [arXiv](https://arxiv.org/abs/2005.12592)
-- Prabhumoye, Shrimai, Ruslan Salakhutdinov, and Alan W. Black. "Topological Sort for Sentence Ordering." In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics. [arXiv](https://arxiv.org/abs/2005.00432)
+- Kostiantyn Omelianchuk, Vitaliy Atrasevych, Artem Chernodub and Oleksandr Skurzhanskyi **"GECToR -- Grammatical Error Correction: Tag, Not Rewrite"**. In Proceedings of the Fifteenth Workshop on Innovative Use of NLP for Building Educational Applications. [[arXiv]](https://arxiv.org/abs/2005.12592)
+- Prabhumoye, Shrimai, Ruslan Salakhutdinov, and Alan W. Black. **"Topological Sort for Sentence Ordering."** In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics. [[arXiv]](https://arxiv.org/abs/2005.00432)
