@@ -519,6 +519,5 @@ def compute_probabilities(filename):
 
     return results
 
-# def clean_cache():
-#     os.system('rm application/models/sentence_reorder/paragraph/cached_test_bert_105_pair_order')
-#     os.system('rm application/models/sentence_reorder/paragraph/cached_test_bert_105_pair_order_lines')
+def clean_cache():
+    os.system('rm application/models/sentence_reorder/paragraph/*')
