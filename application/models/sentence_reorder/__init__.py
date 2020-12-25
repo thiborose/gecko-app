@@ -38,7 +38,7 @@ def get_order(sentences:list)->list:
     fill_tsv.prepare_data(sentences, filename=filename)
     model.compute_probabilities(filename=filename)
     order = topological_sort.get_order(filename=filename) #list of indexes
-    model.clean_cache()
+    model.clean_cache(filename)
     return order
     
 

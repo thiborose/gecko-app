@@ -44,6 +44,8 @@ from transformers import glue_processors as processors
 from transformers import glue_convert_examples_to_features as convert_examples_to_features
 from transformers import DataProcessor, InputExample, InputFeatures
 
+from re import search
+
 logger = logging.getLogger(__name__)
 
 #ALL_MODELS = sum((tuple(
@@ -497,7 +499,6 @@ def load_model():
 
 def compute_probabilities(filename):
     global model_class
-    # clean_cache()
     # Evaluation
     results = {}
     if (do_eval or do_test) and local_rank in [-1, 0]:
@@ -516,8 +517,13 @@ def compute_probabilities(filename):
                 result = evaluate(model, tokenizer, prefix=global_step)
             result = dict((k + '_{}'.format(global_step), v) for k, v in result.items())
             results.update(result)
-
     return results
 
-def clean_cache():
-    os.system('rm application/models/sentence_reorder/paragraph/*')
+def clean_cache(filename):
+    index = filename.split("_")[0]
+    path = "./application/models/sentence_reorder/paragraph/"
+    paragraph_folder = os.listdir(path)
+    to_rm = filter(lambda x: search(r"{}_\w".format(index), x), paragraph_folder)
+    for rm in to_rm:
+        os.remove(path+rm)
+    print("files removed")
