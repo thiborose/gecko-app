@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>GECko - Gobbles up your mistakes</title>
+    <title>GECko+ - Gobbles up your mistakes</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> -->
@@ -54,7 +54,9 @@
     <div class="transparent-container">
 
         <div id="tutorial-line">
-            GECko+ corrects grammatical and discourse mistakes in your texts!
+            GECko+ is a writing assistant tool for English.
+            It corrects spelling, grammatical, and discourse mistakes in your texts.<br>
+            Click on the demo button below or press CTRL+D to check out what it can do!
             <div id=demo-button>
                 <p>DEMO</p>
                 <img src="../static/svg/play.svg" alt="play button" id=demo-logo>
@@ -81,15 +83,22 @@
             {% block team %}{% endblock %}
 
             <div class="project-container">
-                <!-- <h1><a name="about">The project</a></h1> -->
-                <img src="../static/img/gecko_tagline.png" alt="Logo and tagline of gecko" class="footer-logo">
+
+                <div class="project-title">
+                    <h1>The project</h1>
+                </div>
+
+                <!-- <img src="../static/img/gecko_tagline.png" alt="Logo and tagline of gecko" class="footer-logo"> -->
                 <div class="project-description">
-                    GECko is a Grammar Error Corrector for English. It is able to correct various spelling and grammatical mistakes.
-                    Its functioning is simple and quick: just try to type an English sentence (with some mistakes, of course!) on the left box.
-                    Our GECko, which is always hungry, will wake up and gobble up all the mistakes you have made!<br>
-                    <br>GECko is built on top of <a href="https://github.com/grammarly/gector" style="color:beige">GECToR</a>, a Grammar Corrector model
-                    developed by the well-known <a href="https://www.grammarly.com" style="color:beige">Grammarly</a>.
-                    We have created this web-app in the framework of the Software Project for our Master of Science's second year.
+                    GECko+ is built on top of two Artificial Intelligence models.
+                    To correct spelling and grammar mistakes, we use <a href="https://github.com/grammarly/gector" style="color:beige">GECToR</a>,
+                    a Grammatical Error Corrector model developed by the well-known <a href="https://www.grammarly.com" style="color:beige">Grammarly</a>.
+                    For tackling discourse fallacies, we make use of a
+                    <a href="https://github.com/shrimai/Topological-Sort-for-Sentence-Ordering" style="color:beige">sentence ordering model</a>
+                    based on Google's <a href="https://github.com/google-research/bert" style="color:beige">BERT</a>.<br>
+
+                    <br>We have created this web-app in the framework of the Software Project for the second year of our
+                    <a href="https://idmc.univ-lorraine.fr/idmc-master-degree-in-natural-language-processing/" style="color:beige">MSc in Natural Language Processing</a> at the Université de Lorraine.
                     The source code is available on <a href="https://github.com/psawa/gecko-app" style="color:beige">GitHub</a>.
                 </div>
             </div>

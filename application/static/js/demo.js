@@ -4,7 +4,8 @@ import {predict} from './predict.js';
 let demoSentences = [
     "I luv apples ! ",
     "The weather was so nice! Yesterday I went to beach.", 
-    "This chemical is widly used in the swimming pools market. Chlorine is well known for its sanatizing properties."
+    "This chemical is widly used in the swimming pools market. Chlorine is well known for its sanatizing properties.",
+    "Secondy, prepare the pan using oil and butter. Then, put onions and carrots together with salt an pepper, inside the pan. Lastly, let them cooked for 15 minutes, and remove off the food fom the pan. First of all, cut some onions and carrots."
 ];
 
 function shuffle(array) {
