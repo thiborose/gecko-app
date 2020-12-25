@@ -496,6 +496,12 @@ def load_model():
 
     model.to(device)
 
+    checkpoints = [output_dir]
+
+    for checkpoint in checkpoints:
+        model = model_class.from_pretrained(checkpoint)
+        model.to(device)
+
 
 def compute_probabilities(filename):
     global model_class
