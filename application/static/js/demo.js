@@ -103,3 +103,12 @@ document.getElementById("text-box-input").addEventListener("input", function() {
     demoIsVisible = true;
   }
 }, false);
+
+// On paste remove demo area
+
+$("#text-box'input").on("paste",function(){
+  if(demoIsVisible){
+    $("#tutorial-line").animate({ opacity: 0 }, 1000);
+    demoIsVisible = false;
+  }
+});
