@@ -1,12 +1,12 @@
 export var animateButton = function() {
     let e = $("#arrow-button");
     //reset animation
-    e.removeClass( "animate" );
+    e.removeClass( "is-clicked" );
     
-    e.addClass('animate');
+    e.addClass('is-clicked');
     setTimeout(function(){
-        e.removeClass( "animate" );
-    },1000);
+        e.removeClass( "is-clicked" );
+    },700);
   };
   
   
