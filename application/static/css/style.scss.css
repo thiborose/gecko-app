@@ -22,16 +22,7 @@ body {
   text-align: center;
   background: linear-gradient(to bottom right, #2E1114, #3a1113, #331518, #361114, #311518, #2c0e11);
   background-repeat: no-repeat;
-  background-size: 1000% 1000%;
-  animation: gradient 240s ease infinite; }
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 0%; }
-  50% {
-    background-position: 100% 100%; }
-  100% {
-    background-position: 0% 0%; } }
+  background-size: 1000% 1000%; }
 
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* :::::::::: NAV BAR :::::::::::::::::::::::::::::::::::::::::::::::::::::: */
