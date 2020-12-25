@@ -93,12 +93,13 @@ header {
 /* ::::::::::: MAIN :::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 .transparent-container {
+  padding-top: 100px;
   min-height: calc(min(80vh,700px));
   background-color: transparent; }
   .transparent-container .textboxes-container {
     /* min-height: 600px; */
     padding: 80px 0;
-    margin: 100px auto 0;
+    margin: 0 auto;
     /* outline: 1px solid green; */
     display: inline-flex;
     /* line-height: 430px; */ }
@@ -360,5 +361,30 @@ footer {
 
 .delta-input-delete {
   border-bottom: red 2px solid; }
+
+#tutorial-line {
+  color: #efe8dc;
+  font-family: 'Delius', cursive;
+  font-size: 1em; }
+  #tutorial-line #demo-button {
+    width: 130px;
+    background-color: #00000050;
+    border-radius: 14px;
+    padding: 0 3px;
+    margin: 20px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    #tutorial-line #demo-button p {
+      font-size: 24px;
+      padding-right: 15px;
+      margin: 8px 0; }
+    #tutorial-line #demo-button #demo-logo {
+      height: 26px;
+      width: 26px; }
+    #tutorial-line #demo-button:hover {
+      cursor: pointer; }
+      #tutorial-line #demo-button:hover #demo-logo {
+        fill: #efe8dc; }
 
 /*# sourceMappingURL=style.scss.css.map */
