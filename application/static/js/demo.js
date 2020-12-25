@@ -30,17 +30,21 @@ let availableExamples = shuffle(demoSentences);
 
 
 function launch_demo(){
-    let demoSentence = availableExamples.pop();
-    availableExamples.unshift(demoSentence);
-    let speed = 40;
-    $('#text-box-input').html("").blur();
-    typewrite("text-box-input", demoSentence, false, speed);
-    let wait = speed*demoSentence.length+500;
-    setTimeout(() => {
-      predict()
-    }, wait);
+  if (demoIsVisible){
+    $("#tutorial-line").animate({ opacity: 0 }, 1000);
+    demoIsVisible = false;
+  }
+  let demoSentence = availableExamples.pop();
+  availableExamples.unshift(demoSentence);
+  let speed = 40;
+  $('#text-box-input').html("").blur();
+  typewrite("text-box-input", demoSentence, false, speed);
+  let wait = speed*demoSentence.length+500;
+  setTimeout(() => {
+    predict()
+  }, wait);
 
-    return;
+  return;
 }
 
 function typewrite (target, text, loop, speed) {
@@ -63,7 +67,10 @@ function typewrite (target, text, loop, speed) {
 }
 
 
-// 17: ctrl, 68: D
+
+// EVENT LISTENERS 
+//
+// Keybinding: 17: ctrl, 68: D
 var down = {17:false, 68:false};
 
 $(document).keydown(function(e) {
@@ -79,3 +86,20 @@ $(document).keydown(function(e) {
       down[e.keyCode] = false;
   }
 });
+
+// On click on the demo button
+$("#demo-button").on("click", launch_demo);
+
+// When something is typed, remove the demo area
+var demoIsVisible = true;
+
+document.getElementById("text-box-input").addEventListener("input", function() {
+  if(demoIsVisible && $("#text-box-input").text() !=""){
+    $("#tutorial-line").animate({ opacity: 0 }, 1000);
+    demoIsVisible = false;
+  }
+  else if($("#text-box-input").text() ==="" && !demoIsVisible){
+    $("#tutorial-line").animate({ opacity: 1 });
+    demoIsVisible = true;
+  }
+}, false);
