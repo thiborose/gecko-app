@@ -230,6 +230,13 @@ footer {
   padding-right: 30px;
   text-align: justify;
   font-size: 1.4em; }
+  .project-container .project-description a {
+    text-decoration: none;
+    color: #bd6b44;
+    transition: color ease 0.5s; }
+    .project-container .project-description a:hover {
+      color: #fda075;
+      transition: color ease 0.5s; }
 
 .team-container .team-members {
   display: inline-flex; }
