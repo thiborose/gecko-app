@@ -2,10 +2,16 @@ import {predict} from './predict.js';
 
 
 let demoSentences = [
-    "I luv apples ! ",
-    "The weather was so nice! Yesterday I went to beach.", 
-    "This chemical is widly used in the swimming pools market. Chlorine is well known for its sanatizing properties.",
-    "Secondy, prepare the pan using oil and butter. Then, put onions and carrots together with salt an pepper, inside the pan. Lastly, let them cooked for 15 minutes, and remove off the food fom the pan. First of all, cut some onions and carrots."
+  "I luv apples ! ",
+  "The weather was so nice! Yesterday I went to beach.", 
+  "This chemical is widly used in the swimming pools market. Chlorine is well known for its sanatizing properties.",
+  "Secondy, prepare the pan using oil and butter. Then, put onions and carrots together with salt an pepper, inside the pan. Lastly, let them cooked for 15 minutes, and remove off the food fom the pan. First of all, cut some onions and carrots.",
+  "Gecko is animal that gobble up mistakes",
+  "I like the apples very much. Even though i am prefer pears",
+  "Tommorrow I work.",
+  "Fool me twice, shame on me. Fool me once, shame on you.",
+  "Whoever is happy wil make other persons happy to.",
+  "The wood are lovely, dark,, and deep. And miles to go before I sleep. But I have promises to keep."
 ];
 
 function shuffle(array) {
