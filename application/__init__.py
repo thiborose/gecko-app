@@ -40,6 +40,7 @@ sentence_reoder.load_model()
 
 DELIMITER = 'SEPL|||SEPR'
 RE_HYPHENS = re.compile(r'(\w) - (\w)')
-RE_QUOTES = re.compile(r"""(["']) (.*?[^\\]) \1""")
+RE_QUOTES1 = re.compile(r"([\"']) (.*?[^\\])")
+RE_QUOTES2 = re.compile(r"(.*?[^\\]) ([\"'])")
 
 from application import routes

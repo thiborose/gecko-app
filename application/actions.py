@@ -1,4 +1,4 @@
-from application import nlp, model, DELIMITER, RE_HYPHENS, RE_QUOTES
+from application import nlp, model, DELIMITER, RE_HYPHENS, RE_QUOTES1, RE_QUOTES2
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 from application.models.gector.predict import predict_for_sentences
 from application.models.gector.utils.preprocess_data import align_sequences, convert_tagged_line
@@ -41,7 +41,8 @@ def tokenize_and_segment(input_text: str) -> 'list(str)':
 def untokenize(tokens:list) -> str:
     output_text = TreebankWordDetokenizer().detokenize(tokens)
     output_text = re.sub(RE_HYPHENS, r'\1-\2', output_text)
-    output_text = re.sub(RE_QUOTES, r'\1\2\1', output_text)
+    output_text = re.sub(RE_QUOTES1, r'\1\2', output_text)
+    output_text = re.sub(RE_QUOTES2, r'\1\2', output_text)
     return output_text
 
 def unsentencize(sentences: 'list(str)') -> str:
