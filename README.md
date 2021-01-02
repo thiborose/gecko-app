@@ -16,7 +16,7 @@ This chemical is widly used in the swimming pools market. Chlorine is well known
 Add examples... | Add examples... 
 
 ## Installation
-After cloning the repository, execute `setup.sh`. This simple script will install the requirement packages, and download the models which are too heavy for being stored on GitHub.
+After cloning the repository, execute `setup.sh`. This simple script will install the requirement packages, and download the models which are too heavy for being stored on GitHub. We strongly suggest to create a dedicated virtual envirionment beforehand.
 
 The project was tested using Python 3.7.
 
