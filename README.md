@@ -5,7 +5,7 @@
 GECko+ is an English language assisting tool that corrects mistakes of various types on written texts. 
 While many well-settled pieces of software of its kind correct mistakes at the grammatical level (orthography and syntax), our novel approach allows the tool to perform corrections both at **grammatical** and at **discourse** level.
 <!--- add demo link when live -->
-![demo](/application/static/img/demo.png?raw=true) 
+![demo](https://github.com/psawa/gecko-app/blob/master/application/static/img/demo_screen.png) 
 
 ### Use cases examples
 
