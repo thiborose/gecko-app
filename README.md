@@ -21,7 +21,7 @@ After cloning the repository, execute `setup.sh`. This simple script will instal
 The project was tested using Python 3.7.
 
 ## Usage
-To launch the web app, run `run.py`
+To launch the web app, run `run.py`.
 
 ## Acknowledgments
 Our tool implements the two following models, for tackilng, respectively, grammatical and discourse errors:
