@@ -1,7 +1,7 @@
 # GECko+
 ![logo of gecko](https://github.com/psawa/gecko-app/blob/master/application/static/img/GECko_logo_small.png)
 
-## More than a grammar error corector
+## More than a Grammatical Error Corrector
 GECko+ is an English language assisting tool that corrects mistakes of various types on written texts. 
 While many well-settled pieces of software of its kind correct mistakes at the grammatical level (orthography and syntax), our novel approach allows the tool to perform corrections both at **grammatical** and at **discourse** level.
 <!--- add demo link when live -->
@@ -24,5 +24,7 @@ The project was tested using Python 3.7.
 To launch the web app, run `run.py`
 
 ## Acknowledgments
+Our tool implements the two following models, for tackilng, respectively, grammatical and discourse errors:
+
 - Kostiantyn Omelianchuk, Vitaliy Atrasevych, Artem Chernodub and Oleksandr Skurzhanskyi **"GECToR -- Grammatical Error Correction: Tag, Not Rewrite"**. In Proceedings of the Fifteenth Workshop on Innovative Use of NLP for Building Educational Applications. [[arXiv]](https://arxiv.org/abs/2005.12592)
 - Prabhumoye, Shrimai, Ruslan Salakhutdinov, and Alan W. Black. **"Topological Sort for Sentence Ordering."** In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics. [[arXiv]](https://arxiv.org/abs/2005.00432)
