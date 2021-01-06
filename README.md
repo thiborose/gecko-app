@@ -17,13 +17,10 @@ Original text | Corrected text
 This chemical is widly used in the swimming pools market. Chlorine is well known for its sanatizing properties. | Chlorine is well known for its sanatizing properties. This chemical is widly used in the swimming pools market.
 Add examples... | Add examples... 
 
-## Installation
-After cloning the repository, execute `setup.sh`. This simple script will install the requirement packages, and download the models which are too heavy for being stored on GitHub. We strongly suggest to create a dedicated virtual envirionment beforehand.
+## Running locally and developing
+After cloning the repository, execute `setup.sh`. This simple script will install the requirement packages, and download the models which are too heavy for being stored on GitHub. The usage of a virtual environment having python 3.7 is prefered.
 
-The project was tested using Python 3.7.
-
-## Usage
-To launch the web app, run `run.py`.
+To run the web app locally, execute `run.py`. The default development url is `http://127.0.0.1:5000/`.
 
 ## Acknowledgments
 Our tool implements the two following models, for tackilng, respectively, grammatical and discourse errors:
