@@ -30,7 +30,8 @@ Our tool implements the two following models, for tackling, respectively, gramma
 
 ## Contribute
 ![https://github.com/psawa/gecko-app/issues](https://img.shields.io/github/issues/psawa/gecko-app)
-We accept contributions, whether they intend to fix an issue or to add new functionalities. 
+
+We accept contributions, whether they intend to fix an issue or to add new functionalities. Don't hesitate to submit a pull-request.
 ## License
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
