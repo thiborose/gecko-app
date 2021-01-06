@@ -18,18 +18,19 @@ This chemical is widly used in the swimming pools market. Chlorine is well known
 Add examples... | Add examples... 
 
 ## Running locally and developing
-After cloning the repository, execute `setup.sh`. This simple script will install the requirement packages, and download the models which are too heavy for being stored on GitHub. The usage of a virtual environment having python 3.7 is prefered.
+After cloning the repository, execute `setup.sh`. This simple script will install the requirement packages, and download the models which are too heavy for being stored on GitHub. The usage of a virtual environment having python 3.7 is preferred.
 
-To run the web app locally, execute `run.py`. The default development url is `http://127.0.0.1:5000/`.
+To run the web app locally, execute `run.py`. The default development URL is `http://127.0.0.1:5000/`.
 
 ## Acknowledgments
-Our tool implements the two following models, for tackilng, respectively, grammatical and discourse errors:
+Our tool implements the two following models, for tackling, respectively, grammatical and discourse errors:
 
 - Kostiantyn Omelianchuk, Vitaliy Atrasevych, Artem Chernodub and Oleksandr Skurzhanskyi **"GECToR -- Grammatical Error Correction: Tag, Not Rewrite"**. In Proceedings of the Fifteenth Workshop on Innovative Use of NLP for Building Educational Applications. [[arXiv]](https://arxiv.org/abs/2005.12592)
 - Prabhumoye, Shrimai, Ruslan Salakhutdinov, and Alan W. Black. **"Topological Sort for Sentence Ordering."** In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics. [[arXiv]](https://arxiv.org/abs/2005.00432)
 
 ## Contribute
-![GitHub issues](https://img.shields.io/github/issues/psawa/gecko-app)
-## Licence
+![https://github.com/psawa/gecko-app/issues](https://img.shields.io/github/issues/psawa/gecko-app)
+We accept contributions, whether they intend to fix an issue or to add new functionalities. 
+## License
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
