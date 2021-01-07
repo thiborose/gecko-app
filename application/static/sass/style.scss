@@ -141,15 +141,23 @@ header {
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 .transparent-container {
-    padding-top:100px;
+    padding-top:30px;
     min-height: calc(min(80vh,700px));
     background-color: transparent;
+
+    &:hover{
+        #tutorial-line{
+            color: white;
+            transition: color ease-in-out 0.5s;
+        }
+    }
 
     
     .textboxes-container {
         /* min-height: 600px; */
         //max-width: 1125px;
-        padding: 80px 0;
+        padding-top: 80px;
+        padding-bottom: 150px;
         margin: 0 auto;
         /* outline: 1px solid green; */
         display: inline-flex;
@@ -525,10 +533,11 @@ footer{
 
 
 #tutorial-line{
-    color: $beige;
+    color: $light-beige;
     font-family: 'Delius', cursive;
-    font-size: 1em;
-
+    font-size: 1.4em;
+    transition: color ease-in-out 1s;
+    
     #demo-button{
         // outline: 1px solid blue
         width: 130px;
