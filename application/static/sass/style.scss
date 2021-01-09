@@ -146,7 +146,7 @@ header {
     background-color: transparent;
 
     &:hover{
-        #tutorial-line{
+        #tutorial-container{
             color: white;
             transition: color ease-in-out 0.5s;
         }
@@ -156,8 +156,8 @@ header {
     .textboxes-container {
         /* min-height: 600px; */
         //max-width: 1125px;
-        padding-top: 80px;
-        padding-bottom: 150px;
+        padding-top:120px;
+        padding-bottom: 100px;
         margin: 0 auto;
         /* outline: 1px solid green; */
         display: inline-flex;
@@ -532,11 +532,27 @@ footer{
 
 
 
-#tutorial-line{
+#tutorial-container{
     color: $light-beige;
     font-family: 'Delius', cursive;
     font-size: 1.4em;
     transition: color ease-in-out 1s;
+    display: flex;
+    // outline: 1px solid blue;
+    justify-content: center;
+
+    #tutorial-left{
+        // outline: 1px solid white;
+        width: 400px;
+        text-align: left;
+    }
+
+    #tutorial-right{
+        text-align: center;
+        margin-left: 70px;
+        // outline: 1px solid white;
+        width: 400px;;
+    }
     
     #demo-button{
         // outline: 1px solid blue

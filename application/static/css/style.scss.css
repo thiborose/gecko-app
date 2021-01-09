@@ -96,13 +96,13 @@ header {
   padding-top: 30px;
   min-height: calc(min(80vh,700px));
   background-color: transparent; }
-  .transparent-container:hover #tutorial-line {
+  .transparent-container:hover #tutorial-container {
     color: white;
     transition: color ease-in-out 0.5s; }
   .transparent-container .textboxes-container {
     /* min-height: 600px; */
-    padding-top: 80px;
-    padding-bottom: 150px;
+    padding-top: 120px;
+    padding-bottom: 100px;
     margin: 0 auto;
     /* outline: 1px solid green; */
     display: inline-flex;
@@ -344,12 +344,21 @@ footer {
 .delta-input-delete {
   border-bottom: red 2px solid; }
 
-#tutorial-line {
+#tutorial-container {
   color: #e2dbcfb2;
   font-family: 'Delius', cursive;
   font-size: 1.4em;
-  transition: color ease-in-out 1s; }
-  #tutorial-line #demo-button {
+  transition: color ease-in-out 1s;
+  display: flex;
+  justify-content: center; }
+  #tutorial-container #tutorial-left {
+    width: 400px;
+    text-align: left; }
+  #tutorial-container #tutorial-right {
+    text-align: center;
+    margin-left: 70px;
+    width: 400px; }
+  #tutorial-container #demo-button {
     width: 130px;
     background-color: #00000050;
     border-radius: 14px;
@@ -358,16 +367,16 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center; }
-    #tutorial-line #demo-button p {
+    #tutorial-container #demo-button p {
       font-size: 24px;
       padding-right: 15px;
       margin: 8px 0; }
-    #tutorial-line #demo-button #demo-logo {
+    #tutorial-container #demo-button #demo-logo {
       height: 26px;
       width: 26px; }
-    #tutorial-line #demo-button:hover {
+    #tutorial-container #demo-button:hover {
       cursor: pointer; }
-      #tutorial-line #demo-button:hover #demo-logo {
+      #tutorial-container #demo-button:hover #demo-logo {
         fill: #efe8dc; }
 
 /*# sourceMappingURL=style.scss.css.map */
