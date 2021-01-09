@@ -605,3 +605,39 @@ footer{
 // LANDSCAPE IPAD
 // Already good ;) 
 
+// PHONE PORTRAIT 
+@media only screen and (max-width : 450px) {
+    
+    header{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "logo tagline . nav";
+        align-items: center;
+
+        .nav {
+            display: none;
+        }
+
+        .header-tagline{
+            font-size: 46px;
+        }
+    }
+    .transparent-container{
+        .textboxes-container{
+            margin:auto;
+            flex-direction: column;
+            .text-box{
+                width: 300px;
+            }
+        }
+    }
+
+    footer{
+        .about-container{
+            .team-container{
+                overflow-x:scroll
+            }
+        }
+    }
+}
