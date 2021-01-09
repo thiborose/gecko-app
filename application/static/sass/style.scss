@@ -609,7 +609,8 @@ footer{
 @media only screen and (max-width : 450px) {
     
     header{
-        display: grid;
+        display: none;
+        // display: grid;
         grid-template-columns: 1fr 2fr;
         grid-template-rows: 1fr;
         grid-template-areas: "logo tagline . nav";
@@ -627,16 +628,37 @@ footer{
         .textboxes-container{
             margin:auto;
             flex-direction: column;
+            width: 94%;
+
+            padding-bottom: 40px;
+
             .text-box{
-                width: 300px;
+                width: auto;
             }
+
+            .arrow-button{
+                margin: -10px 0;
+            }
+        }
+
+        #tutorial-container{
+            padding: 0 20px 30px;
         }
     }
 
     footer{
         .about-container{
+            flex-direction: column-reverse ;
+            align-content: center;
             .team-container{
-                overflow-x:scroll
+                overflow-x:auto;
+                max-width: 450px;
+            }
+
+            .project-container{
+                max-width: 450px;
+                width: auto;
+                margin: auto;
             }
         }
     }

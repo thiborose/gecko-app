@@ -390,7 +390,7 @@ footer {
 
 @media only screen and (max-width: 450px) {
   header {
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
     grid-template-areas: "logo tagline . nav";
@@ -401,10 +401,24 @@ footer {
       font-size: 46px; }
   .transparent-container .textboxes-container {
     margin: auto;
-    flex-direction: column; }
+    flex-direction: column;
+    width: 94%;
+    padding-bottom: 40px; }
     .transparent-container .textboxes-container .text-box {
-      width: 300px; }
-  footer .about-container .team-container {
-    overflow-x: scroll; } }
+      width: auto; }
+    .transparent-container .textboxes-container .arrow-button {
+      margin: -10px 0; }
+  .transparent-container #tutorial-container {
+    padding: 0 20px 30px; }
+  footer .about-container {
+    flex-direction: column-reverse;
+    align-content: center; }
+    footer .about-container .team-container {
+      overflow-x: auto;
+      max-width: 450px; }
+    footer .about-container .project-container {
+      max-width: 450px;
+      width: auto;
+      margin: auto; } }
 
 /*# sourceMappingURL=style.scss.css.map */
