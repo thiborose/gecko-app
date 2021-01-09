@@ -144,14 +144,6 @@ header {
     padding-top:30px;
     min-height: calc(min(80vh,700px));
     background-color: transparent;
-
-    &:hover{
-        #tutorial-container{
-            color: white;
-            transition: color ease-in-out 0.5s;
-        }
-    }
-
     
     .textboxes-container {
         /* min-height: 600px; */
@@ -533,7 +525,7 @@ footer{
 
 
 #tutorial-container{
-    color: $light-beige;
+    color: white;
     font-family: 'Delius', cursive;
     font-size: 1.4em;
     transition: color ease-in-out 1s;

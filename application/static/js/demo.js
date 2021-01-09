@@ -40,7 +40,7 @@ let availableExamples = shuffle(demoSentences);
 
 function launch_demo(){
   if (demoIsVisible){
-    toFade.animate({ opacity: 0 }, 1000);
+    toFade.animate({ opacity: 0.2 }, 1000);
     demoIsVisible = false;
   }
   let demoSentence = availableExamples.pop();
@@ -104,7 +104,7 @@ var demoIsVisible = true;
 
 document.getElementById("text-box-input").addEventListener("input", function() {
   if(demoIsVisible && $("#text-box-input").text() !=""){
-    toFade.animate({ opacity: 0 }, 1000);
+    toFade.animate({ opacity: 0.2 }, 1000);
     demoIsVisible = false;
   }
   else if($("#text-box-input").text() ==="" && !demoIsVisible){
@@ -117,7 +117,7 @@ document.getElementById("text-box-input").addEventListener("input", function() {
 
 $("#text-box-input").on("paste",function(){
   if(demoIsVisible){
-    toFade.animate({ opacity: 0 }, 1000);
+    toFade.animate({ opacity: 0.2 }, 1000);
     demoIsVisible = false;
   }
 });

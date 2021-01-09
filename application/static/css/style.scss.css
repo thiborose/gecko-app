@@ -96,9 +96,6 @@ header {
   padding-top: 30px;
   min-height: calc(min(80vh,700px));
   background-color: transparent; }
-  .transparent-container:hover #tutorial-container {
-    color: white;
-    transition: color ease-in-out 0.5s; }
   .transparent-container .textboxes-container {
     /* min-height: 600px; */
     padding-top: 120px;
@@ -345,7 +342,7 @@ footer {
   border-bottom: red 2px solid; }
 
 #tutorial-container {
-  color: #e2dbcfb2;
+  color: white;
   font-family: 'Delius', cursive;
   font-size: 1.4em;
   transition: color ease-in-out 1s;
