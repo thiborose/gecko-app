@@ -385,7 +385,7 @@ footer {
   .text-box {
     width: 650px; } }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 1050px) {
   header {
     display: block;
     margin: 0;
