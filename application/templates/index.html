@@ -37,9 +37,7 @@
 <body>
     <!--header-->
     <header id="myHeader">
-        <div class="logo-container">
-            <img src="../static/img/GECko_plus.png" alt="Logo of GECko" width="200" >
-        </div>
+        <div class="logo-container"></div>
         <div class="header-tagline">
             <p>Gobbles up your<span style="text-decoration: line-through; color:red;">s</span> mistakes</p>
         </div>
@@ -59,7 +57,7 @@
         <div class="textboxes-container">
             <div contenteditable="true" class="text-box" id="text-box-input"
                 data-placeholder="I'm hungry for mistakes..."></div>
-            <div class="arrow-button bubbly-button" id="arrow-button">
+            <div class="arrow-button" id="arrow-button">
                 ➤
             </div>
             <div contenteditable="false" class="text-box" id="text-box-output" data-placeholder="Your text digested..."></div>
@@ -86,7 +84,7 @@
     
 
     <footer>
-        <div class="footer-title"><font size="+4">About</font></div>
+        <div class="footer-title">About</div>
 
         <div class="about-container" id="about">
             {% block team %}{% endblock %}

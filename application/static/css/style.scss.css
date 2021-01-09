@@ -80,8 +80,11 @@ header {
     position: relative;
     /* width: 150px; */
     /* outline: 1px solid rebeccapurple; */
-    width: fit-content;
-    grid-area: logo; }
+    width: 200px;
+    height: 146px;
+    grid-area: logo;
+    background: url("../img/GECko_plus_small.png");
+    background-repeat: no-repeat; }
   header .header-tagline {
     color: white;
     font-family: 'Delius', cursive;
@@ -97,22 +100,10 @@ header {
   min-height: calc(min(80vh,700px));
   background-color: transparent; }
   .transparent-container .textboxes-container {
-    /* min-height: 600px; */
     padding-top: 120px;
     padding-bottom: 100px;
     margin: 0 auto;
-    /* outline: 1px solid green; */
-    display: inline-flex;
-    /* line-height: 430px; */ }
-    @media (max-width: 1125px) {
-      .transparent-container .textboxes-container {
-        flex-direction: column; }
-        .transparent-container .textboxes-container .arrow-button {
-          transform: rotate(90deg);
-          margin: -10px 0; } }
-    @media (min-width: 1125px) {
-      .transparent-container .textboxes-container .arrow-button {
-        margin: 0 -10px; } }
+    display: inline-flex; }
     .transparent-container .textboxes-container .arrow-button {
       /* position: absolute; */
       /* top:50px; */
@@ -134,6 +125,7 @@ header {
       align-self: center;
       z-index: 20;
       transition: background 0.4s ease-in-out, color 0.2s ease-in-out;
+      margin: 0 -10px;
       /* 
             &:hover, :active, :focus{
                 color: #501B1D;
@@ -375,5 +367,25 @@ footer {
       cursor: pointer; }
       #tutorial-container #demo-button:hover #demo-logo {
         fill: #efe8dc; }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  footer .about-container {
+    flex-direction: column-reverse;
+    align-content: center; }
+    footer .about-container .project-container {
+      padding: 15px;
+      margin: auto; }
+      footer .about-container .project-container .project-description {
+        padding: 0; }
+  .transparent-container {
+    height: 975px; }
+  .textboxes-container {
+    padding-top: 30px;
+    flex-direction: column; }
+    .textboxes-container .arrow-button {
+      transform: rotate(90deg);
+      margin: -10px 0; }
+  .text-box {
+    width: 650px; } }
 
 /*# sourceMappingURL=style.scss.css.map */

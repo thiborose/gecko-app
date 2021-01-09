@@ -119,8 +119,12 @@ header {
         position: relative;
         /* width: 150px; */
         /* outline: 1px solid rebeccapurple; */
-        width: fit-content;
+        width: 200px;
+        height: 146px;
+        // background-size: 20%;
         grid-area: logo;
+        background: url("../img/GECko_plus_small.png");
+        background-repeat: no-repeat;
     }
     .header-tagline{
         // outline: 1px solid cyan;
@@ -146,33 +150,11 @@ header {
     background-color: transparent;
     
     .textboxes-container {
-        /* min-height: 600px; */
-        //max-width: 1125px;
+
         padding-top:120px;
         padding-bottom: 100px;
         margin: 0 auto;
-        /* outline: 1px solid green; */
-        display: inline-flex;
-        /* line-height: 430px; */
-
-        @media (max-width: 1125px) {
-            flex-direction: column;
-
-            .arrow-button{
-                transform: rotate(90deg);
-                margin: -10px 0;
-            }
-        }
-
-        @media (min-width: 1125px) {
-            .arrow-button{
-                margin: 0 -10px;
-            }
-        }
-
-        
-    
-        
+        display: inline-flex;  
 
         .arrow-button {
             /* position: absolute; */
@@ -196,6 +178,7 @@ header {
             align-self: center;
             z-index: 20;
             transition: background 0.4s ease-in-out, color 0.2s ease-in-out;
+            margin: 0 -10px;
 /* 
             &:hover, :active, :focus{
                 color: #501B1D;
@@ -223,8 +206,6 @@ header {
             
             @mixin button-click {
                 transform: scale(0.9);
-                // background-color: darken($button-bg, 5%);
-                // box-shadow: 0 2px 25px $bg-1;
                 color: $bg-2;
             }
             
@@ -577,3 +558,50 @@ footer{
     }
     
 }
+
+
+
+///////////////////////////////////////////////////////////////////
+///////// RESPONSIVE DESIGN ///////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+// PORTRAIT IPAD
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    footer{
+        .about-container{
+            flex-direction: column-reverse ;
+            align-content: center;
+            .project-container{
+                padding: 15px;
+                margin: auto;
+                .project-description{
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .transparent-container{
+        height: 975px;
+    }
+
+    .textboxes-container{
+        padding-top:30px;
+        flex-direction: column;
+        .arrow-button{
+            transform: rotate(90deg);
+            margin: -10px 0;
+
+        }
+
+    }
+
+    .text-box{
+        width: 650px;
+    }
+}
+
+
+// LANDSCAPE IPAD
+// Already good ;) 
+
