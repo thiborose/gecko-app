@@ -527,7 +527,7 @@ footer{
 #tutorial-container{
     color: white;
     font-family: 'Delius', cursive;
-    font-size: 1.4em;
+    font-size: 1.3em;
     transition: color ease-in-out 1s;
     display: flex;
     // outline: 1px solid blue;
@@ -535,8 +535,8 @@ footer{
 
     #tutorial-left{
         // outline: 1px solid white;
-        width: 400px;
-        text-align: left;
+        width: 492px;
+        text-align: center;
     }
 
     #tutorial-right{
@@ -552,7 +552,7 @@ footer{
         background-color: #00000050;
         border-radius: 14px;
         padding: 0 3px;
-        margin: 20px auto 0;
+        margin: 40px auto 0;
         display: flex;
         align-items:center;
         justify-content: center;
