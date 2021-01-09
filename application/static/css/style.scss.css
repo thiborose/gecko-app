@@ -72,14 +72,12 @@ header {
   grid-template-areas: "logo tagline . nav";
   align-items: center;
   text-align: left;
-  /* outline: 1px solid purple; */
   margin-top: 20px;
   margin-left: 20px;
   position: relative; }
   header .logo-container {
     position: relative;
     /* width: 150px; */
-    /* outline: 1px solid rebeccapurple; */
     width: 200px;
     height: 146px;
     grid-area: logo;
@@ -151,7 +149,6 @@ header {
         transform: scale(0.9);
         color: #3a1113; }
     .transparent-container .textboxes-container .text-box {
-      /* outline: 1px solid red; */
       font-family: 'Open Sans', sans-serif;
       font-size: 30px;
       width: 500px;
@@ -390,20 +387,19 @@ footer {
 
 @media only screen and (max-width: 450px) {
   header {
-    display: none;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "logo tagline . nav";
-    align-items: center; }
+    display: block;
+    margin: 0;
+    padding: 20px; }
     header .nav {
       display: none; }
     header .header-tagline {
-      font-size: 46px; }
+      font-size: 26px; }
   .transparent-container .textboxes-container {
     margin: auto;
     flex-direction: column;
     width: 94%;
-    padding-bottom: 40px; }
+    padding-bottom: 40px;
+    padding-top: 20px; }
     .transparent-container .textboxes-container .text-box {
       width: auto; }
     .transparent-container .textboxes-container .arrow-button {
@@ -414,8 +410,8 @@ footer {
     flex-direction: column-reverse;
     align-content: center; }
     footer .about-container .team-container {
-      overflow-x: auto;
-      max-width: 450px; }
+      max-width: 100%;
+      overflow-x: scroll; }
     footer .about-container .project-container {
       max-width: 450px;
       width: auto;

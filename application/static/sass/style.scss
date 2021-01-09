@@ -106,22 +106,18 @@ header {
 
     // outline: 1px solid pink;
     text-align: left;
-    /* outline: 1px solid purple; */
     margin-top: 20px;
     margin-left: 20px;
     position: relative;
 
-    // box-shadow: #0000003d 0px 48px 95px -41px;
 
 
     .logo-container {
         // outline: 1px solid violet;
         position: relative;
         /* width: 150px; */
-        /* outline: 1px solid rebeccapurple; */
         width: 200px;
         height: 146px;
-        // background-size: 20%;
         grid-area: logo;
         background: url("../img/GECko_plus_small.png");
         background-repeat: no-repeat;
@@ -145,11 +141,14 @@ header {
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 .transparent-container {
+    // outline: 1px solid green;
     padding-top:30px;
     min-height: calc(min(80vh,700px));
     background-color: transparent;
     
     .textboxes-container {
+
+        // outline: 1px solid grey;
 
         padding-top:120px;
         padding-bottom: 100px;
@@ -219,7 +218,6 @@ header {
         }
 
         .text-box {
-            /* outline: 1px solid red; */
             font-family: 'Open Sans', sans-serif;
             font-size: 30px;
             width: 500px;
@@ -300,6 +298,7 @@ footer{
         }
 
         .team-container{
+            // outline: 1px solid blue;
             max-width: 1000px;
             /* border-top: 1px #e9e9e9 solid;
             border-bottom: 1px #e9e9e9 solid; */
@@ -609,28 +608,28 @@ footer{
 @media only screen and (max-width : 450px) {
     
     header{
-        display: none;
-        // display: grid;
-        grid-template-columns: 1fr 2fr;
-        grid-template-rows: 1fr;
-        grid-template-areas: "logo tagline . nav";
-        align-items: center;
+        display: block;
+        margin:0;
+        padding: 20px;
 
         .nav {
             display: none;
         }
 
         .header-tagline{
-            font-size: 46px;
+            font-size: 26px;
         }
     }
     .transparent-container{
+
+
         .textboxes-container{
             margin:auto;
             flex-direction: column;
             width: 94%;
 
             padding-bottom: 40px;
+            padding-top: 20px;
 
             .text-box{
                 width: auto;
@@ -651,8 +650,9 @@ footer{
             flex-direction: column-reverse ;
             align-content: center;
             .team-container{
-                overflow-x:auto;
-                max-width: 450px;
+                max-width: 100%;
+                overflow-x: scroll;
+
             }
 
             .project-container{
