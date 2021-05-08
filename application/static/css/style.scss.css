@@ -439,18 +439,21 @@ footer {
       display: none; }
     header .header-tagline {
       font-size: 26px; }
-  .main-container .textboxes-container {
-    margin: auto;
-    flex-direction: column;
-    width: 94%;
-    padding-bottom: 40px;
-    padding-top: 20px; }
-    .main-container .textboxes-container .text-box {
-      width: auto; }
-    .main-container .textboxes-container .arrow-button {
-      margin: -10px 0; }
-  .main-container #tutorial-container {
-    padding: 0 20px 30px; }
+  .main-container {
+    width: auto;
+    padding-top: 0; }
+    .main-container .textboxes-container {
+      margin: auto;
+      flex-direction: column;
+      width: 94%;
+      padding-bottom: 40px;
+      padding-top: 20px; }
+      .main-container .textboxes-container .text-box {
+        width: auto; }
+      .main-container .textboxes-container .arrow-button {
+        margin: -10px 0; }
+    .main-container #tutorial-container {
+      padding: 0 20px 30px; }
   footer .about-container {
     flex-direction: column-reverse;
     align-content: center; }
