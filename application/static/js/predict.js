@@ -11,6 +11,8 @@ export function predict(){
     var text = $("#text-box-input").text();
     var reorder = $("#reorder-checkbox").is(":checked");
     
+    document.title = text.slice(0,30);  
+
     if (text !== ''){
 
         $.ajax({
