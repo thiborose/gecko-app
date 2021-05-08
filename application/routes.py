@@ -6,8 +6,8 @@ from application import actions
 def home():
     return render_template("content.html")
 
-@app.route("/predict")
+@app.route("/predict", methods=["POST"])
 def predict():
-    user_input = request.args.get('jsdata')
+    user_input = request.form['jsdata']
     prediction = actions.predict(user_input)
     return prediction

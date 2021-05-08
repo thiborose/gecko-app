@@ -14,7 +14,7 @@ export function predict(){
 
         $.ajax({
             url: "/predict",
-            type: "get",
+            type: "post",
             // dataType: 'json',
             data: {jsdata: text},
             success: function(response) {
