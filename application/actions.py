@@ -5,21 +5,23 @@ from application.models.gector.utils.preprocess_data import align_sequences, con
 import re
 import application.models.sentence_reorder as sentence_reorder
 
-def predict(input_text: str) -> dict:
+def predict(input_text: str, reorder:bool) -> dict:
     """Predicts a correction for an input text and returns the tagged input and output."""
     tokenized_sentence = tokenize_and_segment(input_text)
     corrected_sentences = predict_for_sentences(tokenized_sentence, model)
     correct_untokenized_sentences = [untokenize(sent) for sent in corrected_sentences]
-    reorder = len(correct_untokenized_sentences) > 1 # flag
-    if reorder:
+    do_reorder = reorder and len(correct_untokenized_sentences) > 1 # flag
+    if do_reorder:
         #sentence reordering model
         order = sentence_reorder.get_order(correct_untokenized_sentences)
     tagged_input, tagged_output = get_changes(sentencize(input_text), correct_untokenized_sentences)
     tagged_input = unsentencize(tagged_input)
 
-    if reorder:
+    if do_reorder:
         ordered_sentencized_tagged_output = sentence_reorder.reorder(tagged_output, order)
         tagged_output = unsentencize(ordered_sentencized_tagged_output )
+    else:
+        tagged_output = unsentencize(tagged_output )
 
 
     return {"input": tagged_input, "output": tagged_output}

@@ -9,6 +9,7 @@ export function predict(){
     animateButton();
     // Inserting predicted text in the right box
     var text = $("#text-box-input").text();
+    var reorder = true;
     
     if (text !== ''){
 
@@ -16,7 +17,7 @@ export function predict(){
             url: "/predict",
             type: "post",
             // dataType: 'json',
-            data: {jsdata: text},
+            data: {input_text: text, reorder:reorder},
             success: function(response) {
                 //let tags = JSON.parse(response);
 

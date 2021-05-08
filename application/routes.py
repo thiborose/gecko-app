@@ -8,6 +8,8 @@ def home():
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    user_input = request.form['jsdata']
-    prediction = actions.predict(user_input)
+    user_input = request.form['input_text']
+    reorder = request.form['reorder']
+    reorder = True if reorder=="true" else False
+    prediction = actions.predict(user_input, reorder)
     return prediction
