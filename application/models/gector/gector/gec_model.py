@@ -5,7 +5,7 @@ import sys
 from time import time
 
 import torch
-from allennlp.data.dataset import Batch
+from allennlp.data.batch import Batch
 from allennlp.data.fields import TextField
 from allennlp.data.instance import Instance
 from allennlp.data.tokenizers import Token
@@ -177,9 +177,9 @@ class GecBERTModel(object):
             special_tokens_fix=special_tokens_fix)
         }
         text_field_embedder = BasicTextFieldEmbedder(
-            token_embedders=embedders,
-            embedder_to_indexer_map={"bert": ["bert", "bert-offsets"]},
-            allow_unmatched_keys=True)
+            token_embedders=embedders)
+            #embedder_to_indexer_map={"bert": ["bert", "bert-offsets"]},
+            #allow_unmatched_keys=True)
         return text_field_embedder
 
     def _get_indexer(self, weights_name, special_tokens_fix):

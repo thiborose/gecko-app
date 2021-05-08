@@ -163,7 +163,7 @@ class Seq2Labels(Model):
             output_dict["words"] = [x["words"] for x in metadata]
         return output_dict
 
-    @overrides
+    #@overrides
     def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
         """
         Does a simple position-wise argmax over each token, converts indices to string labels, and
