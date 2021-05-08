@@ -9,7 +9,7 @@ export function predict(){
     animateButton();
     // Inserting predicted text in the right box
     var text = $("#text-box-input").text();
-    var reorder = true;
+    var reorder = $("#reorder-checkbox").is(":checked");
     
     if (text !== ''){
 

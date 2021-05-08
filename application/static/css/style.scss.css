@@ -93,16 +93,61 @@ header {
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* ::::::::::: MAIN :::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
-.transparent-container {
-  padding-top: 30px;
+.main-container {
+  padding-top: 70px;
   min-height: calc(min(80vh,700px));
-  background-color: transparent; }
-  .transparent-container .textboxes-container {
-    padding-top: 120px;
+  background-color: transparent;
+  width: fit-content;
+  margin: auto; }
+  .main-container .checkbox-container {
+    align-items: center;
+    justify-content: center;
+    width: 275px;
+    color: white;
+    font-family: 'Delius', cursive;
+    font-size: 1em; }
+    .main-container .checkbox-container input#reorder-checkbox {
+      float: right;
+      width: 42px;
+      height: 17px;
+      cursor: pointer;
+      background-color: #aaaaaa;
+      -webkit-appearance: none;
+      border-radius: 8px;
+      position: relative; }
+    .main-container .checkbox-container input#reorder-checkbox:before {
+      content: "";
+      width: 21px;
+      height: 21px;
+      background-color: #F5F5F5;
+      border-radius: 50%;
+      position: absolute;
+      top: -2px;
+      z-index: 2;
+      left: -2px;
+      transition: all .2s linear; }
+    .main-container .checkbox-container input#reorder-checkbox:after {
+      content: "";
+      height: 100%;
+      width: 17px;
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      border-radius: 17px;
+      background-color: rgba(8, 189, 62, 0.966);
+      transition: all .2s linear; }
+    .main-container .checkbox-container input#reorder-checkbox:checked:before {
+      left: calc(100% - 19px);
+      background-color: #ebd5d5; }
+    .main-container .checkbox-container input#reorder-checkbox:checked:after {
+      width: 100%;
+      border-radius: 8px; }
+  .main-container .textboxes-container {
+    padding-top: 10px;
     padding-bottom: 100px;
     margin: 0 auto;
     display: inline-flex; }
-    .transparent-container .textboxes-container .arrow-button {
+    .main-container .textboxes-container .arrow-button {
       /* position: absolute; */
       /* top:50px; */
       position: relative;
@@ -130,9 +175,9 @@ header {
                 transition: background 0.4s ease-in-out, color 0.2s ease-in-out;
             } */
       transition: transform ease-in 0.01s; }
-      .transparent-container .textboxes-container .arrow-button:focus {
+      .main-container .textboxes-container .arrow-button:focus {
         outline: 0; }
-      .transparent-container .textboxes-container .arrow-button:before, .transparent-container .textboxes-container .arrow-button:after {
+      .main-container .textboxes-container .arrow-button:before, .main-container .textboxes-container .arrow-button:after {
         position: absolute;
         content: '';
         display: block;
@@ -142,22 +187,22 @@ header {
         z-index: -1000;
         transition: all ease-in-out 1s;
         background-repeat: no-repeat; }
-      .transparent-container .textboxes-container .arrow-button:active {
+      .main-container .textboxes-container .arrow-button:active {
         transform: scale(0.9);
         color: #3a1113; }
-      .transparent-container .textboxes-container .arrow-button.is-clicked {
+      .main-container .textboxes-container .arrow-button.is-clicked {
         transform: scale(0.9);
         color: #3a1113; }
-    .transparent-container .textboxes-container .text-box {
+    .main-container .textboxes-container .text-box {
       font-family: 'Open Sans', sans-serif;
       font-size: 30px;
       width: 500px;
       min-height: 300px;
       background-color: white; }
-      .transparent-container .textboxes-container .text-box:empty:before {
+      .main-container .textboxes-container .text-box:empty:before {
         content: attr(data-placeholder);
         color: gray; }
-    .transparent-container .textboxes-container #text-box-input, .transparent-container .textboxes-container #text-box-output {
+    .main-container .textboxes-container #text-box-input, .main-container .textboxes-container #text-box-output {
       text-align: left;
       padding: 20px;
       border: 1px solid white;
@@ -170,7 +215,7 @@ header {
       box-shadow: 0 0 3px #4b4b4b;
       min-height: 150px;
       overflow-wrap: break-word; }
-    .transparent-container .textboxes-container #text-box-input:focus {
+    .main-container .textboxes-container #text-box-input:focus {
       box-shadow: 0px 1px 10px 2px #000000; }
 
 footer {
@@ -374,7 +419,7 @@ footer {
       margin: auto; }
       footer .about-container .project-container .project-description {
         padding: 0; }
-  .transparent-container {
+  .main-container {
     height: 975px; }
   .textboxes-container {
     padding-top: 30px;
@@ -394,17 +439,17 @@ footer {
       display: none; }
     header .header-tagline {
       font-size: 26px; }
-  .transparent-container .textboxes-container {
+  .main-container .textboxes-container {
     margin: auto;
     flex-direction: column;
     width: 94%;
     padding-bottom: 40px;
     padding-top: 20px; }
-    .transparent-container .textboxes-container .text-box {
+    .main-container .textboxes-container .text-box {
       width: auto; }
-    .transparent-container .textboxes-container .arrow-button {
+    .main-container .textboxes-container .arrow-button {
       margin: -10px 0; }
-  .transparent-container #tutorial-container {
+  .main-container #tutorial-container {
     padding: 0 20px 30px; }
   footer .about-container {
     flex-direction: column-reverse;

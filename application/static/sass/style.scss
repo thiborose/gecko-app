@@ -140,20 +140,81 @@ header {
 /* ::::::::::: MAIN :::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
-.transparent-container {
+.main-container {
     // outline: 1px solid green;
-    padding-top:30px;
+    padding-top:70px;
     min-height: calc(min(80vh,700px));
     background-color: transparent;
+    width: fit-content;
+    margin: auto;
+
+    .checkbox-container{
+        // margin: 0 auto;
+        // display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 275px;
+        color: white;
+        font-family: 'Delius', cursive;
+        font-size: 1em;
+
+        input#reorder-checkbox{
+            float: right;
+            width: 42px;
+            height: 17px;
+            cursor: pointer;
+            background-color: rgba(170, 170, 170, 30%);
+            -webkit-appearance: none;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        input#reorder-checkbox:before{
+            content: "";
+            width: 21px;
+            height: 21px;
+            background-color: #F5F5F5;
+            border-radius: 50%;
+            position: absolute;
+            top: -2px;
+            z-index: 2;
+            left: -2px;
+            transition: all .2s linear;
+        }
+
+        input#reorder-checkbox:after{
+            content: "";
+            height: 100%;
+            width: 17px;
+            position: absolute;
+            left: 0;
+            z-index: 1;
+            border-radius: 17px;
+            background-color: rgba(8, 189, 62, 0.966);
+            transition: all .2s linear;
+        }
+
+        input#reorder-checkbox:checked:before{
+            left: calc(100% - 19px);
+            background-color: #ebd5d5;
+        }
+
+        input#reorder-checkbox:checked:after{
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+    }
     
     .textboxes-container {
 
         // outline: 1px solid grey;
 
-        padding-top:120px;
+        padding-top:10px;
         padding-bottom: 100px;
         margin: 0 auto;
-        display: inline-flex;  
+        display: inline-flex;
+
 
         .arrow-button {
             /* position: absolute; */
@@ -580,7 +641,7 @@ footer{
         }
     }
 
-    .transparent-container{
+    .main-container{
         height: 975px;
     }
 
@@ -620,7 +681,7 @@ footer{
             font-size: 26px;
         }
     }
-    .transparent-container{
+    .main-container{
 
 
         .textboxes-container{
