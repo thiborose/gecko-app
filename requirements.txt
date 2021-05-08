@@ -10,11 +10,14 @@ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.1.0
 waitress==1.4.4
 
 
-# if installation fails, you might also need:
+# if torch doesn't install, execute separately :
+# pip install torch==1.3.0
+#
+# if installation fails for other reason, you may try:
 #
 # sudo apt install gcc
 # conda install -c conda-forge jsonnet
 
 
-# during development
+# during development, you will need: 
 # libsass==0.20.1 
