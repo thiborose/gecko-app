@@ -211,7 +211,7 @@ header {
         // outline: 1px solid grey;
 
         padding-top:10px;
-        padding-bottom: 100px;
+        padding-bottom: 60px;
         margin: 0 auto;
         display: inline-flex;
 
@@ -310,6 +310,16 @@ header {
         #text-box-input:focus {
             //box-shadow: inset 0px 1px 10px -1px #000000;
             box-shadow: 0px 1px 10px 2px #000000;
+        }
+    }
+
+    #data-policy-container{
+        color: white;
+        font-family: 'Delius', cursive;
+        font-size: 1em;
+        padding-top: 50px;
+        p{
+            margin: 0;
         }
     }
 }

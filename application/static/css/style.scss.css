@@ -144,7 +144,7 @@ header {
       border-radius: 8px; }
   .main-container .textboxes-container {
     padding-top: 10px;
-    padding-bottom: 100px;
+    padding-bottom: 60px;
     margin: 0 auto;
     display: inline-flex; }
     .main-container .textboxes-container .arrow-button {
@@ -217,6 +217,13 @@ header {
       overflow-wrap: break-word; }
     .main-container .textboxes-container #text-box-input:focus {
       box-shadow: 0px 1px 10px 2px #000000; }
+  .main-container #data-policy-container {
+    color: white;
+    font-family: 'Delius', cursive;
+    font-size: 1em;
+    padding-top: 50px; }
+    .main-container #data-policy-container p {
+      margin: 0; }
 
 footer {
   padding: 80px 0;
