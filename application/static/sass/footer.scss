@@ -1,0 +1,254 @@
+@import "variables";
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+/* :::::::::: FOOTER ::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+footer{
+    outline: 1px solid red;
+    .about-container{
+        flex-direction: column-reverse ;
+        align-content: center;
+        .team-container{
+            max-width: 100%;
+            overflow-x: scroll;
+
+        }
+
+        .project-container{
+            max-width: 450px;
+            width: auto;
+            margin: auto;
+        }
+    }
+}
+
+footer{
+    padding: 80px 0;
+    width: 100%;
+    /* height: 500px; */
+    background-color: $footer-color;
+    color: $beige;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    // outline: 1px solid yellow;
+
+    .footer-title{
+        display: block;
+        font-size: xx-large;
+        font-family: 'Delius', cursive;
+    }
+
+    .about-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: top;
+
+        h1{
+            margin-bottom: 20px;
+            font-size: xx-large;
+            text-align: center;
+        }
+
+        .project-container {
+            float: center;
+            width: 1150px;
+            color: $beige;
+            padding: 15px 15px 15px 40px;
+            text-align: justify;
+            // outline: salmon 1px solid;
+            max-width: 600px;
+            // border-left: 1px solid #ADADAD;
+
+            .project-title{
+                font-family: 'Delius', cursive;
+            }
+        }
+
+        .team-container{
+            // outline: 1px solid blue;
+            max-width: 1000px;
+            /* border-top: 1px #e9e9e9 solid;
+            border-bottom: 1px #e9e9e9 solid; */
+            position: relative;
+            // display: inline-flex;
+            // outline: 1px dashed pink;
+            padding-top: 15px;
+
+            .team-title{
+                font-family: 'Delius', cursive;
+            }
+        }
+    }
+    
+}
+
+
+.project-container{
+
+    .footer-logo{
+        width: 400px;
+        margin-bottom: 30px
+    }
+
+    .project-description{
+        padding-right: 30px;
+        text-align: justify;
+        font-size: 1.4em;
+
+        a{
+            text-decoration: none;
+            color: $link;
+            transition: color ease 0.5s;
+            &:hover{
+                color: $link-hover;
+                transition: color ease 0.5s;
+            }
+        }
+    }
+}
+
+.team-container {
+    // outline: 1px solid green;
+
+    .team-members{
+        display: inline-flex;
+        
+
+        .team-member {
+            height: 300px;
+            position: relative;
+            margin: 0 15px;
+            // color: #501B1D;
+            width: 205px;
+            flex-wrap: wrap;
+            // outline: 1px solid green;
+
+            background-color: #8b86876b;
+            // border: 2px solid beige;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border-top-left-radius: 35px;
+
+            &.thi{
+                background-color: $thi-color-2
+            }
+            &.leo{
+                background-color: $leo-color-2
+            }
+            &.edu{
+                background-color: $edu-color-2
+            }
+            
+            .description{
+                display: block;
+                text-align: center;
+                // margin-top: 10px;
+                font-size: 90%;
+                padding: 0 15px 15px;
+                
+            }
+
+            a{
+                color: white;
+            }
+        }
+
+        .team-member-id{
+            // outline:1px solid pink;
+            display: flex;
+            justify-content: flex-start;
+
+            .team-member-picture {
+                width: 70px;
+                height: 70px;
+                border-radius: 100%;
+                // margin: auto;
+                margin-right: 15px;
+                margin-left: -10px;
+                margin-top: -10px;
+                /* clip-path: circle(50px at center); */
+                border: #501B1D 2px solid;
+                background-size: 100px 100px;
+        
+                &#eduardo-picture {
+                    background-image: url("../img/edu.jpeg");
+                    background-position: 40% -8%;
+                    background-size: 95px;                
+                    border-color: $edu-color-1;
+                }
+                
+                &#leo-picture {
+                    background-image: url("../img/leo.jpeg");
+                    background-position: 38% 39%;
+                    background-size: 120px;
+                    border-color: $leo-color-1;
+                }
+        
+                &#thibo-picture {
+                    background-image: url("../img/thi.jpeg");
+                    background-position: 50% 59%;
+                    background-size: 120px;
+                    border-color: $thi-color-1;
+                }
+            }
+        }
+
+        .team-member-links{
+            position: absolute;
+            bottom: 6px;
+            left: 63px;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            
+            .icon {
+                height: 20px;
+                width: 20px;
+                padding: 5px;
+
+                &#linkedin {
+                    background-image: url("../img/linkedin-logo.png");
+                    background-size: 20px;
+                    background-repeat: no-repeat;
+                }
+                
+                &#github {
+                    background-image: url("../img/github-logo.png");
+                    background-size: 20px;
+                    background-repeat: no-repeat;
+                }
+
+                &#gmail {
+                    background-image: url("../img/gmail-logo_w.png");
+                    background-size: 20px;
+                    background-repeat: no-repeat;
+                }
+
+            }
+
+        }
+    
+        
+    }
+    
+}
+
+.credits-container{
+    margin-top: 30px;;
+    // outline:1px solid blue;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+
+    #idmc-footer-logo{
+        width: 215px;
+    }
+
+    #ul-footer-logo{
+        width: 80px;
+        // display: inline-block;
+    }
+}

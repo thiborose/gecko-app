@@ -1,0 +1,84 @@
+///////////////////////////////////////////////////////////////////
+///////// RESPONSIVE DESIGN ///////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+// PORTRAIT IPAD PRO
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    footer{
+        .about-container{
+            flex-direction: column-reverse ;
+            align-content: center;
+            .project-container{
+                padding: 15px;
+                margin: auto;
+                .project-description{
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .main-container{
+        height: 975px;
+    }
+
+    .textboxes-container{
+        padding-top:30px;
+        flex-direction: column;
+        .arrow-button{
+            transform: rotate(90deg);
+            margin: -10px 0;
+
+        }
+
+    }
+
+    .text-box{
+        width: 650px;
+    }
+}
+
+
+// LANDSCAPE IPAD PRO
+// Already good ;) 
+
+// PHONE PORTRAIT 
+@media only screen and (max-width : 1050px) {
+    header{
+        display: block;
+        margin:0;
+        padding: 20px;
+
+        .nav {
+            display: none;
+        }
+
+        .header-tagline{
+            font-size: 26px;
+        }
+    }
+    .main-container{
+        width: auto;
+        padding-top: 0;
+        .textboxes-container{
+            margin:auto;
+            flex-direction: column;
+            width: 94%;
+
+            padding-bottom: 40px;
+            padding-top: 20px;
+
+            .text-box{
+                width: auto;
+            }
+
+            .arrow-button{
+                margin: -10px 0;
+            }
+        }
+
+        #tutorial-container{
+            padding: 0 20px 30px;
+        }
+    }
+}

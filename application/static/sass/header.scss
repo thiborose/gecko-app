@@ -1,0 +1,135 @@
+@import "variables";
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+/* :::::::::: NAV BAR :::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+nav {
+    // outline: 1px solid blue;
+    font-size: 16pt;
+    grid-area: nav;
+    align-self: end;
+    a {
+        font-family: 'Delius', cursive;
+        position: relative;
+        width: 33.333%;
+        display: table-cell;
+        text-align: center;
+        color: $beige;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 20px;
+        transition: 0.2s ease color;
+        position: relative;
+        transition: all 0.6s;
+        &:before {
+            content: "";
+            width: 0;
+            height: 0.1em;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: $beige;
+            transition: all 0.3s;
+        }
+        &:hover {
+            &:before {
+                width: 100%;
+                left: 0;
+                background: white;
+            }
+        }
+    }
+
+}
+
+nav a:nth-child(2):hover~#indicator {
+    left: 200px;
+}
+
+
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+/* :::::::::: HEADER ::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+header {
+    display: grid;
+    grid-template-columns: 0.4fr 1.5fr 1.2fr 0.5fr 20px;
+    grid-template-rows: 1fr;
+    gap: 0px 48px;
+    grid-template-areas: "logo tagline demo-text demo-button .";
+    align-items: center;
+
+    color:white;
+    font-family: 'Delius', cursive;
+
+
+    // outline: 1px solid pink;
+    text-align: left;
+    // margin-top: 20px;
+    // margin-left: 20px;
+    position: relative;
+
+    background-color: #0000002e;
+
+    .logo-container {
+        // outline: 1px solid violet;
+        position: relative;
+        /* width: 150px; */
+        width: 200px;
+        height: 150px;
+        grid-area: logo;
+        background: url("../img/GECko_plus_small.png");
+        // background: url("../img/GECko_logo_small.png");
+        background-repeat: no-repeat;
+        // background-size: 150px;
+    }
+    .header-tagline{
+        // outline: 1px solid cyan;
+        font-size: 30pt;
+        display: inline-block;
+        grid-area: tagline;
+    }
+}
+
+
+#demo-text{
+
+    grid-area: demo-text;
+    font-size: 13pt;
+
+    p{
+        margin-bottom: -6px;
+    }
+    // width: 200px;
+}
+
+#demo-button{
+    // outline: 1px solid blue
+    width: 130px;
+    grid-area: demo-button;
+    background-color: #00000050;
+    border-radius: 14px;
+    padding: 0 6px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+
+    p{
+        font-size: 24px;
+        padding-right: 15px;
+        margin: 8px 0;
+    }
+
+    #demo-logo{
+        height: 26px;
+        width: 26px;
+
+    }
+    &:hover{
+        cursor: pointer;
+        #demo-logo{
+            fill: $beige;
+        }
+    }
+}

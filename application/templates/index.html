@@ -1,137 +1,151 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>GECko+ | Gobbles up your mistakes</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> -->
+        <link href="{{ url_for('static', filename='css/main.scss.css') }}"
+        rel="stylesheet" type="text/css">
+        <link href="{{ url_for('static', filename='css/header.scss.css') }}"
+        rel="stylesheet" type="text/css">
+        <link href="{{ url_for('static', filename='css/footer.scss.css') }}"
+        rel="stylesheet" type="text/css">
+        <link href="{{ url_for('static', filename='css/responsive.scss.css') }}"
+        rel="stylesheet" type="text/css">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>GECko+ | Gobbles up your mistakes</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> -->
-    <link href="{{ url_for('static', filename='css/style.scss.css') }}"
-      rel="stylesheet" type="text/css">
+        <!--favicon-->
+        <link rel="apple-touch-icon" sizes="57x57" href="../static/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="../static/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="../static/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="../static/favicon/apple-icon-76x76.pn">
+        <link rel="apple-touch-icon" sizes="114x114" href="../static/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="../static/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="../static/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="../static/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="../static/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="../static/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon/favicon-16x16.png">
+        <link rel="manifest" href="../static/favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="../static/favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="description" content="The writing assistant tool for English which corrects spelling, grammatical, and discourse mistakes.">
 
-    <!--favicon-->
-    <link rel="apple-touch-icon" sizes="57x57" href="../static/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="../static/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../static/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="../static/favicon/apple-icon-76x76.pn">
-    <link rel="apple-touch-icon" sizes="114x114" href="../static/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="../static/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../static/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../static/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="../static/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../static/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="../static/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="The writing assistant tool for English which corrects spelling, grammatical, and discourse mistakes.">
+        <!--favicon-->
+    </head>
 
-    <!--favicon-->
-</head>
+    <body>
+        <!--header-->
+        <header>
+            <div class="logo-container"></div>
+            <div class="header-tagline">
 
-<body>
-    <!--header-->
-    <header id="myHeader">
-        <div class="logo-container"></div>
-        <div class="header-tagline">
-            <p>Gobbles up your<span style="text-decoration: line-through; color:red;">s</span> mistakes</p>
-        </div>
-
-        <nav class="nav">
-            <a href="#correct">CORRECT</a>
-            <a href="#about">ABOUT</a>
-            <div id="indicator"></div>
-        </nav>
-
-    </header>
-
-    <!--corrector-->
-    <div class="main-container">
-
-        <div class="checkbox-container">
-            Enable sentence reordering 
-            <input id="reorder-checkbox" type="checkbox" />
-        </div>
-        <div class="textboxes-container">
-
-            <div contenteditable="true" class="text-box" id="text-box-input"
-                data-placeholder="I'm hungry for mistakes..."></div>
-            <div class="arrow-button" id="arrow-button">
-                ➤
+                <p>Gobbles up your mistakes</p>
             </div>
-            <div contenteditable="false" class="text-box" id="text-box-output" data-placeholder="Your text digested..."></div>
-        </div>
 
-        <div id="tutorial-container">
-            <div id="tutorial-left">
-                <p>GECko+ is more than a Grammatical Error Corrector.</p>
-                <p>It is a writing assistant tool, which corrects spelling, grammatical, and discourse mistakes in your texts.</p>
-                <div id=demo-button>
-                    <p>DEMO</p>
-                    <img src="../static/svg/play.svg" alt="play button" id=demo-logo>
+            <!-- <nav class="nav">
+                <a href="#correct">CORRECT</a>
+                <a href="#about">ABOUT</a>
+                <div id="indicator"></div>
+            </nav> -->
+
+            <div id="demo-text">
+
+                <p>GECko+ is more than a Grammatical Error Corrector. </p>
+                <p>It is a writing assistant tool, which corrects spelling,
+                grammatical, and discourse mistakes in your texts.  </p>              
+            </div>
+
+            <div id=demo-button>
+                <p>DEMO</p>
+                <img src="../static/svg/play.svg" alt="play button" id=demo-logo>
+            </div>
+
+        </header>
+
+        <!--corrector-->
+        <div class="main-container">
+
+            <div class="checkbox-container">
+                Enable sentence reordering 
+                <input id="reorder-checkbox" type="checkbox" />
+            </div>
+            <div class="textboxes-container">
+
+                <div contenteditable="true" class="text-box" id="text-box-input"
+                    data-placeholder="I'm hungry for mistakes...">
+                </div>
+                <div class="arrow-button" id="arrow-button">
+                    ➤
+                </div>
+                <div contenteditable="false" class="text-box" id="text-box-output" 
+                data-placeholder="Your text digested...">
                 </div>
             </div>
-           <!--  <div id="tutorial-right">
-                <p>Click on the demo button  (or press CTRL+D) to check out what it can do!</p>
-                
-            </div>
-             -->
-        </div>
 
-        <div id="data-policy-container">
-            <p>Your data is never stored. GECko+ does not have a database.</p>
-        </div>
-
-    </div>
-
-    
-
-    <footer>
-        <div class="footer-title">About</div>
-
-        <div class="about-container" id="about">
-            {% block team %}{% endblock %}
-
-            <div class="project-container">
-
-                <div class="project-title">
-                    <h1>The project</h1>
+            <!-- <div id="tutorial-container">
+                <div id="tutorial-left">
+                    <p>GECko+ is more than a Grammatical Error Corrector.</p>
+                    <p>It is a writing assistant tool, which corrects spelling, grammatical, and discourse mistakes in your texts.</p>
+                    <div id=demo-button>
+                        <p>DEMO</p>
+                        <img src="../static/svg/play.svg" alt="play button" id=demo-logo>
+                    </div>
                 </div>
+            </div> -->
 
-                <!-- <img src="../static/img/gecko_tagline.png" alt="Logo and tagline of gecko" class="footer-logo"> -->
-                <div class="project-description">
-                    GECko+ is built on top of two Artificial Intelligence models.
-                    To correct spelling and grammar mistakes, we use <a href="https://github.com/grammarly/gector" target="_blank" rel="noopener noreferrer">GECToR</a>,
-                    a Grammatical Error Corrector model developed by the well-known <a href="https://www.grammarly.com" target="_blank" rel="noopener noreferrer">Grammarly</a>.
-                    For tackling discourse fallacies, we make use of a
-                    <a href="https://github.com/shrimai/Topological-Sort-for-Sentence-Ordering" target="_blank" rel="noopener noreferrer">sentence ordering model</a>
-                    based on Google's <a href="https://github.com/google-research/bert"  target="_blank" rel="noopener noreferrer">BERT</a>.<br>
-
-                    <br>We have created this web-app in the framework of the Software Project for the second year of our
-                    <a href="https://idmc.univ-lorraine.fr/idmc-master-degree-in-natural-language-processing/" target="_blank" rel="noopener noreferrer">MSc in Natural Language Processing</a> at the Université de Lorraine.
-                    The source code is available on <a href="https://github.com/psawa/gecko-app" target="_blank" rel="noopener noreferrer">GitHub</a>.
-                </div>
+            <div id="data-policy-container">
+                <p>Your data is never stored. GECko+ does not have a database.</p>
             </div>
+
         </div>
 
         
 
-    </footer>
+        <footer>
+            <div class="footer-title">About</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script>$('body').attr("spellcheck",false)</script>
-    <script type="module" src="../static/js/predict.js"></script>
-    <script type="module" src="../static/js/key_bind.js"></script>
-    <!-- <script src="../static/js/clean_cp.js"></script> -->
-    <!-- removed because it was causing more problems -->
-    <script type="module" src="../static/js/animations.js"></script>
-    <script type="module" src="../static/js/demo.js"></script>
+            <div class="about-container" id="about">
+                {% block team %}{% endblock %}
 
-</body>
+                <div class="project-container">
 
+                    <div class="project-title">
+                        <h1>The project</h1>
+                    </div>
+
+                    <div class="project-description">
+                        GECko+ is built on top of two Artificial Intelligence models.
+                        To correct spelling and grammar mistakes, we use <a href="https://github.com/grammarly/gector" target="_blank" rel="noopener noreferrer">GECToR</a>,
+                        a Grammatical Error Corrector model developed by the well-known <a href="https://www.grammarly.com" target="_blank" rel="noopener noreferrer">Grammarly</a>.
+                        For tackling discourse fallacies, we make use of a
+                        <a href="https://github.com/shrimai/Topological-Sort-for-Sentence-Ordering" target="_blank" rel="noopener noreferrer">sentence ordering model</a>
+                        based on Google's <a href="https://github.com/google-research/bert"  target="_blank" rel="noopener noreferrer">BERT</a>.<br>
+
+                        <br>We have created this web-app in the framework of the Software Project for the second year of our
+                        <a href="https://idmc.univ-lorraine.fr/idmc-master-degree-in-natural-language-processing/" target="_blank" rel="noopener noreferrer">MSc in Natural Language Processing</a> at the Université de Lorraine.
+                        The source code is available on <a href="https://github.com/psawa/gecko-app" target="_blank" rel="noopener noreferrer">GitHub</a>.
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>$('body').attr("spellcheck",false)</script>
+        <script type="module" src="../static/js/predict.js"></script>
+        <script type="module" src="../static/js/key_bind.js"></script>
+        <!-- <script src="../static/js/clean_cp.js"></script> -->
+        <!-- removed because it was causing more problems -->
+        <script type="module" src="../static/js/animations.js"></script>
+        <script type="module" src="../static/js/demo.js"></script>
+
+    </body>
 </html>
