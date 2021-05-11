@@ -53,7 +53,7 @@ body {
         width: 275px;
         color: white;
         font-family: 'Delius', cursive;
-        font-size: 1em;
+        font-size: 14px;
         margin-left: 30px;
 
         input#reorder-checkbox{
@@ -107,7 +107,7 @@ body {
     .textboxes-container {
 
         display: grid;
-        grid-template-columns: 20px 1fr 40px 1fr 20px;
+        grid-template-columns: 20px 1fr 30px 1fr 20px;
         grid-template-rows: 1fr;
         grid-template-areas: ". input-box button output-box .";
         // outline: 1px solid grey;
@@ -127,13 +127,13 @@ body {
             font-family: "Verdana", sans-serif;
             text-transform: uppercase;
             background: white;
-            height: 60px;
-            line-height: 55px;
-            width: 60px;
+            height: 45px;
+            line-height: 45px;
+            width: 45px;
             border: 1px solid $footer-color;
             border-radius: 100%;
             color: $footer-color;
-            font-size: 40px;
+            font-size: 35px;
             -webkit-transition: all 0.3 ease;
             transition: all 0.3 ease;
             cursor: pointer;
@@ -142,7 +142,9 @@ body {
             align-self: center;
             z-index: 20;
             transition: background 0.4s ease-in-out, color 0.2s ease-in-out;
-            margin: 0 -10px;
+            // margin: 0 -10px;
+
+            place-self: center;
 /* 
             &:hover, :active, :focus{
                 color: #501B1D;
@@ -185,7 +187,7 @@ body {
         .text-box {
             grid-area: textbox;
             font-family: 'Open Sans', sans-serif;
-            font-size: 30px;
+            font-size: 18px;
             // width: 500px;
             min-height: 200px;
             background-color: white;
@@ -203,7 +205,7 @@ body {
             border-radius: 25px;
             font-family: 'Open Sans', sans-serif;
             color: black;
-            font-size: 25px;
+            // font-size: 25px;
             resize: none;
             outline: none;
             box-shadow: 0 0 3px #4b4b4b;

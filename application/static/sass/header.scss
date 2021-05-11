@@ -54,7 +54,7 @@ nav a:nth-child(2):hover~#indicator {
 
 header {
     display: grid;
-    grid-template-columns: 230px 500px 1fr  475px;
+    grid-template-columns: 157px 500px 1fr 475px;
     grid-template-rows: 1fr;
     gap: 0px 48px;
     grid-template-areas: "logo tagline . demo-container ";
@@ -76,17 +76,17 @@ header {
         // outline: 1px solid violet;
         position: relative;
         /* width: 150px; */
-        width: 200px;
-        height: 150px;
+        width: 150px;
+        height: 110px;
         grid-area: logo;
         background: url("../img/GECko_plus_small.png");
         // background: url("../img/GECko_logo_small.png");
         background-repeat: no-repeat;
-        // background-size: 150px;
+        background-size: 150px;
     }
     .header-tagline{
         // outline: 1px solid cyan;
-        font-size: 30pt;
+        font-size: 20pt;
         display: inline-block;
         grid-area: tagline;
     }
@@ -102,7 +102,7 @@ header {
     padding: 0 15px;
     //
     display: grid;
-    grid-template-columns:  1fr 2fr;
+    grid-template-columns:  1fr 3fr;
     grid-template-rows: 1fr;
     gap: 0px 30px;
     grid-template-areas: "demo-button  demo-text";
@@ -110,7 +110,7 @@ header {
 
     #demo-text{
         grid-area: demo-text;
-        font-size: 13pt;
+        font-size: 14px;
     }
 
 }
@@ -126,19 +126,19 @@ header {
     display: flex;
     align-items:center;
     justify-content: center;
-    height: 45px;
+    // height: 45px;
     border: 1px solid;   
 
 
     p{
-        font-size: 24px;
+        font-size: 11pt;
         padding-right: 15px;
         margin: 8px 0;
     }
 
     #demo-logo{
-        height: 26px;
-        width: 26px;
+        height: 12px;
+        width: 12px;
         filter: grayscale(80%) invert(83%);
 
     }
