@@ -54,10 +54,10 @@ nav a:nth-child(2):hover~#indicator {
 
 header {
     display: grid;
-    grid-template-columns: 0.4fr 1.5fr 1.2fr 0.5fr 20px;
+    grid-template-columns: 230px 500px 1fr  475px;
     grid-template-rows: 1fr;
     gap: 0px 48px;
-    grid-template-areas: "logo tagline demo-text demo-button .";
+    grid-template-areas: "logo tagline . demo-container ";
     align-items: center;
 
     color:white;
@@ -70,7 +70,7 @@ header {
     // margin-left: 20px;
     position: relative;
 
-    background-color: #0000002e;
+    // background-color: #0000002e;
 
     .logo-container {
         // outline: 1px solid violet;
@@ -92,28 +92,43 @@ header {
     }
 }
 
+#demo-container{
+    grid-area: demo-container;
+    // background-color: #0000002e;
+    box-shadow: 
+        #824242 1px 6px 2px -1px, 
+        3px 7px 10px -1px rgba(0, 0, 0, 99%);
+    border-bottom-left-radius: 16px;
+    padding: 0 15px;
+    //
+    display: grid;
+    grid-template-columns:  1fr 2fr;
+    grid-template-rows: 1fr;
+    gap: 0px 30px;
+    grid-template-areas: "demo-button  demo-text";
+    align-items: center;
 
-#demo-text{
-
-    grid-area: demo-text;
-    font-size: 13pt;
-
-    p{
-        margin-bottom: -6px;
+    #demo-text{
+        grid-area: demo-text;
+        font-size: 13pt;
     }
-    // width: 200px;
+
 }
+
+
 
 #demo-button{
     // outline: 1px solid blue
-    width: 130px;
     grid-area: demo-button;
-    background-color: #00000050;
+    background-color: #c358580a;
     border-radius: 14px;
     padding: 0 6px;
     display: flex;
     align-items:center;
     justify-content: center;
+    height: 45px;
+    border: 1px solid;   
+
 
     p{
         font-size: 24px;
@@ -124,6 +139,7 @@ header {
     #demo-logo{
         height: 26px;
         width: 26px;
+        filter: grayscale(80%) invert(83%);
 
     }
     &:hover{

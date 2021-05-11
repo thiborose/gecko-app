@@ -34,7 +34,8 @@ body {
     width: 275px;
     color: white;
     font-family: 'Delius', cursive;
-    font-size: 1em; }
+    font-size: 1em;
+    margin-left: 30px; }
     .main-container .checkbox-container input#reorder-checkbox {
       float: right;
       width: 42px;
