@@ -1,18 +1,12 @@
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* :::::::::: FOOTER ::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
-footer {
-  outline: 1px solid red; }
-  footer .about-container {
-    flex-direction: column-reverse;
-    align-content: center; }
-    footer .about-container .team-container {
-      max-width: 100%;
-      overflow-x: scroll; }
-    footer .about-container .project-container {
-      max-width: 450px;
-      width: auto;
-      margin: auto; }
+footer .about-container {
+  display: grid;
+  grid-template-columns: 1fr 415px 30px 583px 1fr;
+  grid-template-areas: ". project . team .";
+  flex-direction: column-reverse;
+  align-content: center; }
 
 footer {
   padding: 80px 0;
@@ -24,128 +18,124 @@ footer {
   font-family: 'Open Sans', sans-serif; }
   footer .footer-title {
     display: block;
-    font-size: xx-large;
+    font-size: x-large;
     font-family: 'Delius', cursive; }
-  footer .about-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: top; }
-    footer .about-container h1 {
-      margin-bottom: 20px;
-      font-size: xx-large;
-      text-align: center; }
-    footer .about-container .project-container {
-      float: center;
-      width: 1150px;
-      color: #efe8dc;
-      padding: 15px 15px 15px 40px;
-      text-align: justify;
-      max-width: 600px; }
-      footer .about-container .project-container .project-title {
-        font-family: 'Delius', cursive; }
-    footer .about-container .team-container {
-      max-width: 1000px;
-      /* border-top: 1px #e9e9e9 solid;
+  footer .about-container h1 {
+    margin-bottom: 20px;
+    font-size: x-large;
+    text-align: center; }
+  footer .about-container .project-container {
+    color: #efe8dc;
+    padding: 15px;
+    text-align: justify;
+    /* max-width: 600px; */
+    width: 415px; }
+    footer .about-container .project-container .project-title {
+      font-family: 'Delius', cursive; }
+  footer .about-container .team-container {
+    /* border-top: 1px #e9e9e9 solid;
             border-bottom: 1px #e9e9e9 solid; */
-      position: relative;
-      padding-top: 15px; }
-      footer .about-container .team-container .team-title {
-        font-family: 'Delius', cursive; }
-
-.project-container .footer-logo {
-  width: 400px;
-  margin-bottom: 30px; }
-
-.project-container .project-description {
-  padding-right: 30px;
-  text-align: justify;
-  font-size: 1.4em; }
-  .project-container .project-description a {
-    text-decoration: none;
-    color: #bd6b44;
-    transition: color ease 0.5s; }
-    .project-container .project-description a:hover {
-      color: #fda075;
-      transition: color ease 0.5s; }
-
-.team-container .team-members {
-  display: inline-flex; }
-  .team-container .team-members .team-member {
-    height: 300px;
     position: relative;
-    margin: 0 15px;
-    width: 205px;
-    flex-wrap: wrap;
-    background-color: #8b86876b;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border-top-left-radius: 35px; }
-    .team-container .team-members .team-member.thi {
-      background-color: #1c4d8d4d; }
-    .team-container .team-members .team-member.leo {
-      background-color: #eaf0fa3b; }
-    .team-container .team-members .team-member.edu {
-      background-color: #7b363f3b; }
-    .team-container .team-members .team-member .description {
-      display: block;
-      text-align: center;
-      font-size: 90%;
-      padding: 0 15px 15px; }
-    .team-container .team-members .team-member a {
-      color: white; }
-  .team-container .team-members .team-member-id {
-    display: flex;
-    justify-content: flex-start; }
-    .team-container .team-members .team-member-id .team-member-picture {
-      width: 70px;
-      height: 70px;
-      border-radius: 100%;
-      margin-right: 15px;
-      margin-left: -10px;
-      margin-top: -10px;
-      /* clip-path: circle(50px at center); */
-      border: #501B1D 2px solid;
-      background-size: 100px 100px; }
-      .team-container .team-members .team-member-id #eduardo-picture.team-member-picture {
-        background-image: url("../img/edu.jpeg");
-        background-position: 40% -8%;
-        background-size: 95px;
-        border-color: #7b363f; }
-      .team-container .team-members .team-member-id #leo-picture.team-member-picture {
-        background-image: url("../img/leo.jpeg");
-        background-position: 38% 39%;
-        background-size: 120px;
-        border-color: #eaf0fa; }
-      .team-container .team-members .team-member-id #thibo-picture.team-member-picture {
-        background-image: url("../img/thi.jpeg");
-        background-position: 50% 59%;
-        background-size: 120px;
-        border-color: #244b7d; }
-  .team-container .team-members .team-member-links {
-    position: absolute;
-    bottom: 6px;
-    left: 63px;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    margin-top: 10px; }
-    .team-container .team-members .team-member-links .icon {
-      height: 20px;
-      width: 20px;
-      padding: 5px; }
-      .team-container .team-members .team-member-links #linkedin.icon {
-        background-image: url("../img/linkedin-logo.png");
-        background-size: 20px;
-        background-repeat: no-repeat; }
-      .team-container .team-members .team-member-links #github.icon {
-        background-image: url("../img/github-logo.png");
-        background-size: 20px;
-        background-repeat: no-repeat; }
-      .team-container .team-members .team-member-links #gmail.icon {
-        background-image: url("../img/gmail-logo_w.png");
-        background-size: 20px;
-        background-repeat: no-repeat; }
+    padding-top: 15px; }
+    footer .about-container .team-container .team-title {
+      font-family: 'Delius', cursive; }
+
+.project-container {
+  grid-area: project; }
+  .project-container .footer-logo {
+    width: 400px;
+    margin-bottom: 30px; }
+  .project-container .project-description {
+    padding-right: 30px;
+    text-align: justify;
+    font-size: 18px; }
+    .project-container .project-description a {
+      text-decoration: none;
+      color: #bd6b44;
+      transition: color ease 0.5s; }
+      .project-container .project-description a:hover {
+        color: #fda075;
+        transition: color ease 0.5s; }
+
+.team-container {
+  grid-area: team; }
+  .team-container .team-members {
+    display: inline-flex; }
+    .team-container .team-members .team-member {
+      height: 261px;
+      position: relative;
+      margin: 0 4px;
+      width: 180px;
+      flex-wrap: wrap;
+      background-color: #8b86876b;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border-top-left-radius: 35px; }
+      .team-container .team-members .team-member.thi {
+        background-color: #1c4d8d4d; }
+      .team-container .team-members .team-member.leo {
+        background-color: #eaf0fa3b; }
+      .team-container .team-members .team-member.edu {
+        background-color: #7b363f3b; }
+      .team-container .team-members .team-member .description {
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        padding: 0 2px; }
+      .team-container .team-members .team-member a {
+        color: white; }
+    .team-container .team-members .team-member-id {
+      display: flex;
+      justify-content: flex-start; }
+      .team-container .team-members .team-member-id .team-member-picture {
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        margin-right: 15px;
+        margin-left: -10px;
+        margin-top: -10px;
+        /* clip-path: circle(50px at center); */
+        border: #501B1D 2px solid;
+        background-size: 100px 100px; }
+        .team-container .team-members .team-member-id #eduardo-picture.team-member-picture {
+          background-image: url("../img/edu.jpeg");
+          background-position: 40% -8%;
+          background-size: 95px;
+          border-color: #7b363f; }
+        .team-container .team-members .team-member-id #leo-picture.team-member-picture {
+          background-image: url("../img/leo.jpeg");
+          background-position: 38% 39%;
+          background-size: 120px;
+          border-color: #eaf0fa; }
+        .team-container .team-members .team-member-id #thibo-picture.team-member-picture {
+          background-image: url("../img/thi.jpeg");
+          background-position: 50% 59%;
+          background-size: 120px;
+          border-color: #244b7d; }
+    .team-container .team-members .team-member-links {
+      position: absolute;
+      bottom: 6px;
+      left: 50px;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      margin-top: 10px; }
+      .team-container .team-members .team-member-links .icon {
+        height: 20px;
+        width: 20px;
+        padding: 5px; }
+        .team-container .team-members .team-member-links #linkedin.icon {
+          background-image: url("../img/linkedin-logo.png");
+          background-size: 20px;
+          background-repeat: no-repeat; }
+        .team-container .team-members .team-member-links #github.icon {
+          background-image: url("../img/github-logo.png");
+          background-size: 20px;
+          background-repeat: no-repeat; }
+        .team-container .team-members .team-member-links #gmail.icon {
+          background-image: url("../img/gmail-logo_w.png");
+          background-size: 20px;
+          background-repeat: no-repeat; }
 
 .credits-container {
   margin-top: 30px;

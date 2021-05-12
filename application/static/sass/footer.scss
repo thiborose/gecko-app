@@ -5,21 +5,13 @@
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 footer{
-    outline: 1px solid red;
+    // outline: 1px solid red;
     .about-container{
+        display: grid;
+        grid-template-columns: 1fr 415px 30px 583px 1fr;    
+        grid-template-areas: ". project . team .";
         flex-direction: column-reverse ;
         align-content: center;
-        .team-container{
-            max-width: 100%;
-            overflow-x: scroll;
-
-        }
-
-        .project-container{
-            max-width: 450px;
-            width: auto;
-            margin: auto;
-        }
     }
 }
 
@@ -35,31 +27,26 @@ footer{
 
     .footer-title{
         display: block;
-        font-size: xx-large;
+        font-size: x-large;
         font-family: 'Delius', cursive;
     }
 
     .about-container{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: top;
 
         h1{
             margin-bottom: 20px;
-            font-size: xx-large;
+            font-size: x-large;
             text-align: center;
         }
 
         .project-container {
-            float: center;
-            width: 1150px;
-            color: $beige;
-            padding: 15px 15px 15px 40px;
+            color: #efe8dc;
+            padding: 15px;
             text-align: justify;
             // outline: salmon 1px solid;
-            max-width: 600px;
-            // border-left: 1px solid #ADADAD;
+            /* max-width: 600px; */
+            width: 415px;
+        
 
             .project-title{
                 font-family: 'Delius', cursive;
@@ -68,7 +55,7 @@ footer{
 
         .team-container{
             // outline: 1px solid blue;
-            max-width: 1000px;
+            // max-width: 1000px;
             /* border-top: 1px #e9e9e9 solid;
             border-bottom: 1px #e9e9e9 solid; */
             position: relative;
@@ -86,7 +73,7 @@ footer{
 
 
 .project-container{
-
+    grid-area: project;
     .footer-logo{
         width: 400px;
         margin-bottom: 30px
@@ -95,7 +82,7 @@ footer{
     .project-description{
         padding-right: 30px;
         text-align: justify;
-        font-size: 1.4em;
+        font-size: 18px;
 
         a{
             text-decoration: none;
@@ -111,22 +98,18 @@ footer{
 
 .team-container {
     // outline: 1px solid green;
-
+    grid-area: team;
     .team-members{
         display: inline-flex;
         
 
         .team-member {
-            height: 300px;
+            height: 261px;
             position: relative;
-            margin: 0 15px;
-            // color: #501B1D;
-            width: 205px;
+            margin: 0 4px;
+            width: 180px;
             flex-wrap: wrap;
-            // outline: 1px solid green;
-
             background-color: #8b86876b;
-            // border: 2px solid beige;
             box-sizing: border-box;
             border-radius: 10px;
             border-top-left-radius: 35px;
@@ -145,8 +128,8 @@ footer{
                 display: block;
                 text-align: center;
                 // margin-top: 10px;
-                font-size: 90%;
-                padding: 0 15px 15px;
+                font-size: 14px;
+                padding: 0 2px;
                 
             }
 
@@ -198,7 +181,7 @@ footer{
         .team-member-links{
             position: absolute;
             bottom: 6px;
-            left: 63px;
+            left: 50px;
             bottom: 0;
             display: flex;
             justify-content: center;
