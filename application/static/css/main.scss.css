@@ -153,13 +153,6 @@ body {
       grid-area: output-box; }
     .main-container .textboxes-container #text-box-input:focus {
       box-shadow: 0px 1px 10px 2px #000000; }
-  .main-container #data-policy-container {
-    color: white;
-    font-family: 'Delius', cursive;
-    font-size: 1em;
-    padding-top: 50px; }
-    .main-container #data-policy-container p {
-      margin: 0; }
 
 /* Deltas */
 .delta-insert {
