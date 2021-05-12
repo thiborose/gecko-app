@@ -1,7 +1,7 @@
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* :::::::::: FOOTER ::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
-footer .about-container {
+footer #about-container {
   display: grid;
   grid-template-columns: 1fr 415px 30px 583px 1fr;
   grid-template-areas: ". project . team .";
@@ -21,24 +21,24 @@ footer {
     display: block;
     font-size: x-large;
     font-family: 'Delius', cursive; }
-  footer .about-container h1 {
+  footer #about-container h1 {
     margin-bottom: 20px;
     font-size: x-large;
     text-align: center; }
-  footer .about-container .project-container {
+  footer #about-container .project-container {
     color: #efe8dc;
     padding: 15px;
     text-align: justify;
     /* max-width: 600px; */
     width: 415px; }
-    footer .about-container .project-container .project-title {
+    footer #about-container .project-container .project-title {
       font-family: 'Delius', cursive; }
-  footer .about-container .team-container {
+  footer #about-container .team-container {
     /* border-top: 1px #e9e9e9 solid;
             border-bottom: 1px #e9e9e9 solid; */
     position: relative;
     padding-top: 15px; }
-    footer .about-container .team-container .team-title {
+    footer #about-container .team-container .team-title {
       font-family: 'Delius', cursive; }
 
 .project-container {

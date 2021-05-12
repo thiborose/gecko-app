@@ -6,7 +6,7 @@
 
 footer{
     // outline: 1px solid red;
-    .about-container{
+    #about-container{
         display: grid;
         grid-template-columns: 1fr 415px 30px 583px 1fr;    
         grid-template-areas: ". project . team .";
@@ -32,7 +32,7 @@ footer{
         font-family: 'Delius', cursive;
     }
 
-    .about-container{
+    #about-container{
 
         h1{
             margin-bottom: 20px;

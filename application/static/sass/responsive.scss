@@ -2,83 +2,49 @@
 ///////// RESPONSIVE DESIGN ///////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 
-// PORTRAIT IPAD PRO
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-    footer{
-        .about-container{
-            flex-direction: column-reverse ;
-            align-content: center;
-            .project-container{
-                padding: 15px;
-                margin: auto;
-                .project-description{
-                    padding: 0;
-                }
-            }
-        }
-    }
-
-    .main-container{
-        height: 975px;
-    }
-
-    .textboxes-container{
-        padding-top:30px;
-        flex-direction: column;
-        .arrow-button{
-            transform: rotate(90deg);
-            margin: -10px 0;
-
-        }
-
-    }
-
-    .text-box{
-        width: 650px;
+@media only screen and (max-width : 1042px) {
+    footer #about-container{
+        grid-template-columns: 1fr 415px 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+            ". project ."
+            "team team team";
     }
 }
 
-
-// LANDSCAPE IPAD PRO
-// Already good ;) 
-
-// PHONE PORTRAIT 
-@media only screen and (max-width : 1050px) {
+@media only screen and (max-width : 1000px) {
     header{
-        display: block;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+            "logo tagline tagline tagline"
+            "demo-container demo-container demo-container demo-container";
         margin:0;
         padding: 20px;
 
-        .nav {
-            display: none;
+        #demo-container{
+            box-shadow: none;
+            background-color: #00000000;
         }
 
-        .header-tagline{
-            font-size: 26px;
-        }
     }
     .main-container{
-        width: auto;
         padding-top: 0;
         .textboxes-container{
+            grid-template-columns: 20px 1fr 20px;
+            grid-template-rows: 1fr 30px 1fr;
+            grid-template-areas: 
+            ". input-box ."
+            ". button ."
+            ". output-box .";
             margin:auto;
-            flex-direction: column;
-            width: 94%;
 
             padding-bottom: 40px;
             padding-top: 20px;
 
-            .text-box{
-                width: auto;
-            }
-
             .arrow-button{
                 margin: -10px 0;
             }
-        }
-
-        #tutorial-container{
-            padding: 0 20px 30px;
         }
     }
 }

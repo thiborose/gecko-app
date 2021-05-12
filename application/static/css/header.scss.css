@@ -40,9 +40,8 @@ nav a:nth-child(2):hover ~ #indicator {
 /* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 header {
   display: grid;
-  grid-template-columns: 157px 500px 1fr 475px;
+  grid-template-columns: 157px 345px 1fr 475px;
   grid-template-rows: 1fr;
-  gap: 0px 48px;
   grid-template-areas: "logo tagline . demo-container ";
   align-items: center;
   color: white;
@@ -62,7 +61,8 @@ header {
   header .header-tagline {
     font-size: 20pt;
     display: inline-block;
-    grid-area: tagline; }
+    grid-area: tagline;
+    padding-left: 20px; }
 
 #demo-container {
   grid-area: demo-container;
