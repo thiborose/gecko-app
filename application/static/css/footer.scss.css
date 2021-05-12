@@ -15,6 +15,7 @@ footer {
   background-color: #1a080a;
   color: #efe8dc;
   display: block;
+  position: relative;
   font-family: 'Open Sans', sans-serif; }
   footer .footer-title {
     display: block;
@@ -146,5 +147,12 @@ footer {
     width: 215px; }
   .credits-container #ul-footer-logo {
     width: 80px; }
+
+#bottom-container {
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px; }
 
 /*# sourceMappingURL=footer.scss.css.map */

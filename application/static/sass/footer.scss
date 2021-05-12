@@ -22,6 +22,7 @@ footer{
     background-color: $footer-color;
     color: $beige;
     display: block;
+    position: relative;
     font-family: 'Open Sans', sans-serif;
     // outline: 1px solid yellow;
 
@@ -234,4 +235,13 @@ footer{
         width: 80px;
         // display: inline-block;
     }
+}
+
+#bottom-container{
+    // background-color: black;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
 }

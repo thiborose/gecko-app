@@ -63,6 +63,8 @@ header {
     color:white;
     font-family: 'Delius', cursive;
 
+    background: linear-gradient(#250b0d, #3a111300);
+
 
     // outline: 1px solid pink;
     text-align: left;
@@ -95,9 +97,7 @@ header {
 #demo-container{
     grid-area: demo-container;
     // background-color: #0000002e;
-    box-shadow: 
-        #824242 1px 6px 2px -1px, 
-        3px 7px 10px -1px rgba(0, 0, 0, 99%);
+    box-shadow: #824242 1px 4px 0px -1px, 3px 7px 10px -1px black;
     border-bottom-left-radius: 16px;
     padding: 0 15px;
     //
@@ -107,6 +107,8 @@ header {
     gap: 0px 30px;
     grid-template-areas: "demo-button  demo-text";
     align-items: center;
+
+    background-color: $bg-1;
 
     #demo-text{
         grid-area: demo-text;
@@ -128,6 +130,7 @@ header {
     justify-content: center;
     // height: 45px;
     border: 1px solid;   
+    transition: box-shadow 0.3s ease-in-out;
 
 
     p{
@@ -144,8 +147,16 @@ header {
     }
     &:hover{
         cursor: pointer;
+        // background-color: white;
+        transition: box-shadow 0.3s ease-in-out;
+        box-shadow: #824242 3px 4px 0px -1px;
+
         #demo-logo{
             fill: $beige;
         }
+    }
+    
+    &.is-clicked-demo{
+        transform: scale(0.98);
     }
 }

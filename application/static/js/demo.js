@@ -1,4 +1,5 @@
 import {predict} from './predict.js';
+import {animateDemoButton} from "./animations.js"
 
 
 let toFade = $("#tutorial-container")
@@ -39,6 +40,7 @@ let availableExamples = shuffle(demoSentences);
 
 
 function launch_demo(){
+  animateDemoButton();
   if (demoIsVisible){
     toFade.animate({ opacity: 0.2 }, 1000);
     demoIsVisible = false;
