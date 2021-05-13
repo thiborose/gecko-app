@@ -10,7 +10,7 @@ app = Flask(__name__, instance_relative_config=True)
 
 # setting up environment
 root_dir = listdir()
-print(root_dir)
+# print(root_dir)
 if "config.py" in root_dir:
     app.config.from_object('config')
 else:
