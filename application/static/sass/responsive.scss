@@ -3,7 +3,7 @@
 ///////////////////////////////////////////////////////////////////
 
 @media only screen and (max-width : 1042px) {
-    
+
     footer #about-container{
         grid-template-rows: 1fr  1fr;
         grid-template-columns: 1fr;
@@ -81,7 +81,7 @@
 @media only screen and (max-width : 600px) {
 
 
-    .project-container{
+    footer #about-container .project-container{
         width: auto;
         margin:auto;
         .project-description{

@@ -42,10 +42,10 @@
         margin: -10px 0; } }
 
 @media only screen and (max-width: 600px) {
-  .project-container {
+  footer #about-container .project-container {
     width: auto;
     margin: auto; }
-    .project-container .project-description {
+    footer #about-container .project-container .project-description {
       padding: 0; }
   .team-container .team-members {
     display: inline-flex;
