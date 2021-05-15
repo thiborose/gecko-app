@@ -3,31 +3,60 @@
 ///////////////////////////////////////////////////////////////////
 
 @media only screen and (max-width : 1042px) {
+    
     footer #about-container{
-        grid-template-columns: 1fr 415px 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr  1fr;
+        grid-template-columns: 1fr;
         grid-template-areas: 
-            ". project ."
-            "team team team";
+            "project"
+            "team";
+        justify-items: center;
+    }
+
+
+    #data-policy{
+        padding: 0 6px;
+    }
+
+    .main-container .checkbox-container {
+        margin-left: 0px;
     }
 }
 
 @media only screen and (max-width : 1000px) {
     header{
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 85px 1fr;
         grid-template-areas: 
             "logo tagline tagline tagline"
             "demo-container demo-container demo-container demo-container";
         margin:0;
-        padding: 20px;
+        // padding: 20px;
 
         #demo-container{
             box-shadow: none;
             background-color: #00000000;
+            grid-template-columns: 1fr;
+            grid-template-rows: 113px 39px;
+            grid-template-areas:
+                "demo-text"
+                "demo-button";
+            grid-row-gap: 10px;
+            margin-bottom: 20px;
         }
 
     }
+
+    .main-container .textboxes-container .text-box {
+        padding:7px;
+    }
+
+    header .logo-container{
+        width: 105px;
+        height: 75px;
+        background-size: 105px;
+    }
+
     .main-container{
         padding-top: 0;
         .textboxes-container{
@@ -47,4 +76,28 @@
             }
         }
     }
+}
+
+@media only screen and (max-width : 600px) {
+
+
+    .project-container{
+        width: auto;
+        margin:auto;
+        .project-description{
+            padding:0;
+        }
+    }
+
+    .team-container .team-members {
+        display: inline-flex;
+        flex-direction: column;
+    }
+
+    footer #about-container{
+        display: flex;
+        flex-direction: column-reverse;
+        margin: auto;
+    }
+
 }

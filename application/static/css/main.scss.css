@@ -131,13 +131,13 @@ body {
       font-family: 'Open Sans', sans-serif;
       font-size: 18px;
       min-height: 200px;
-      background-color: white; }
+      background-color: white;
+      padding: 20px; }
       .main-container .textboxes-container .text-box:empty:before {
         content: attr(data-placeholder);
         color: gray; }
     .main-container .textboxes-container #text-box-input, .main-container .textboxes-container #text-box-output {
       text-align: left;
-      padding: 20px;
       border: 1px solid white;
       border-radius: 25px;
       font-family: 'Open Sans', sans-serif;

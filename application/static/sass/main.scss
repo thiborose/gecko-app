@@ -192,6 +192,8 @@ body {
             min-height: 200px;
             background-color: white;
 
+            padding: 20px;
+
             &:empty:before{
                 content: attr(data-placeholder);
                 color: gray
@@ -200,7 +202,6 @@ body {
 
         #text-box-input, #text-box-output {
             text-align: left;
-            padding: 20px;
             border: 1px solid rgba(255, 255, 255, 15%);
             border-radius: 25px;
             font-family: 'Open Sans', sans-serif;
