@@ -1,30 +1,32 @@
 from application import nlp, model, DELIMITER, RE_HYPHENS, RE_QUOTES1, RE_QUOTES2
-from nltk.tokenize.treebank import TreebankWordDetokenizer
 from application.models.gector.predict import predict_for_sentences
 from application.models.gector.utils.preprocess_data import align_sequences, convert_tagged_line
-import re
 import application.models.sentence_reorder as sentence_reorder
+
+import re
+from nltk.tokenize.treebank import TreebankWordDetokenizer
+from unidecode import unidecode
+
 
 def predict(input_text: str, reorder:bool) -> dict:
     """Predicts a correction for an input text and returns the tagged input and output."""
-    tokenized_sentence = tokenize_and_segment(input_text)
-    corrected_sentences = predict_for_sentences(tokenized_sentence, model)
+    
+    input_text = unidecode(input_text)
+    tokenized_sentences = tokenize_and_segment(input_text)
+    corrected_sentences = predict_for_sentences(tokenized_sentences, model)
     correct_untokenized_sentences = [untokenize(sent) for sent in corrected_sentences]
     do_reorder = reorder and len(correct_untokenized_sentences) > 1 # flag
     if do_reorder:
         #sentence reordering model
         order = sentence_reorder.get_order(correct_untokenized_sentences)
-    tagged_input, tagged_output = get_changes(sentencize(input_text), correct_untokenized_sentences)
+    tagged_input, tagged_output, stats = get_changes(sentencize(input_text), correct_untokenized_sentences)
     tagged_input = unsentencize(tagged_input)
-
     if do_reorder:
         ordered_sentencized_tagged_output = sentence_reorder.reorder(tagged_output, order)
         tagged_output = unsentencize(ordered_sentencized_tagged_output )
     else:
-        tagged_output = unsentencize(tagged_output )
-
-
-    return {"input": tagged_input, "output": tagged_output}
+        tagged_output = unsentencize(tagged_output)
+    return {"input": tagged_input, "output": tagged_output, "stats": stats}
   
 
 def sentencize(text:str)->'list(str)':
@@ -39,12 +41,13 @@ def tokenize_and_segment(input_text: str) -> 'list(str)':
         sentences.append(' '.join(token.text for token in sent))
     return sentences
 
+RE_HYPHENS = re.compile(r'(\w) - (\w)')
+RE_QUOTES = re.compile(r"([\"']) (.+) ([\"'])")
 
 def untokenize(tokens:list) -> str:
     output_text = TreebankWordDetokenizer().detokenize(tokens)
     output_text = re.sub(RE_HYPHENS, r'\1-\2', output_text)
-    output_text = re.sub(RE_QUOTES1, r'\1\2', output_text)
-    output_text = re.sub(RE_QUOTES2, r'\1\2', output_text)
+    output_text = re.sub(RE_QUOTES, r'\1\2\3', output_text)
     return output_text
 
 def unsentencize(sentences: 'list(str)') -> str:
@@ -54,16 +57,39 @@ def unsentencize(sentences: 'list(str)') -> str:
 
 def get_changes(input_text:'list(str)', output_text:'list(str)')-> '(str,str)':
     """Retrieves the changes made and tags the input and output accordingly."""
+
     tagged_input = list()
     tagged_output = list()
+    stats = {'total': 0, 'add': 0, 'del': 0, 'modif': 0, 'changes': []}
     for i in range(len(input_text)):
         input_sent = input_text[i].text
+        input_tokens = input_sent.split()
         output_sent = output_text[i]
         sent_with_tags = align_sequences(input_sent, output_sent)
-        target_text, replaced_tok_ids, deleted_tok_ids = convert_tagged_line(sent_with_tags)
+        target_text, replaced_tok_ids, deleted_tok_ids, edits_for_stats = convert_tagged_line(sent_with_tags)
+        stats = get_sent_stats(stats, input_tokens, edits_for_stats)
         tagged_input.append(highlight_changes_input(sent_with_tags, replaced_tok_ids, deleted_tok_ids))
         tagged_output.append(highlight_changes_output(target_text))
-    return tagged_input, tagged_output
+    return tagged_input, tagged_output, stats
+
+
+def get_sent_stats(stats, input_tokens, edits_for_stats: 'List[List[Tuple]]'):
+    for edit in edits_for_stats:
+        offset, tags = edit
+        beg, end = offset
+        #print(offset, input_tokens[beg:end], tags)
+        stats['total'] += len(tags)
+        for tag in tags:
+            if tag == '$DELETE':
+                stats['del'] += 1
+            elif tag.startswith('$APPEND'):
+                stats['add'] += 1
+            elif tag.startswith('$TRANSFORM'):
+                stats['changes'].append((input_tokens[beg:end], tag))
+                stats['modif'] += 1
+            else:
+                stats['modif'] += 1
+    return stats
 
 
 def highlight_changes_input(sent_with_tags, replaced_tok_ids, deleted_tok_ids):
@@ -105,15 +131,15 @@ def add_css_tag(token, modification):
     """Returns a token wrapped with the corresponding css tag."""
 
     if modification == 'replace':
-        token = '<span class="delta-replace">' + token + '</span>'
+        token = '<span class=\"delta-replace\">' + token + '</span>'
     elif modification == 'delete':
-        token = '<span class="delta-delete">' + token + '</span>'
+        token = '<span class=\"delta-delete\">' + token + '</span>'
     elif modification == 'append':
-        token = '<span class="delta-insert">' + token + '</span>'
+        token = '<span class=\"delta-insert\">' + token + '</span>'
     elif modification == 'punctuation':
-        token = token[:-1] + '<span class="delta-insert">' + token[-1] + '</span>'
+        token = token[:-1] + '<span class=\"delta-insert\">' + token[-1] + '</span>'
     elif modification == 'input_delete':
-        token = '<span class="delta-input-delete">' + token + '</span>'
+        token = '<span class=\"delta-input-delete\">' + token + '</span>'
     elif modification == 'input_replace':
-        token = '<span class="delta-input-replace">' + token + '</span>'
+        token = '<span class=\"delta-input-replace\">' + token + '</span>'
     return token
