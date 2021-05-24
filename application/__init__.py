@@ -1,8 +1,7 @@
 from flask import Flask
 from application.models.gector import model
 import application.models.sentence_reorder as sentence_reoder
-import spacy 
-from os import system, listdir
+from os import listdir
 
 import re
 
@@ -17,18 +16,15 @@ else:
     app.config['DEBUG'] = False
 
 
-if app.config['DEBUG'] == True:
-    try:
-        from sassutils.wsgi import SassMiddleware
-    except(ImportError):
-        system("pip install libsass==0.20.1")
-        from sassutils.wsgi import SassMiddleware
-    app.wsgi_app = SassMiddleware(app.wsgi_app, {
-        'application': ('static/sass', 'static/css', '/static/css')
-    })
-
-
-nlp = spacy.load("en_core_web_sm")
+# if app.config['DEBUG'] == True:
+#     try:
+#         from sassutils.wsgi import SassMiddleware
+#     except(ImportError):
+#         system("pip install libsass==0.20.1")
+#         from sassutils.wsgi import SassMiddleware
+#     app.wsgi_app = SassMiddleware(app.wsgi_app, {
+#         'application': ('static/sass', 'static/css', '/static/css')
+#     })
 
 model = model.load_model(
     vocab_path = "application/models/gector/data/output_vocabulary",
