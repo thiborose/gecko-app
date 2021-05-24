@@ -382,13 +382,14 @@ def convert_labels_into_edits(labels):
 
 def get_target_sent_by_levels(source_tokens, labels):
     relevant_edits = convert_labels_into_edits(labels)
+    edits_for_stats = relevant_edits[:]
     target_tokens = source_tokens[:]
     leveled_target_tokens = {}
     replaced_tokens_ids = []
     deleted_tokens_ids = []
     if not relevant_edits:
         target_sentence = " ".join(target_tokens)
-        return target_sentence, replaced_tokens_ids, deleted_tokens_ids
+        return target_sentence, replaced_tokens_ids, deleted_tokens_ids, edits_for_stats
     max_level = max([len(x[1]) for x in relevant_edits])
     for level in range(max_level):
         rest_edits = []
@@ -443,8 +444,9 @@ def get_target_sent_by_levels(source_tokens, labels):
         leveled_target_tokens[level + 1] = {"tokens": leveled_tokens,
                                             "labels": leveled_labels}
 
-    target_sentence = " ".join(leveled_target_tokens[max_level]["tokens"])
-    return target_sentence, replaced_tokens_ids, deleted_tokens_ids
+    target_tokens = leveled_target_tokens[max_level]["tokens"]
+    target_sentence = " ".join(target_tokens)
+    return target_sentence, replaced_tokens_ids, deleted_tokens_ids, edits_for_stats
 
 
 def replace_merge_transforms(tokens):
@@ -472,8 +474,8 @@ def convert_tagged_line(line, delimeters=SEQ_DELIMETERS):
     labels = [x.split(label_del)[1].split(delimeters['operations'])
               for x in line.split(delimeters['tokens'])]
     assert len(source_tokens) + 1 == len(labels)
-    target_sentence, replaced_tokens_ids, deleted_tokens_ids = get_target_sent_by_levels(source_tokens, labels)
-    return target_sentence, replaced_tokens_ids, deleted_tokens_ids
+    target_sentence, replaced_tokens_ids, deleted_tokens_ids, edits_for_stats = get_target_sent_by_levels(source_tokens, labels)
+    return target_sentence, replaced_tokens_ids, deleted_tokens_ids, edits_for_stats
 
 
 def main(args):
