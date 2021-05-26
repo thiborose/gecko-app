@@ -21,9 +21,19 @@ Fool me twice, shame on me. Fool me once, shame on you. | Fool me once, shame on
 Secondy, prepare the pan using oil and butter. Then, put onions and carrots together with salt an pepper, inside the pan. Lastly, let them cooked for 15 minutes, and remove off the food fom the pan. First of all, cut some onions and carrots. | First of all, cut some onions and carrots. Secondly, prepare the pan using oil and butter. Then, put the onions and carrots together with salt and pepper, inside the pan. Lastly, let them cook for 15 minutes, and remove the food from the pan.
 
 ## Running locally and developing
-After cloning the repository, execute `setup.sh`. This simple script will install the requirement packages, and download the models which are too heavy for being stored on GitHub. The usage of a virtual environment having python 3.7 is preferred.
+### Option 1 - Using a virtual environment
+1. Clone the repository.
+1. Create a virtual environment with python 3.7.
+1. Install the requirements files `pip install -r requirements.txt`.
+1. Download the models by executing:
+    * `mkdir -p /application/models/gector/data/model_files && cd application/models/gector/data/model_files && curl -O https://grammarly-nlp-data-public.s3.amazonaws.com/gector/xlnet_0_gector.th`.
+    * `mkdir -p /application/models/sentence_reorder cd /application/models/sentence_reorder && curl -O http://tts.speech.cs.cmu.edu/sentence_order/nips_bert.tar && tar -xf nips_bert.tar && rm nips_bert.tar && mv nips_bert/ model/`.
 
-To run the web app locally, execute `run.py`. The default development URL is `http://127.0.0.1:5000/`.
+1. Run the web app locally by executing `run.py`. The default development URL is `http://127.0.0.1:5000/`.
+
+### Option 2 - Using Docker
+1. Build the docker image: `docker build -t gecko-app .`.
+2. Run the image: `docker run -d -p 3000:80 gecko-app`. The URL will be `http:localhost:3000/`.
 
 ## Acknowledgments
 Our tool implements the two following models, for tackling, respectively, grammatical and discourse errors:
