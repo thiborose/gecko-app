@@ -5,9 +5,9 @@
 
 ## More than a Grammatical Error Corrector
 GECko+ is an English language assisting tool that corrects mistakes of various types on written texts. 
-While many well-settled pieces of software of its kind correct mistakes at the grammatical level (orthography and syntax), our novel approach allows the tool to perform corrections both at **grammatical** and at **discourse** level.
+While many well-settled pieces of software of its kind correct mistakes at the grammatical level (orthography and syntax), our novel pipeline allows the tool to perform corrections both at **grammatical** and at **discourse** level.
 <!--- add demo link when live -->
-![demo](https://github.com/psawa/gecko-app/blob/master/application/static/img/final_layout.png) 
+![demo](https://github.com/psawa/gecko-app/blob/master/application/static/img/new_layout.png) 
 
 ### Use cases examples
 
@@ -23,7 +23,7 @@ Secondy, prepare the pan using oil and butter. Then, put onions and carrots toge
 ## Running locally and developing
 ### Option 1 - Using a virtual environment
 1. Clone the repository.
-1. Create a virtual environment with python 3.7.
+1. Create a virtual environment with Python 3.7.
 1. Install the requirements files `pip install -r requirements.txt`.
 1. Download the models by executing:
     * `mkdir -p /application/models/gector/data/model_files && cd application/models/gector/data/model_files && curl -O https://grammarly-nlp-data-public.s3.amazonaws.com/gector/xlnet_0_gector.th`.
@@ -32,8 +32,8 @@ Secondy, prepare the pan using oil and butter. Then, put onions and carrots toge
 1. Run the web app locally by executing `run.py`. The default development URL is `http://127.0.0.1:5000/`.
 
 ### Option 2 - Using Docker
-1. Build the docker image: `docker build -t gecko-app .`.
-2. Run the image: `docker run -d -p 3000:80 gecko-app`. The URL will be `http:localhost:3000/`.
+1. Build the Docker image: `docker build -t gecko-app .`.
+2. Run the image: `docker run -d -p 3000:80 gecko-app`. The URL will be `http://localhost:3000/`.
 
 ## Acknowledgments
 Our tool implements the two following models, for tackling, respectively, grammatical and discourse errors:
@@ -42,7 +42,7 @@ Our tool implements the two following models, for tackling, respectively, gramma
 - Prabhumoye, Shrimai, Ruslan Salakhutdinov, and Alan W. Black. **"Topological Sort for Sentence Ordering."** In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics. [[arXiv]](https://arxiv.org/abs/2005.00432)
 
 ## Contribute
-We accept contributions, whether they intend to fix an issue or to add new functionalities. Don't hesitate to submit a pull-request!
+We accept contributions, whether they intend to fix an issue or to add new functionalities. Don't hesitate to submit a pull request!
 
 [![https://github.com/psawa/gecko-app/issues](https://img.shields.io/github/issues/psawa/gecko-app)](https://github.com/psawa/gecko-app/issues)
 
