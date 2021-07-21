@@ -41,6 +41,30 @@ Our tool implements the two following models, for tackling, respectively, gramma
 - Kostiantyn Omelianchuk, Vitaliy Atrasevych, Artem Chernodub and Oleksandr Skurzhanskyi **"GECToR -- Grammatical Error Correction: Tag, Not Rewrite"**. In Proceedings of the Fifteenth Workshop on Innovative Use of NLP for Building Educational Applications. [[arXiv]](https://arxiv.org/abs/2005.12592)
 - Prabhumoye, Shrimai, Ruslan Salakhutdinov, and Alan W. Black. **"Topological Sort for Sentence Ordering."** In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics. [[arXiv]](https://arxiv.org/abs/2005.00432)
 
+## Citation
+
+The paper describing GECko+ is finally [out](https://aclanthology.org/2021.jeptalnrecital-demo.3/)! If you find this tool useful in your research, please consider citing it:
+
+```
+@inproceedings{calo-etal-2021-gecko,
+    title = "{GEC}ko+: a Grammatical and Discourse Error Correction Tool",
+    author = "Cal{\`o}, Eduardo  and
+      Jacqmin, L{\'e}o  and
+      Rosemplatt, Thibo  and
+      Amblard, Maxime  and
+      Couceiro, Miguel  and
+      Kulkarni, Ajinkya",
+    booktitle = "Actes de la 28e Conf{\'e}rence sur le Traitement Automatique des Langues Naturelles. Volume 3 : D{\'e}monstrations",
+    month = "6",
+    year = "2021",
+    address = "Lille, France",
+    publisher = "ATALA",
+    url = "https://aclanthology.org/2021.jeptalnrecital-demo.3",
+    pages = "8--11",
+    abstract = "We introduce GECko+, a web-based writing assistance tool for English that corrects errors both at the sentence and at the discourse level. It is based on two state-of-the-art models for grammar error correction and sentence ordering. GECko+ is available online as a web application that implements a pipeline combining the two models.",
+}
+```
+
 ## Contribute
 We accept contributions, whether they intend to fix an issue or to add new functionalities. Don't hesitate to submit a pull request!
 
