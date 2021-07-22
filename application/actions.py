@@ -1,13 +1,11 @@
-from application import model, DELIMITER, RE_HYPHENS, RE_QUOTES1, RE_QUOTES2
+from application import nlp, model, DELIMITER, RE_HYPHENS, RE_QUOTES1, RE_QUOTES2
 from application.models.gector.predict import predict_for_sentences
 from application.models.gector.utils.preprocess_data import align_sequences, convert_tagged_line
 import application.models.sentence_reorder as sentence_reorder
 
 import re
 from nltk.tokenize.treebank import TreebankWordDetokenizer
-from nltk.tokenize import TweetTokenizer
 from unidecode import unidecode
-import pysbd
 
 
 def predict(input_text: str, reorder:bool) -> dict:
@@ -32,18 +30,16 @@ def predict(input_text: str, reorder:bool) -> dict:
   
 
 def sentencize(text:str)->'list(str)':
-    seg = pysbd.Segmenter(language = "en")
-    return seg.segment(text)
+    return [sent for sent in nlp(text).sents]
 
 def tokenize_and_segment(input_text: str) -> 'list(str)':
     """Returns a list of tokenized sentences."""
 
-    tokenized_sentences = []
-    sentences = sentencize(input_text)
-    tok = TweetTokenizer()
-    for sent in sentences:
-        tokenized_sentences.append(tok.tokenize(sent))
-    return tokenized_sentences
+    doc = nlp(input_text)
+    sentences = []
+    for sent in doc.sents:
+        sentences.append(' '.join(token.text for token in sent))
+    return sentences
 
 RE_HYPHENS = re.compile(r'(\w) - (\w)')
 RE_QUOTES = re.compile(r"([\"']) (.+) ([\"'])")
@@ -66,7 +62,7 @@ def get_changes(input_text:'list(str)', output_text:'list(str)')-> '(str,str)':
     tagged_output = list()
     stats = {'total': 0, 'add': 0, 'del': 0, 'modif': 0, 'changes': []}
     for i in range(len(input_text)):
-        input_sent = input_text[i]
+        input_sent = input_text[i].text
         input_tokens = input_sent.split()
         output_sent = output_text[i]
         sent_with_tags = align_sequences(input_sent, output_sent)
@@ -81,7 +77,7 @@ def get_sent_stats(stats, input_tokens, edits_for_stats: 'List[List[Tuple]]'):
     for edit in edits_for_stats:
         offset, tags = edit
         beg, end = offset
-        print(offset, input_tokens[beg:end], tags)
+        #print(offset, input_tokens[beg:end], tags)
         stats['total'] += len(tags)
         for tag in tags:
             if tag == '$DELETE':
