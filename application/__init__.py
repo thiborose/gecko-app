@@ -14,6 +14,7 @@ root_dir = listdir()
 if "config.py" in root_dir:
     app.config.from_object('config')
 else:
+    app.config['ENV'] = "prod"
     app.config['DEBUG'] = False
 
 
