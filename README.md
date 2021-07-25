@@ -33,7 +33,7 @@ Secondy, prepare the pan using oil and butter. Then, put onions and carrots toge
 
 ### Option 2 - Using Docker
 1. Build the Docker image: `docker build -t gecko-app .`.
-2. Run the image: `docker run -d -p 3000:80 gecko-app`. The URL will be `http://localhost:3000/`.
+2. Run the image: `docker run -d -p 3000:80 gecko-app`. The URL will be `http://0.0.0.0:3000/`.
 
 ## Acknowledgments
 Our tool implements the two following models, for tackling, respectively, grammatical and discourse errors:
