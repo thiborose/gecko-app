@@ -1,4 +1,4 @@
-from application import nlp, model, DELIMITER, RE_HYPHENS, RE_QUOTES1, RE_QUOTES2
+from application import nlp, model, DELIMITER, RE_HYPHENS, RE_QUOTES1, RE_QUOTES2, RE_QUOTES
 from application.models.gector.predict import predict_for_sentences
 from application.models.gector.utils.preprocess_data import align_sequences, convert_tagged_line
 import application.models.sentence_reorder as sentence_reorder
@@ -40,9 +40,6 @@ def tokenize_and_segment(input_text: str) -> 'list(str)':
     for sent in doc.sents:
         sentences.append(' '.join(token.text for token in sent))
     return sentences
-
-RE_HYPHENS = re.compile(r'(\w) - (\w)')
-RE_QUOTES = re.compile(r"([\"']) (.+) ([\"'])")
 
 def untokenize(tokens:list) -> str:
     output_text = TreebankWordDetokenizer().detokenize(tokens)
