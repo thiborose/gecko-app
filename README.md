@@ -1,13 +1,23 @@
-# GECko+
+> [!IMPORTANT]
+> This repository is the result of a university project undertaken as part of the Software Development course in the Master’s program in Natural Language Processing at the University of Lorraine, Nancy.
+>
+> Please note that the project may lack the technical robustness required for production use. **It should be considered as an educational exercise rather than a polished, production-ready solution**.
 
+
+# GECko+
 
 ![logo of gecko](https://github.com/psawa/gecko-app/blob/master/application/static/img/GECko_logo_small.png)
 
 ## More than a Grammatical Error Corrector
 GECko+ is an English language assisting tool that corrects mistakes of various types on written texts. 
-While many well-settled pieces of software of its kind correct mistakes at the grammatical level (orthography and syntax), our novel pipeline allows the tool to perform corrections both at **grammatical** and at **discourse** level.
-<!--- add demo link when live -->
+While many well-settled pieces of software of its kind correct mistakes at the grammatical level (orthography and syntax), our pipeline allows the tool to perform corrections both at **grammatical** and at **discourse** level.
+
 ![demo](https://github.com/psawa/gecko-app/blob/master/application/static/img/new_layout.png) 
+
+> [!NOTE]
+> - The grammatical correction uses [GECToR](https://arxiv.org/abs/2005.12592)
+> - The discourse correction consists of a sentence-reordering mechanism only, based on [this paper](https://arxiv.org/abs/2005.00432). This feature can be disabled, as sentence reordering may not be the most effective method for correcting discourse. It was implemented primarily to explore an original approach for our university project.
+
 
 ### Use cases examples
 
